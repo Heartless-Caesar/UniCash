@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import React, { useEffect, useState } from "react";
 import { FlatList } from "react-native-gesture-handler";
+import shops from "../assets/data/shops";
 import Loja from "./loja";
 
 const Lojas = () => {
@@ -10,18 +11,19 @@ const Lojas = () => {
     fetchLojas();
   }, []);
 
-  const fetchLojas = async () => {
-    try {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/users",
-        { method: "GET" }
-      );
-      const json = await response.json();
-      console.log(json);
-      setLojas(json.shops);
-    } catch (error) {
-      console.log(error);
-    }
+  const fetchLojas = /*async*/ () => {
+    // try {
+    //   const response = await fetch(
+    //     "https://jsonplaceholder.typicode.com/users",
+    //     { method: "GET" }
+    //   );
+    //   const json = await response.json();
+    //   console.log(json);
+    // } catch (error) {
+    //   console.log(error);
+    // }
+    setLojas(shops);
+    console.log(lojas);
   };
 
   return (

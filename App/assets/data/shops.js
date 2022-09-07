@@ -70,3 +70,4 @@ const shops = [
     id: "10",
   },
 ];
+export default shops;
