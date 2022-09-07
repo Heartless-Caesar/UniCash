@@ -43,6 +43,7 @@ const Lojas = () => {
         keyExtractor={(item, index) => {
           return item.id;
         }}
+        style={styles.list}
       />
     </View>
   );
@@ -51,6 +52,13 @@ const Lojas = () => {
 const styles = StyleSheet.create({
   lojasContainer: {
     flex: 1,
+    marginBottom: 20,
+    borderBottomRightRadius: 5,
+    borderBottomLeftRadius: 5,
+  },
+  list: {
+    borderBottomRightRadius: 5,
+    borderBottomLeftRadius: 5,
   },
 });
 export default Lojas;

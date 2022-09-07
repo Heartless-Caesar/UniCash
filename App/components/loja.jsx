@@ -22,14 +22,10 @@ const Loja = (props) => {
 
 const styles = StyleSheet.create({
   lojaContainer: {
-    backgroundColor: "#cccccc",
-    borderRadius: 5,
+    backgroundColor: "#f5f5f5",
     display: "flex",
     flexDirection: "row",
     alignContent: "flex-start",
-    borderBottomColor: "#cccccc",
-    marginTop: 10,
-    marginBottom: 10,
     marginHorizontal: 10,
     padding: 10,
   },
