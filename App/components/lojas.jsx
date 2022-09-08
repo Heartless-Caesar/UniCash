@@ -37,6 +37,7 @@ const Lojas = () => {
               category={itemData.item.category}
               adress={itemData.item.adress}
               icon={itemData.item.icon}
+              id={itemData.item.id}
             />
           );
         }}

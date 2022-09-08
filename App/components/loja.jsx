@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, Button } from "react-native";
+import { View, Text, StyleSheet, Image, Button, Pressable } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -14,7 +14,13 @@ const Loja = (props) => {
         <Text>{props.adress}</Text>
       </View>
       <View style={styles.lojaCol3}>
-        <AntDesign name="right" size={24} color="black" />
+        <Pressable
+          onPress={() => {
+            navigation.navigate("Details", { id: props.id });
+          }}
+        >
+          <AntDesign name="right" size={24} color="black" />
+        </Pressable>
       </View>
     </View>
   );
