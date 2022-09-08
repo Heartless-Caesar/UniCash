@@ -1,4 +1,3 @@
-import { View, Text, StyleSheet, Pressable } from "react-native";
 import React, { useEffect, useState } from "react";
 import Lojas from "../components/lojas";
 
@@ -6,72 +5,36 @@ const Resgate = () => {
   const [est, setEst] = useState(true);
   const [cuponsPage, setCuponsPage] = useState(false);
 
-  useEffect(() => {
-    console.log(`Est = ${est} + Cupons = ${cuponsPage} 1`);
-    if (est && !cuponsPage) {
-      styles.buttonText1 = {
-        color: "#f5f5f5",
-        textAlign: "center",
-      };
-      styles.button1 = {
-        borderTopLeftRadius: 5,
-        backgroundColor: "#800020",
-        borderColor: "#cccccc",
-        padding: 15,
-        width: 170,
-      };
+  // useEffect(() => {
+  //   console.log(`Est is ${est} Cupons is ${cuponsPage}`);
+  //   if (est) {
+  //     styles.buttonText1 = textTrue;
 
-      styles.buttonText2 = {
-        color: "#000000",
-        textAlign: "center",
-      };
-      styles.button2 = {
-        borderTopRightRadius: 5,
-        backgroundColor: "#f5f5f5",
-        borderColor: "#cccccc",
-        color: "#f5f5f5",
-        padding: 15,
-        width: 170,
-      };
-      console.log(`Est = ${est} + Cupons = ${cuponsPage} 2`);
-    }
+  //     styles.button1 = buttonTrue;
 
-    if (cuponsPage && !est) {
-      console.log(`Est = ${est} + Cupons = ${cuponsPage} 3`);
-      styles.buttonText1 = {
-        color: "#000000",
-      };
-      styles.button1 = {
-        borderTopLeftRadius: 5,
-        backgroundColor: "#f5f5f5",
-        borderColor: "#cccccc",
-        padding: 15,
-        width: 170,
-      };
+  //     styles.buttonText2 = textFalse;
 
-      styles.buttonText2 = {
-        color: "#f5f5f5",
-      };
-      styles.button2 = {
-        borderTopRightRadius: 5,
-        backgroundColor: "#800020",
-        borderColor: "#cccccc",
-        padding: 15,
-        width: 170,
-      };
-    }
-    console.log(`Est is ${est} Cupons is ${cuponsPage}`);
-  }, [est]);
+  //     styles.button2 = buttonFalse;
+  //   }
 
-  const handleToggle = () => {
-    if (est === true) {
-      setEst(false);
-      setCuponsPage(true);
-    } else {
-      setEst(true);
-      setCuponsPage(false);
-    }
-  };
+  //   if (cuponsPage) {
+  //     styles.buttonText1 = textFalse;
+  //     styles.button1 = buttonFalse;
+
+  //     styles.buttonText2 = textTrue;
+  //     styles.button2 = buttonTrue;
+  //   }
+  // }, [est]);
+
+  // const handleToggle = () => {
+  //   if (est) {
+  //     setEst(false);
+  //     setCuponsPage(true);
+  //   } else {
+  //     setEst(true);
+  //     setCuponsPage(false);
+  //   }
+  // };
 
   //CHANGE SECOND COMPOENENT TO CUPONS PAGE
   const renderPage = () => {
@@ -120,8 +83,28 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     textAlign: "center",
   },
-  button1: {},
-  button2: {},
+  button1: {
+    borderTopLeftRadius: 5,
+    backgroundColor: "#f5f5f5",
+    borderColor: "#cccccc",
+    padding: 15,
+    width: 170,
+  },
+  button2: {
+    borderTopRightRadius: 5,
+    backgroundColor: "#800020",
+    borderColor: "#cccccc",
+    padding: 15,
+    width: 170,
+  },
+  buttonText1: {
+    color: "#000000",
+    textAlign: "center",
+  },
+  buttonText2: {
+    color: "#f5f5f5",
+    textAlign: "center",
+  },
   pressArea: {
     borderBottomColor: "#cccccc",
     flexDirection: "row",
@@ -129,8 +112,32 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginTop: 10,
   },
-  buttonText1: {},
-  buttonText2: {},
 });
+
+const buttonTrue = {
+  borderTopLeftRadius: 5,
+  backgroundColor: "#f5f5f5",
+  borderColor: "#cccccc",
+  padding: 15,
+  width: 170,
+};
+
+const textTrue = {
+  color: "#000000",
+  textAlign: "center",
+};
+
+const buttonFalse = {
+  borderTopLeftRadius: 5,
+  backgroundColor: "#800020",
+  borderColor: "#cccccc",
+  padding: 15,
+  width: 170,
+};
+
+const textFalse = {
+  color: "#f5f5f5",
+  textAlign: "center",
+};
 
 export default Resgate;
