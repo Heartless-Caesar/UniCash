@@ -1,73 +1,28 @@
-import React, { useEffect, useState } from "react";
+import { View, Text, StyleSheet, Pressable } from "react-native";
+import React, { useState } from "react";
 import Lojas from "../components/lojas";
 
-const Resgate = () => {
-  const [est, setEst] = useState(true);
-  const [cuponsPage, setCuponsPage] = useState(false);
-
-  // useEffect(() => {
-  //   console.log(`Est is ${est} Cupons is ${cuponsPage}`);
-  //   if (est) {
-  //     styles.buttonText1 = textTrue;
-
-  //     styles.button1 = buttonTrue;
-
-  //     styles.buttonText2 = textFalse;
-
-  //     styles.button2 = buttonFalse;
-  //   }
-
-  //   if (cuponsPage) {
-  //     styles.buttonText1 = textFalse;
-  //     styles.button1 = buttonFalse;
-
-  //     styles.buttonText2 = textTrue;
-  //     styles.button2 = buttonTrue;
-  //   }
-  // }, [est]);
-
-  // const handleToggle = () => {
-  //   if (est) {
-  //     setEst(false);
-  //     setCuponsPage(true);
-  //   } else {
-  //     setEst(true);
-  //     setCuponsPage(false);
-  //   }
-  // };
-
-  //CHANGE SECOND COMPOENENT TO CUPONS PAGE
-  const renderPage = () => {
-    if (est) {
-      return <Lojas />;
-    }
-
-    if (cuponsPage) {
-      //RETURN CUPONS PAGE HERE
-
-      return (
-        <View>
-          <Text>Teste</Text>
-        </View>
-      );
-    }
-  };
+const Resgate = ({ navigation }) => {
+  const [shops, setShops] = useState(true);
+  const [cupons, setCupons] = useState(false);
 
   return (
     <View style={styles.listContainer}>
       <View style={styles.pressArea}>
-        <Pressable onPress={() => handleToggle()}>
+        <Pressable>
           <View style={styles.button1}>
             <Text style={styles.buttonText1}>Estabelecimentos</Text>
           </View>
         </Pressable>
-        <Pressable onPress={() => handleToggle()}>
+        <Pressable onPress={() => navigation.navigate("Cupons")}>
           <View style={styles.button2}>
             <Text style={styles.buttonText2}>Cupons ativos</Text>
           </View>
         </Pressable>
       </View>
-      <View style={styles.listContainer}>{renderPage()}</View>
+      <View style={styles.listContainer}>
+        <Lojas />
+      </View>
     </View>
   );
 };
@@ -91,7 +46,7 @@ const styles = StyleSheet.create({
     width: 170,
   },
   button2: {
-    borderTopRightRadius: 5,
+    borderTopLeftRadius: 5,
     backgroundColor: "#800020",
     borderColor: "#cccccc",
     padding: 15,
@@ -113,31 +68,5 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 });
-
-const buttonTrue = {
-  borderTopLeftRadius: 5,
-  backgroundColor: "#f5f5f5",
-  borderColor: "#cccccc",
-  padding: 15,
-  width: 170,
-};
-
-const textTrue = {
-  color: "#000000",
-  textAlign: "center",
-};
-
-const buttonFalse = {
-  borderTopLeftRadius: 5,
-  backgroundColor: "#800020",
-  borderColor: "#cccccc",
-  padding: 15,
-  width: 170,
-};
-
-const textFalse = {
-  color: "#f5f5f5",
-  textAlign: "center",
-};
 
 export default Resgate;

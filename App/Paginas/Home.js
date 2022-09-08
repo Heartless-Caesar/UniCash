@@ -8,7 +8,7 @@ export default function Home({ navigation }) {
       </SafeAreaView>
       <Button
         title="Go to Resgate"
-        onPress={() => navigation.navigate("Resgate")}
+        onPress={() => navigation.navigate("Shops")}
       />
     </View>
   );

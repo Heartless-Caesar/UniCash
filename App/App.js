@@ -14,7 +14,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen
-          name="Resgate"
+          name="Shops"
           component={Resgate}
           options={{ headerTitle: "" }}
         />
@@ -23,7 +23,6 @@ export default function App() {
           component={Details}
           options={{ headerTitle: "" }}
         />
-        <Stack.Screen name="Shops" component={}/>
         <Stack.Screen name="Cupons" component={Cupons} />
       </Stack.Navigator>
     </NavigationContainer>
