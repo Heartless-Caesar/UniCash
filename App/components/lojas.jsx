@@ -4,7 +4,7 @@ import { FlatList } from "react-native-gesture-handler";
 import shops from "../assets/data/shops";
 import Loja from "./loja";
 
-const Lojas = () => {
+const Lojas = (props) => {
   const [lojas, setLojas] = useState([]);
 
   useEffect(() => {
@@ -38,6 +38,7 @@ const Lojas = () => {
               adress={itemData.item.adress}
               icon={itemData.item.icon}
               id={itemData.item.id}
+              navigate={props.navigate}
             />
           );
         }}

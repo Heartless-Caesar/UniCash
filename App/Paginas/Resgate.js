@@ -39,7 +39,7 @@ const Resgate = ({ navigation }) => {
         </Pressable>
       </View>
       <View style={styles.listContainer}>
-        {shops && <Lojas />}
+        {shops && <Lojas navigate={navigation} />}
         {cupons && <Cupons />}
       </View>
     </View>

@@ -1,3 +1,4 @@
+//TODO : Implement store details page with their products catalog
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import React from "react";
 
@@ -7,7 +8,7 @@ const Details = ({ route, navigation }) => {
 
   return (
     <View>
-      <Text>Details page</Text>
+      <Text>Details page + {id}</Text>
     </View>
   );
 };
