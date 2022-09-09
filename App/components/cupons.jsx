@@ -3,10 +3,16 @@ import React from "react";
 
 const Cupons = () => {
   return (
-    <View>
+    <View style={styles.Container}>
       <Text>Cupons</Text>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  Container: {
+    flex: 1,
+  },
+});
 
 export default Cupons;
