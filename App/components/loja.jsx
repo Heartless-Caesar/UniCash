@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Image, Button, Pressable } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
+import Tabs from "./tabs";
 
 const Loja = (props) => {
   return (

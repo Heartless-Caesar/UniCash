@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { FlatList } from "react-native-gesture-handler";
 import shops from "../assets/data/shops";
 import Loja from "./loja";
-
-const Lojas = (props) => {
+import Tabs from "./tabs";
+const Lojas = ({ navigation }) => {
   const [lojas, setLojas] = useState([]);
 
   useEffect(() => {
@@ -28,6 +28,7 @@ const Lojas = (props) => {
 
   return (
     <View style={styles.lojasContainer}>
+      <Tabs navigation={navigation} />
       <FlatList
         data={lojas}
         renderItem={(itemData) => {
@@ -38,7 +39,7 @@ const Lojas = (props) => {
               adress={itemData.item.adress}
               icon={itemData.item.icon}
               id={itemData.item.id}
-              navigate={props.navigate}
+              navigate={navigation}
             />
           );
         }}
@@ -57,6 +58,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     borderBottomRightRadius: 5,
     borderBottomLeftRadius: 5,
+    backgroundColor: "#cccccc",
   },
   list: {
     borderBottomRightRadius: 5,

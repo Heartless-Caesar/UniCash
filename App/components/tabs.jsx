@@ -3,30 +3,31 @@ import { View, Text, StyleSheet, Pressable } from "react-native";
 import React, { useState } from "react";
 
 const Tabs = (props) => {
-  const tabToggleShops = () => {
-    props.goToShops(true, false);
+  const toggleShopsButtons = () => {
+    props.navigation.navigate("Shops");
     styles.button1 = buttonTrue;
     styles.buttonText1 = textTrue;
-    styles.button2 = buttonFalse2;
+    styles.button2 = buttonFalse;
     styles.buttonText2 = textFalse;
   };
 
-  const tabToggleCupons = () => {
-    props.goToCupons(true, false);
-    styles.button2 = buttonTrue2;
-    styles.buttonText2 = textTrue;
+  const toggleCuponButtons = () => {
+    props.navigation.navigate("Cupons");
     styles.button1 = buttonFalse;
     styles.buttonText1 = textFalse;
+    styles.button2 = buttonTrue;
+    styles.buttonText2 = textTrue;
   };
+
   return (
     <View style={styles.listContainer}>
       <View style={styles.pressArea}>
-        <Pressable onPress={() => tabToggleShops()}>
+        <Pressable onPress={() => toggleShopsButtons()}>
           <View style={styles.button1}>
             <Text style={styles.buttonText1}>Estabelecimentos</Text>
           </View>
         </Pressable>
-        <Pressable onPress={() => tabToggleCupons()}>
+        <Pressable onPress={() => toggleCuponButtons()}>
           <View style={styles.button2}>
             <Text style={styles.buttonText2}>Cupons ativos</Text>
           </View>
@@ -42,6 +43,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginHorizontal: 10,
     textAlign: "center",
+  },
+  pressArea: {
+    borderBottomColor: "#cccccc",
+    flexDirection: "row",
+    justifyContent: "center",
+    marginHorizontal: 10,
+    marginTop: 10,
   },
   buttonText1: {
     color: "#000000",
@@ -65,12 +73,8 @@ const styles = StyleSheet.create({
     padding: 15,
     width: 170,
   },
-  pressArea: {
-    borderBottomColor: "#cccccc",
-    flexDirection: "row",
-    justifyContent: "center",
-    marginHorizontal: 10,
-    marginTop: 10,
+  listContainer: {
+    marginTop: 20,
   },
 });
 
@@ -81,15 +85,6 @@ const buttonTrue = {
   padding: 15,
   width: 170,
 };
-
-const buttonTrue2 = {
-  borderTopRightRadius: 5,
-  backgroundColor: "#f5f5f5",
-  borderColor: "#cccccc",
-  padding: 15,
-  width: 170,
-};
-
 const buttonFalse = {
   borderTopLeftRadius: 5,
   backgroundColor: "#800020",
@@ -97,20 +92,10 @@ const buttonFalse = {
   padding: 15,
   width: 170,
 };
-
-const buttonFalse2 = {
-  borderTopRightRadius: 5,
-  backgroundColor: "#800020",
-  borderColor: "#cccccc",
-  padding: 15,
-  width: 170,
-};
-
 const textTrue = {
   color: "#000000",
   textAlign: "center",
 };
-
 const textFalse = {
   color: "#f5f5f5",
   textAlign: "center",

@@ -29,33 +29,34 @@ const Details = ({ route, navigation }) => {
   };
 
   return (
-    <View style={styles.Container}>
+    <>
       <Tabs goToShops={goToShops} goToCupons={goToCupons} />
-      <View style={styles.headerContainer}>
-        {/* Col 1 */}
-        <View style={styles.headerContainerCol1}>
-          <AntDesign name="left" size={24} color="black" />
+      <View style={styles.Container}>
+        <View style={styles.headerContainer}>
+          {/* Col 1 */}
+          <View style={styles.headerContainerCol1}>
+            <AntDesign name="left" size={24} color="black" />
+          </View>
+          {/* Col 2 */}
+          <View style={styles.headerContainerCol2}>
+            <Text>Go back left arrow && Header featured rectangle</Text>
+          </View>
         </View>
-        {/* Col 2 */}
-        <View style={styles.headerContainerCol2}>
-          <Text>Go back left arrow && Header featured rectangle</Text>
-        </View>
-      </View>
-      {/* Col 1 */}
+        {/* Col 1
       <View style={styles.detailsContainer}>
         <View style={styles.detailsContainerCol1}>
           <Text>Name && Shop category && Location</Text>
         </View>
-        {/* Col 2 */}
+         Col 2 
         <View style={styles.detailsContainerCol2}>
           <Text>Create Cupon button</Text>
         </View>
       </View>
-      {/* Single Col */}
+       Single Col 
       <View style={styles.filters}>
         <Text>Filters</Text>
       </View>
-      {/* Flex row - 4 items per row */}
+       Flex row - 4 items per row 
       <View style={styles.list}>
         <FlatList
           data={products}
@@ -68,8 +69,9 @@ const Details = ({ route, navigation }) => {
             );
           }}
         />
+      </View> */}
       </View>
-    </View>
+    </>
   );
 };
 
@@ -78,8 +80,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   headerContainer: {
-    width: 200,
-    height: 200,
+    flexDirection: "row",
+    padding: 20,
   },
   headerContainerCol1: {
     flex: 1,
@@ -87,8 +89,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   headerContainerCol2: {
-    flex: 4,
+    flex: 8,
     backgroundColor: "#cccccc",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 5,
+    marginLeft: 15,
   },
   detailsContainer: {
     flex: 1,
