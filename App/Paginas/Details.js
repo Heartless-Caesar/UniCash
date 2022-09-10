@@ -29,9 +29,9 @@ const Details = ({ route, navigation }) => {
   };
 
   return (
-    <>
+    <View style={styles.Container}>
       <Tabs goToShops={goToShops} goToCupons={goToCupons} />
-      <View style={styles.Container}>
+      <View style={styles.body}>
         <View style={styles.headerContainer}>
           {/* Col 1 */}
           <View style={styles.headerContainerCol1}>
@@ -42,20 +42,26 @@ const Details = ({ route, navigation }) => {
             <Text>Go back left arrow && Header featured rectangle</Text>
           </View>
         </View>
-        {/* Col 1
-      <View style={styles.detailsContainer}>
-        <View style={styles.detailsContainerCol1}>
-          <Text>Name && Shop category && Location</Text>
+        {/* Col 1*/}
+        <View style={styles.detailsContainer}>
+          <View style={styles.detailsContainerCol1}>
+            <Text>UniShop</Text>
+          </View>
+          <View style={styles.detailsContainerCol2}>
+            <Text>Loja</Text>
+            <Text>Prox. Bloco A</Text>
+          </View>
+          {/* Col 2 */}
+          <View style={styles.detailsContainerCol3}>
+            <Text style={styles.cuponButtonText}>Create Cupon</Text>
+          </View>
         </View>
-         Col 2 
-        <View style={styles.detailsContainerCol2}>
-          <Text>Create Cupon button</Text>
+        <View style={styles.filters}>
+          <Text style={styles.filtersText}>Filter 1</Text>
+          <Text style={styles.filtersText}>Filter 2</Text>
+          <Text style={styles.filtersText}>Filter 3</Text>
         </View>
-      </View>
-       Single Col 
-      <View style={styles.filters}>
-        <Text>Filters</Text>
-      </View>
+        {/*
        Flex row - 4 items per row 
       <View style={styles.list}>
         <FlatList
@@ -71,13 +77,18 @@ const Details = ({ route, navigation }) => {
         />
       </View> */}
       </View>
-    </>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   Container: {
     flex: 1,
+    padding: 10,
+    backgroundColor: "#cccccc",
+  },
+  body: {
+    backgroundColor: "#f5f5f5",
   },
   headerContainer: {
     flexDirection: "row",
@@ -97,16 +108,44 @@ const styles = StyleSheet.create({
     marginLeft: 15,
   },
   detailsContainer: {
-    flex: 1,
+    flexDirection: "row",
+
+    padding: 20,
+    height: 100,
+    width: 340,
   },
   detailsContainerCol1: {
-    flex: 2,
+    flex: 4,
+    height: 50,
+    padding: 5,
   },
   detailsContainerCol2: {
-    flex: 2,
+    flex: 4,
+    height: 60,
+    padding: 5,
+  },
+  detailsContainerCol3: {
+    flex: 6,
+    height: 50,
+    backgroundColor: "#cccccc",
+    borderRadius: 5,
+    padding: 10,
+  },
+  cuponButtonText: {
+    textAlign: "center",
   },
   filters: {
-    justifyContent: "space-between",
+    borderWidth: 1,
+    // borderColor: "#cccccc",
+    borderTopColor: "#cccccc",
+    borderColor: "white",
+    height: 50,
+    padding: 10,
+    flexDirection: "row",
+  },
+  filtersText: {
+    marginRight: 10,
+    marginLeft: 10,
   },
   list: {
     flexDirection: "row",
