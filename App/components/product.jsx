@@ -18,7 +18,6 @@ const Product = () => {
         itemDimension={50}
         spacing={20}
         data={products}
-        automaticallyAdjustContentInsets={false}
         renderItem={(itemData) => {
           return (
             <View style={styles.listItem}>
@@ -45,9 +44,8 @@ const styles = StyleSheet.create({
   },
   listItem: {},
   list: {
-    justifyContent: "center",
-    borderWidth: 2,
-    borderColor: "#00000",
+    marginBottom: 100,
+    paddingBottom: 150,
   },
 });
 

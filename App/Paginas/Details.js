@@ -68,7 +68,6 @@ const Details = ({ route, navigation }) => {
           <Text style={styles.filtersText}>Filter 2</Text>
           <Text style={styles.filtersText}>Filter 3</Text>
         </View>
-
         <Product />
       </View>
     </View>
@@ -82,6 +81,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#cccccc",
   },
   body: {
+    flex: 1,
     backgroundColor: "#f5f5f5",
   },
   headerContainer: {
@@ -121,12 +121,13 @@ const styles = StyleSheet.create({
   detailsContainerCol3: {
     flex: 6,
     height: 50,
-    backgroundColor: "#cccccc",
+    backgroundColor: "#800020",
     borderRadius: 5,
     padding: 10,
   },
   cuponButtonText: {
     textAlign: "center",
+    color: "#f5f5f5",
   },
   filters: {
     borderWidth: 1,
