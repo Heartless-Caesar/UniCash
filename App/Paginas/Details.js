@@ -11,6 +11,7 @@ import { AntDesign } from "@expo/vector-icons";
 import products from "../assets/data/produtos";
 import React, { useState } from "react";
 import Tabs from "../components/tabs";
+import Product from "../components/product";
 
 const Details = ({ route, navigation }) => {
   const [shops, setShops] = useState(true);
@@ -30,13 +31,19 @@ const Details = ({ route, navigation }) => {
 
   return (
     <View style={styles.Container}>
-      <Tabs goToShops={goToShops} goToCupons={goToCupons} />
+      <Tabs
+        goToShops={goToShops}
+        goToCupons={goToCupons}
+        navigation={navigation}
+      />
       <View style={styles.body}>
         <View style={styles.headerContainer}>
           {/* Col 1 */}
-          <View style={styles.headerContainerCol1}>
-            <AntDesign name="left" size={24} color="black" />
-          </View>
+          <Pressable onPress={() => navigation.navigate("Shops")}>
+            <View style={styles.headerContainerCol1}>
+              <AntDesign name="left" size={24} color="black" />
+            </View>
+          </Pressable>
           {/* Col 2 */}
           <View style={styles.headerContainerCol2}>
             <Text>Go back left arrow && Header featured rectangle</Text>
@@ -49,7 +56,7 @@ const Details = ({ route, navigation }) => {
           </View>
           <View style={styles.detailsContainerCol2}>
             <Text>Loja</Text>
-            <Text>Prox. Bloco A</Text>
+            <Text>Bloco A</Text>
           </View>
           {/* Col 2 */}
           <View style={styles.detailsContainerCol3}>
@@ -61,21 +68,8 @@ const Details = ({ route, navigation }) => {
           <Text style={styles.filtersText}>Filter 2</Text>
           <Text style={styles.filtersText}>Filter 3</Text>
         </View>
-        {/*
-       Flex row - 4 items per row 
-      <View style={styles.list}>
-        <FlatList
-          data={products}
-          renderItem={(itemData) => {
-            return (
-              <View>
-                <Image source={{ uri: itemData.icon }} />
-                <Text>{itemData.price}</Text>
-              </View>
-            );
-          }}
-        />
-      </View> */}
+
+        <Product />
       </View>
     </View>
   );
@@ -136,7 +130,6 @@ const styles = StyleSheet.create({
   },
   filters: {
     borderWidth: 1,
-    // borderColor: "#cccccc",
     borderTopColor: "#cccccc",
     borderColor: "white",
     height: 50,
@@ -146,10 +139,10 @@ const styles = StyleSheet.create({
   filtersText: {
     marginRight: 10,
     marginLeft: 10,
-  },
-  list: {
-    flexDirection: "row",
-    flexWrap: "wrap",
+    backgroundColor: "#cccccc",
+    padding: 5,
+    paddingHorizontal: 20,
+    borderRadius: 5,
   },
 });
 

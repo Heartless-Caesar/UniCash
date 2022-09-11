@@ -7,7 +7,7 @@ const Tabs = (props) => {
     props.navigation.navigate("Shops");
     styles.button1 = buttonTrue;
     styles.buttonText1 = textTrue;
-    styles.button2 = buttonFalse;
+    styles.button2 = buttonFalse2;
     styles.buttonText2 = textFalse;
   };
 
@@ -15,7 +15,7 @@ const Tabs = (props) => {
     props.navigation.navigate("Cupons");
     styles.button1 = buttonFalse;
     styles.buttonText1 = textFalse;
-    styles.button2 = buttonTrue;
+    styles.button2 = buttonTrue2;
     styles.buttonText2 = textTrue;
   };
 
@@ -67,14 +67,14 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   button2: {
-    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
     backgroundColor: "#800020",
     borderColor: "#cccccc",
     padding: 15,
     width: 170,
   },
   listContainer: {
-    marginTop: 20,
+    marginTop: 10,
   },
 });
 
@@ -92,6 +92,22 @@ const buttonFalse = {
   padding: 15,
   width: 170,
 };
+
+const buttonTrue2 = {
+  borderTopRightRadius: 5,
+  backgroundColor: "#f5f5f5",
+  borderColor: "#cccccc",
+  padding: 15,
+  width: 170,
+};
+const buttonFalse2 = {
+  borderTopRightRadius: 5,
+  backgroundColor: "#800020",
+  borderColor: "#cccccc",
+  padding: 15,
+  width: 170,
+};
+
 const textTrue = {
   color: "#000000",
   textAlign: "center",

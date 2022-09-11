@@ -31,6 +31,7 @@ const Lojas = ({ navigation }) => {
       <Tabs navigation={navigation} />
       <FlatList
         data={lojas}
+        automaticallyAdjustContentInsets={false}
         renderItem={(itemData) => {
           return (
             <Loja
@@ -55,10 +56,11 @@ const Lojas = ({ navigation }) => {
 const styles = StyleSheet.create({
   lojasContainer: {
     flex: 1,
-    marginBottom: 20,
     borderBottomRightRadius: 5,
     borderBottomLeftRadius: 5,
     backgroundColor: "#cccccc",
+    paddingBottom: 10,
+    borderRadius: 5,
   },
   list: {
     borderBottomRightRadius: 5,
