@@ -12,6 +12,7 @@ import products from "../assets/data/produtos";
 import React, { useState } from "react";
 import Tabs from "../components/tabs";
 import Product from "../components/product";
+import CuponModal from "../components/modal";
 
 const Details = ({ route, navigation }) => {
   const [shops, setShops] = useState(true);
@@ -60,7 +61,7 @@ const Details = ({ route, navigation }) => {
           </View>
           {/* Col 2 */}
           <View style={styles.detailsContainerCol3}>
-            <Text style={styles.cuponButtonText}>Create Cupon</Text>
+            <CuponModal />
           </View>
         </View>
         <View style={styles.filters}>
@@ -68,6 +69,7 @@ const Details = ({ route, navigation }) => {
           <Text style={styles.filtersText}>Filter 2</Text>
           <Text style={styles.filtersText}>Filter 3</Text>
         </View>
+        {/* Product catalog for a shop */}
         <Product />
       </View>
     </View>
@@ -121,7 +123,7 @@ const styles = StyleSheet.create({
   detailsContainerCol3: {
     flex: 6,
     height: 50,
-    backgroundColor: "#800020",
+    // backgroundColor: "#800020",
     borderRadius: 5,
     padding: 10,
   },
