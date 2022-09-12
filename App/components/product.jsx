@@ -41,9 +41,18 @@ const styles = StyleSheet.create({
   image: {
     height: 50,
     width: 50,
+    borderRadius: 5,
   },
-  listItem: {},
+  listItem: {
+    display: "flex",
+    justifyContent: "center",
+  },
+  listText: {
+    textAlign: "center",
+  },
   list: {
+    textAlign: "center",
+    justifyContent: "center",
     marginBottom: 100,
     paddingBottom: 150,
   },

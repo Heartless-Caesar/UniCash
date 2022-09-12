@@ -17,6 +17,7 @@ const Tabs = (props) => {
     styles.buttonText1 = textFalse;
     styles.button2 = buttonTrue2;
     styles.buttonText2 = textTrue;
+    console.log(styles.button1);
   };
 
   return (
@@ -45,11 +46,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   pressArea: {
+    borderWidth: 1,
     borderBottomColor: "#cccccc",
+    borderColor: "#cccccc",
     flexDirection: "row",
     justifyContent: "center",
     marginHorizontal: 10,
-    marginTop: 10,
+    marginTop: 15,
   },
   buttonText1: {
     color: "#000000",
@@ -69,7 +72,6 @@ const styles = StyleSheet.create({
   button2: {
     borderTopRightRadius: 5,
     backgroundColor: "#800020",
-    borderColor: "#cccccc",
     padding: 15,
     width: 170,
   },
@@ -88,7 +90,6 @@ const buttonTrue = {
 const buttonFalse = {
   borderTopLeftRadius: 5,
   backgroundColor: "#800020",
-  borderColor: "#cccccc",
   padding: 15,
   width: 170,
 };
@@ -96,14 +97,12 @@ const buttonFalse = {
 const buttonTrue2 = {
   borderTopRightRadius: 5,
   backgroundColor: "#f5f5f5",
-  borderColor: "#cccccc",
   padding: 15,
   width: 170,
 };
 const buttonFalse2 = {
   borderTopRightRadius: 5,
   backgroundColor: "#800020",
-  borderColor: "#cccccc",
   padding: 15,
   width: 170,
 };

@@ -66,7 +66,7 @@ const CuponModal = () => {
         style={[styles.button, styles.buttonOpen]}
         onPress={() => setModalVisible(true)}
       >
-        <Text style={styles.textStyle}>Criar Cupon</Text>
+        <Text style={styles.textStyle}>Criar Cupom</Text>
       </Pressable>
     </>
   );
@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   centeredViewInner: {
+    borderRadius: 5,
     flex: 1,
     backgroundColor: "#f5f5f5",
     marginTop: 5,
@@ -134,6 +135,7 @@ const styles = StyleSheet.create({
   image: {
     height: 50,
     width: 50,
+    borderRadius: 5,
   },
   list: {},
 });

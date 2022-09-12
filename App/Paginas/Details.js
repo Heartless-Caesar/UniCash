@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
   filters: {
     borderWidth: 1,
     borderTopColor: "#cccccc",
-    borderColor: "white",
+    borderColor: "#f5f5f5",
     height: 50,
     padding: 10,
     flexDirection: "row",

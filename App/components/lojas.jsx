@@ -23,32 +23,43 @@ const Lojas = ({ navigation }) => {
     //   console.log(error);
     // }
     setLojas(shops);
-    console.log(lojas);
   };
 
   return (
     <View style={styles.lojasContainer}>
       <Tabs navigation={navigation} />
-      <FlatList
-        data={lojas}
-        automaticallyAdjustContentInsets={false}
-        renderItem={(itemData) => {
-          return (
-            <Loja
-              name={itemData.item.name}
-              category={itemData.item.category}
-              adress={itemData.item.adress}
-              icon={itemData.item.icon}
-              id={itemData.item.id}
-              navigate={navigation}
-            />
-          );
+      <View
+        style={{
+          flex: 1,
+          paddingBottom: 10,
+          borderBottomRightRadius: 5,
+          borderBottomLeftRadius: 5,
+          backgroundColor: "#f5f5f5",
+          marginHorizontal: 10,
         }}
-        keyExtractor={(item, index) => {
-          return item.id;
-        }}
-        style={styles.list}
-      />
+      >
+        <FlatList
+          data={lojas}
+          automaticallyAdjustContentInsets={false}
+          contentContainerStyle={{ borderRadius: 5 }}
+          renderItem={(itemData) => {
+            return (
+              <Loja
+                name={itemData.item.name}
+                category={itemData.item.category}
+                adress={itemData.item.adress}
+                icon={itemData.item.icon}
+                id={itemData.item.id}
+                navigate={navigation}
+              />
+            );
+          }}
+          keyExtractor={(item, index) => {
+            return item.id;
+          }}
+          style={styles.list}
+        />
+      </View>
     </View>
   );
 };
@@ -56,15 +67,15 @@ const Lojas = ({ navigation }) => {
 const styles = StyleSheet.create({
   lojasContainer: {
     flex: 1,
-    borderBottomRightRadius: 5,
-    borderBottomLeftRadius: 5,
+    borderRadius: 5,
     backgroundColor: "#cccccc",
     paddingBottom: 10,
-    borderRadius: 5,
-  },
-  list: {
     borderBottomRightRadius: 5,
     borderBottomLeftRadius: 5,
+  },
+  list: {
+    borderRadius: 5,
+    marginBottom: 5,
   },
 });
 export default Lojas;
