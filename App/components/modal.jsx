@@ -14,7 +14,7 @@ const CuponModal = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <View style={styles.centeredView}>
+    <>
       <Modal
         animationType="slide"
         transparent={true}
@@ -24,7 +24,7 @@ const CuponModal = () => {
           setModalVisible(!modalVisible);
         }}
       >
-        <View style={styles.centeredView}>
+        <View style={styles.centeredViewInner}>
           <View style={styles.list}>
             <FlatGrid
               itemDimension={50}
@@ -45,14 +45,22 @@ const CuponModal = () => {
                 return item.id;
               }}
             />
+            <View style={styles.buttonContainer}>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setModalVisible(!modalVisible)}
+              >
+                <Text style={styles.textStyle}>Cancelar</Text>
+              </Pressable>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setModalVisible(!modalVisible)}
+              >
+                <Text style={styles.textStyle}>Criar cupom</Text>
+              </Pressable>
+            </View>
           </View>
         </View>
-        <Pressable
-          style={[styles.button, styles.buttonClose]}
-          onPress={() => setModalVisible(!modalVisible)}
-        >
-          <Text style={styles.textStyle}>Hide Modal</Text>
-        </Pressable>
       </Modal>
       <Pressable
         style={[styles.button, styles.buttonOpen]}
@@ -60,7 +68,7 @@ const CuponModal = () => {
       >
         <Text style={styles.textStyle}>Criar Cupon</Text>
       </Pressable>
-    </View>
+    </>
   );
 };
 
@@ -70,6 +78,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#f5f5f5",
     marginTop: 20,
     marginHorizontal: 10,
+    flexDirection: "row",
+  },
+  centeredViewInner: {
+    flex: 1,
+    backgroundColor: "#f5f5f5",
+    marginTop: 5,
+    marginHorizontal: 10,
+    marginBottom: 5,
+    flexDirection: "row",
   },
   modalView: {
     backgroundColor: "white",
@@ -83,6 +100,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+    borderWidth: 1,
+    borderColor: "#000000",
+  },
+  buttonContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    padding: 10,
   },
   button: {
     borderRadius: 5,
@@ -93,6 +118,7 @@ const styles = StyleSheet.create({
   },
   buttonOpen: {
     backgroundColor: "#800020",
+    width: 120,
   },
   buttonClose: {
     backgroundColor: "#2196F3",
@@ -109,6 +135,7 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
   },
+  list: {},
 });
 
 export default CuponModal;
