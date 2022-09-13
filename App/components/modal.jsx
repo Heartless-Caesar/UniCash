@@ -32,13 +32,15 @@ const CuponModal = () => {
               data={products}
               renderItem={(itemData) => {
                 return (
-                  <View style={styles.listItem}>
-                    <Image
-                      source={{ uri: itemData.item.icon }}
-                      style={styles.image}
-                    />
-                    <Text style={styles.listText}>{itemData.item.price}</Text>
-                  </View>
+                  <Pressable>
+                    <View style={styles.listItem}>
+                      <Image
+                        source={{ uri: itemData.item.icon }}
+                        style={styles.image}
+                      />
+                      <Text style={styles.listText}>{itemData.item.price}</Text>
+                    </View>
+                  </Pressable>
                 );
               }}
               keyExtractor={(item, index) => {
