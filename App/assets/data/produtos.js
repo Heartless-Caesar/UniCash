@@ -11,28 +11,6 @@ const produtos = [
     shopId: "1",
   },
   {
-    createdAt: "2022-09-04T00:24:47.566Z",
-    name: "Refined Granite Bacon",
-    icon: "http://loremflickr.com/640/480/nightlife",
-    price: "840.00",
-    description:
-      "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-    category: "Jewelery",
-    id: "2",
-    shopId: "2",
-  },
-  {
-    createdAt: "2022-09-03T20:24:51.306Z",
-    name: "Generic Fresh Tuna",
-    icon: "http://loremflickr.com/640/480/technics",
-    price: "103.00",
-    description:
-      "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-    category: "Kids",
-    id: "3",
-    shopId: "3",
-  },
-  {
     createdAt: "2022-09-03T23:09:46.942Z",
     name: "Elegant Metal Towels",
     icon: "http://loremflickr.com/640/480/technics",
@@ -44,28 +22,6 @@ const produtos = [
     shopId: "4",
   },
   {
-    createdAt: "2022-09-04T18:08:34.086Z",
-    name: "Tasty Rubber Bacon",
-    icon: "http://loremflickr.com/640/480/fashion",
-    price: "697.00",
-    description:
-      "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-    category: "Kids",
-    id: "5",
-    shopId: "5",
-  },
-  {
-    createdAt: "2022-09-04T02:14:29.501Z",
-    name: "Elegant Fresh Bike",
-    icon: "http://loremflickr.com/640/480/city",
-    price: "774.00",
-    description:
-      "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-    category: "Beauty",
-    id: "6",
-    shopId: "6",
-  },
-  {
     createdAt: "2022-09-03T21:55:11.305Z",
     name: "Luxurious Soft Shoes",
     icon: "http://loremflickr.com/640/480/fashion",
@@ -75,17 +31,6 @@ const produtos = [
     category: "Clothing",
     id: "7",
     shopId: "7",
-  },
-  {
-    createdAt: "2022-09-04T12:10:20.384Z",
-    name: "Sleek Fresh Mouse",
-    icon: "http://loremflickr.com/640/480/fashion",
-    price: "419.00",
-    description:
-      "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-    category: "Home",
-    id: "8",
-    shopId: "8",
   },
   {
     createdAt: "2022-09-04T06:34:15.601Z",
@@ -110,28 +55,6 @@ const produtos = [
     shopId: "2",
   },
   {
-    createdAt: "2022-09-04T07:26:05.521Z",
-    name: "Elegant Granite Bacon",
-    icon: "http://loremflickr.com/640/480/food",
-    price: "761.00",
-    description:
-      "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-    category: "Health",
-    id: "11",
-    shopId: "3",
-  },
-  {
-    createdAt: "2022-09-04T01:16:23.829Z",
-    name: "Incredible Bronze Chips",
-    icon: "http://loremflickr.com/640/480/abstract",
-    price: "706.00",
-    description:
-      "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-    category: "Baby",
-    id: "12",
-    shopId: "4",
-  },
-  {
     createdAt: "2022-09-04T00:15:27.695Z",
     name: "Small Granite Bacon",
     icon: "http://loremflickr.com/640/480/fashion",
@@ -140,28 +63,6 @@ const produtos = [
     category: "Shoes",
     id: "13",
     shopId: "5",
-  },
-  {
-    createdAt: "2022-09-04T10:23:39.324Z",
-    name: "Oriental Steel Towels",
-    icon: "http://loremflickr.com/640/480/people",
-    price: "622.00",
-    description:
-      "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-    category: "Toys",
-    id: "14",
-    shopId: "6",
-  },
-  {
-    createdAt: "2022-09-04T01:55:20.018Z",
-    name: "Awesome Bronze Soap",
-    icon: "http://loremflickr.com/640/480/people",
-    price: "474.00",
-    description:
-      "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-    category: "Kids",
-    id: "15",
-    shopId: "7",
   },
   {
     createdAt: "2022-09-04T02:20:19.939Z",
@@ -173,28 +74,6 @@ const produtos = [
     category: "Sports",
     id: "16",
     shopId: "8",
-  },
-  {
-    createdAt: "2022-09-04T11:35:04.082Z",
-    name: "Oriental Steel Pizza",
-    icon: "http://loremflickr.com/640/480/business",
-    price: "857.00",
-    description:
-      "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-    category: "Grocery",
-    id: "17",
-    shopId: "9",
-  },
-  {
-    createdAt: "2022-09-03T20:55:24.189Z",
-    name: "Intelligent Steel Chicken",
-    icon: "http://loremflickr.com/640/480/transport",
-    price: "775.00",
-    description:
-      "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-    category: "Grocery",
-    id: "18",
-    shopId: "10",
   },
   {
     createdAt: "2022-09-04T15:38:40.773Z",
@@ -306,28 +185,6 @@ const produtos = [
     shopId: "20",
   },
   {
-    createdAt: "2022-09-04T06:56:02.292Z",
-    name: "Elegant Concrete Bike",
-    icon: "http://loremflickr.com/640/480/transport",
-    price: "442.00",
-    description:
-      "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-    category: "Sports",
-    id: "29",
-    shopId: "1",
-  },
-  {
-    createdAt: "2022-09-04T07:24:49.783Z",
-    name: "Awesome Frozen Mouse",
-    icon: "http://loremflickr.com/640/480/business",
-    price: "702.00",
-    description:
-      "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-    category: "Shoes",
-    id: "30",
-    shopId: "2",
-  },
-  {
     createdAt: "2022-09-04T15:15:12.168Z",
     name: "Luxurious Fresh Computer",
     icon: "http://loremflickr.com/640/480/technics",
@@ -339,28 +196,6 @@ const produtos = [
     shopId: "3",
   },
   {
-    createdAt: "2022-09-04T13:11:37.212Z",
-    name: "Electronic Fresh Table",
-    icon: "http://loremflickr.com/640/480/transport",
-    price: "882.00",
-    description:
-      "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-    category: "Shoes",
-    id: "32",
-    shopId: "4",
-  },
-  {
-    createdAt: "2022-09-03T22:16:05.005Z",
-    name: "Awesome Frozen Gloves",
-    icon: "http://loremflickr.com/640/480/business",
-    price: "858.00",
-    description:
-      "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-    category: "Kids",
-    id: "33",
-    shopId: "5",
-  },
-  {
     createdAt: "2022-09-04T03:14:23.819Z",
     name: "Incredible Plastic Fish",
     icon: "http://loremflickr.com/640/480/city",
@@ -370,28 +205,6 @@ const produtos = [
     category: "Clothing",
     id: "34",
     shopId: "6",
-  },
-  {
-    createdAt: "2022-09-04T14:29:27.514Z",
-    name: "Oriental Steel Shirt",
-    icon: "http://loremflickr.com/640/480/animals",
-    price: "496.00",
-    description:
-      "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-    category: "Outdoors",
-    id: "35",
-    shopId: "7",
-  },
-  {
-    createdAt: "2022-09-04T07:04:27.813Z",
-    name: "Modern Fresh Car",
-    icon: "http://loremflickr.com/640/480/cats",
-    price: "986.00",
-    description:
-      "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-    category: "Jewelery",
-    id: "36",
-    shopId: "8",
   },
   {
     createdAt: "2022-09-04T12:15:35.808Z",
@@ -414,94 +227,6 @@ const produtos = [
     category: "Automotive",
     id: "38",
     shopId: "10",
-  },
-  {
-    createdAt: "2022-09-04T01:22:20.843Z",
-    name: "Tasty Steel Shirt",
-    icon: "http://loremflickr.com/640/480/nature",
-    price: "8.00",
-    description:
-      "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-    category: "Kids",
-    id: "39",
-    shopId: "11",
-  },
-  {
-    createdAt: "2022-09-04T02:49:04.404Z",
-    name: "Fantastic Fresh Salad",
-    icon: "http://loremflickr.com/640/480/people",
-    price: "186.00",
-    description:
-      "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-    category: "Jewelery",
-    id: "40",
-    shopId: "12",
-  },
-  {
-    createdAt: "2022-09-04T17:11:30.358Z",
-    name: "Licensed Granite Chair",
-    icon: "http://loremflickr.com/640/480/food",
-    price: "997.00",
-    description:
-      "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-    category: "Games",
-    id: "41",
-    shopId: "13",
-  },
-  {
-    createdAt: "2022-09-04T15:22:33.304Z",
-    name: "Gorgeous Metal Chicken",
-    icon: "http://loremflickr.com/640/480/food",
-    price: "94.00",
-    description:
-      "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-    category: "Movies",
-    id: "42",
-    shopId: "14",
-  },
-  {
-    createdAt: "2022-09-03T22:51:49.137Z",
-    name: "Electronic Cotton Hat",
-    icon: "http://loremflickr.com/640/480/technics",
-    price: "811.00",
-    description:
-      "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-    category: "Music",
-    id: "43",
-    shopId: "15",
-  },
-  {
-    createdAt: "2022-09-04T01:37:06.329Z",
-    name: "Oriental Cotton Computer",
-    icon: "http://loremflickr.com/640/480/fashion",
-    price: "766.00",
-    description:
-      "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-    category: "Home",
-    id: "44",
-    shopId: "16",
-  },
-  {
-    createdAt: "2022-09-04T11:10:46.717Z",
-    name: "Handmade Soft Chair",
-    icon: "http://loremflickr.com/640/480/animals",
-    price: "49.00",
-    description:
-      "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-    category: "Toys",
-    id: "45",
-    shopId: "17",
-  },
-  {
-    createdAt: "2022-09-03T23:29:29.320Z",
-    name: "Rustic Steel Table",
-    icon: "http://loremflickr.com/640/480/cats",
-    price: "218.00",
-    description:
-      "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-    category: "Movies",
-    id: "46",
-    shopId: "18",
   },
 ];
 

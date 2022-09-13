@@ -13,17 +13,23 @@ import products from "../assets/data/produtos";
 const CuponModal = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
+  const toggleSelect = (shopId) => {
+    console.log(`Selected item ${shopId}`);
+    for (let index = 0; index < products.length; index++) {
+      const element = products[index];
+      if (element.shopId == shopId) {
+        if (styles.image == selected) {
+          styles.image = { height: 50, width: 50, borderRadius: 5 };
+        } else {
+          styles.image = selected;
+        }
+      }
+    }
+  };
+
   return (
     <>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
-        }}
-      >
+      <Modal animationType="slide" transparent={true} visible={modalVisible}>
         <View style={styles.centeredViewInner}>
           <View style={styles.list}>
             <FlatGrid
@@ -32,7 +38,7 @@ const CuponModal = () => {
               data={products}
               renderItem={(itemData) => {
                 return (
-                  <Pressable>
+                  <Pressable onPress={() => toggleSelect(itemData.item.id)}>
                     <View style={styles.listItem}>
                       <Image
                         source={{ uri: itemData.item.icon }}
@@ -141,5 +147,13 @@ const styles = StyleSheet.create({
   },
   list: {},
 });
+
+const selected = {
+  borderWidth: 3,
+  borderColor: "#4CAF50",
+  height: 50,
+  width: 50,
+  borderRadius: 5,
+};
 
 export default CuponModal;
