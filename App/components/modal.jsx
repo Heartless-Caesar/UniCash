@@ -11,20 +11,24 @@ import {
 import { FlatGrid } from "react-native-super-grid";
 import products from "../assets/data/produtos";
 const CuponModal = () => {
+  const [selected, setSelected] = useState(products);
   const [modalVisible, setModalVisible] = useState(false);
 
-  const toggleSelect = (shopId) => {
-    console.log(`Selected item ${shopId}`);
-    for (let index = 0; index < products.length; index++) {
-      const element = products[index];
-      if (element.shopId == shopId) {
-        if (styles.image == selected) {
-          styles.image = { height: 50, width: 50, borderRadius: 5 };
-        } else {
-          styles.image = selected;
-        }
+  console.log(`Selected :`, selected);
+
+  const toggleSelect = (item) => {
+    const newArrData = selected.map((e) => {
+      if (e.id == item.id) {
+        return {
+          ...e,
+          selected: !e.selected,
+        };
+      } else {
+        return e;
       }
-    }
+    });
+
+    setSelected(newArrData);
   };
 
   return (
@@ -35,11 +39,20 @@ const CuponModal = () => {
             <FlatGrid
               itemDimension={50}
               spacing={20}
-              data={products}
+              data={selected}
               renderItem={(itemData) => {
                 return (
-                  <Pressable onPress={() => toggleSelect(itemData.item.id)}>
-                    <View style={styles.listItem}>
+                  <Pressable onPress={() => toggleSelect(itemData.item)}>
+                    <View
+                      style={[
+                        styles.listItem,
+                        {
+                          backgroundColor: itemData.item.selected
+                            ? "#66BB6A"
+                            : "#f5f5f5",
+                        },
+                      ]}
+                    >
                       <Image
                         source={{ uri: itemData.item.icon }}
                         style={styles.image}

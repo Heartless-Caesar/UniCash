@@ -9,6 +9,7 @@ const produtos = [
     category: "Electronics",
     id: "1",
     shopId: "1",
+    selected: false,
   },
   {
     createdAt: "2022-09-03T23:09:46.942Z",
@@ -20,6 +21,7 @@ const produtos = [
     category: "Automotive",
     id: "4",
     shopId: "4",
+    selected: false,
   },
   {
     createdAt: "2022-09-03T21:55:11.305Z",
@@ -31,6 +33,7 @@ const produtos = [
     category: "Clothing",
     id: "7",
     shopId: "7",
+    selected: false,
   },
   {
     createdAt: "2022-09-04T06:34:15.601Z",
@@ -42,6 +45,7 @@ const produtos = [
     category: "Jewelery",
     id: "9",
     shopId: "1",
+    selected: false,
   },
   {
     createdAt: "2022-09-04T07:32:31.571Z",
@@ -53,6 +57,7 @@ const produtos = [
     category: "Shoes",
     id: "10",
     shopId: "2",
+    selected: false,
   },
   {
     createdAt: "2022-09-04T00:15:27.695Z",
@@ -63,6 +68,7 @@ const produtos = [
     category: "Shoes",
     id: "13",
     shopId: "5",
+    selected: false,
   },
   {
     createdAt: "2022-09-04T02:20:19.939Z",
@@ -74,6 +80,7 @@ const produtos = [
     category: "Sports",
     id: "16",
     shopId: "8",
+    selected: false,
   },
   {
     createdAt: "2022-09-04T15:38:40.773Z",
@@ -85,6 +92,7 @@ const produtos = [
     category: "Toys",
     id: "19",
     shopId: "11",
+    selected: false,
   },
   {
     createdAt: "2022-09-03T21:45:57.722Z",
@@ -95,6 +103,7 @@ const produtos = [
     category: "Computers",
     id: "20",
     shopId: "12",
+    selected: false,
   },
   {
     createdAt: "2022-09-03T21:12:01.908Z",
@@ -106,6 +115,7 @@ const produtos = [
     category: "Outdoors",
     id: "21",
     shopId: "13",
+    selected: false,
   },
   {
     createdAt: "2022-09-04T06:59:38.639Z",
@@ -117,6 +127,7 @@ const produtos = [
     category: "Jewelery",
     id: "22",
     shopId: "14",
+    selected: false,
   },
   {
     createdAt: "2022-09-04T10:27:18.345Z",
@@ -128,6 +139,7 @@ const produtos = [
     category: "Home",
     id: "23",
     shopId: "15",
+    selected: false,
   },
   {
     createdAt: "2022-09-03T23:55:01.225Z",
@@ -139,6 +151,7 @@ const produtos = [
     category: "Beauty",
     id: "24",
     shopId: "16",
+    selected: false,
   },
   {
     createdAt: "2022-09-04T03:33:37.296Z",
@@ -150,6 +163,7 @@ const produtos = [
     category: "Industrial",
     id: "25",
     shopId: "17",
+    selected: false,
   },
   {
     createdAt: "2022-09-04T00:51:39.332Z",
@@ -161,6 +175,7 @@ const produtos = [
     category: "Industrial",
     id: "26",
     shopId: "18",
+    selected: false,
   },
   {
     createdAt: "2022-09-03T20:40:45.354Z",
@@ -172,6 +187,7 @@ const produtos = [
     category: "Outdoors",
     id: "27",
     shopId: "19",
+    selected: false,
   },
   {
     createdAt: "2022-09-04T15:03:02.819Z",
@@ -183,6 +199,7 @@ const produtos = [
     category: "Jewelery",
     id: "28",
     shopId: "20",
+    selected: false,
   },
   {
     createdAt: "2022-09-04T15:15:12.168Z",
@@ -194,6 +211,7 @@ const produtos = [
     category: "Industrial",
     id: "31",
     shopId: "3",
+    selected: false,
   },
   {
     createdAt: "2022-09-04T03:14:23.819Z",
@@ -205,6 +223,7 @@ const produtos = [
     category: "Clothing",
     id: "34",
     shopId: "6",
+    selected: false,
   },
   {
     createdAt: "2022-09-04T12:15:35.808Z",
@@ -216,6 +235,7 @@ const produtos = [
     category: "Health",
     id: "37",
     shopId: "9",
+    selected: false,
   },
   {
     createdAt: "2022-09-04T11:13:27.738Z",
@@ -227,6 +247,7 @@ const produtos = [
     category: "Automotive",
     id: "38",
     shopId: "10",
+    selected: false,
   },
 ];
 
