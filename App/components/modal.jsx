@@ -50,6 +50,7 @@ const CuponModal = () => {
                           backgroundColor: itemData.item.selected
                             ? "#66BB6A"
                             : "#f5f5f5",
+                          borderRadius: itemData.item.selected ? 5 : 0,
                         },
                       ]}
                     >
@@ -158,7 +159,10 @@ const styles = StyleSheet.create({
     width: 50,
     borderRadius: 5,
   },
-  list: {},
+  listItem: {
+    justifyContent: "center",
+    padding: 5,
+  },
 });
 
 const selected = {
