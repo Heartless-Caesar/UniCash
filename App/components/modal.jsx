@@ -13,10 +13,16 @@ import products from "../assets/data/produtos";
 const CuponModal = () => {
   const [selected, setSelected] = useState(products);
   const [modalVisible, setModalVisible] = useState(false);
-
-  console.log(`Selected :`, selected);
+  const [secondModalVisible, setSecondModalVisible] = useState(false);
+  const [selectedItems, setSelectedItems] = useState([]);
 
   const toggleSelect = (item) => {
+    setSelectedItems((res) => [...res, item]);
+    if (item.selected) {
+      setSelectedItems((res) => res.filter((e) => e.id !== item.id));
+    } else {
+      setSelectedItems((res) => [...res, item]);
+    }
     const newArrData = selected.map((e) => {
       if (e.id == item.id) {
         return {
@@ -27,13 +33,14 @@ const CuponModal = () => {
         return e;
       }
     });
-
+    console.log(`Length ${selectedItems.length}`);
+    console.log(selectedItems);
     setSelected(newArrData);
   };
 
   return (
     <>
-      <Modal animationType="slide" transparent={true} visible={modalVisible}>
+      <Modal animationType="fade" transparent={true} visible={modalVisible}>
         <View style={styles.centeredViewInner}>
           <View style={styles.list}>
             <FlatGrid
@@ -67,6 +74,34 @@ const CuponModal = () => {
                 return item.id;
               }}
             />
+            <View style={styles.buttonContainer}>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setModalVisible(!modalVisible)}
+              >
+                <Text style={styles.textStyle}>Cancelar</Text>
+              </Pressable>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => {
+                  setModalVisible(!modalVisible),
+                    setSecondModalVisible(!secondModalVisible);
+                }}
+              >
+                <Text style={styles.textStyle}>Próximo</Text>
+              </Pressable>
+            </View>
+          </View>
+        </View>
+      </Modal>
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={secondModalVisible}
+      >
+        <View style={styles.centeredViewInner}>
+          <View style={styles.list}>
+            <Text>Second modal</Text>
             <View style={styles.buttonContainer}>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
