@@ -34,7 +34,6 @@ const CuponModal = () => {
       }
     });
     console.log(`Length ${selectedItems.length}`);
-    console.log(selectedItems);
     setSelected(newArrData);
   };
 
