@@ -37,9 +37,19 @@ const CuponModal = () => {
     setSelected(newArrData);
   };
 
+  const modalForward = () => {
+    setModalVisible(false);
+    setSecondModalVisible(true);
+  };
+
+  const modalBack = () => {
+    setModalVisible(true);
+    setSecondModalVisible(false);
+  };
+
   return (
     <>
-      <Modal animationType="fade" transparent={true} visible={modalVisible}>
+      <Modal animationType="slide" transparent={true} visible={modalVisible}>
         <View style={styles.centeredViewInner}>
           <View style={styles.list}>
             <FlatGrid
@@ -82,10 +92,7 @@ const CuponModal = () => {
               </Pressable>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
-                onPress={() => {
-                  setModalVisible(!modalVisible),
-                    setSecondModalVisible(!secondModalVisible);
-                }}
+                onPress={() => modalForward()}
               >
                 <Text style={styles.textStyle}>Próximo</Text>
               </Pressable>
@@ -94,7 +101,7 @@ const CuponModal = () => {
         </View>
       </Modal>
       <Modal
-        animationType="fade"
+        animationType="slide"
         transparent={true}
         visible={secondModalVisible}
       >
@@ -104,9 +111,9 @@ const CuponModal = () => {
             <View style={styles.buttonContainer}>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(!modalVisible)}
+                onPress={() => modalBack()}
               >
-                <Text style={styles.textStyle}>Cancelar</Text>
+                <Text style={styles.textStyle}>Voltar</Text>
               </Pressable>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
