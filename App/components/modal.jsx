@@ -7,6 +7,7 @@ import {
   Pressable,
   View,
   Image,
+  FlatList,
 } from "react-native";
 import { FlatGrid } from "react-native-super-grid";
 import products from "../assets/data/produtos";
@@ -17,7 +18,6 @@ const CuponModal = () => {
   const [selectedItems, setSelectedItems] = useState([]);
 
   const toggleSelect = (item) => {
-    setSelectedItems((res) => [...res, item]);
     if (item.selected) {
       setSelectedItems((res) => res.filter((e) => e.id !== item.id));
     } else {
@@ -45,6 +45,11 @@ const CuponModal = () => {
   const modalBack = () => {
     setModalVisible(true);
     setSecondModalVisible(false);
+  };
+
+  const criarCupom = () => {
+    setSecondModalVisible(false);
+    setSelectedItems([]);
   };
 
   return (
@@ -107,7 +112,20 @@ const CuponModal = () => {
       >
         <View style={styles.centeredViewInner}>
           <View style={styles.list}>
-            <Text>Second modal</Text>
+            <FlatList
+              data={selectedItems}
+              renderItem={(itemData) => {
+                return (
+                  <View style={styles.listItem}>
+                    <Image
+                      source={{ uri: itemData.item.icon }}
+                      style={styles.image}
+                    />
+                    <Text style={styles.listText}>{itemData.item.price}</Text>
+                  </View>
+                );
+              }}
+            />
             <View style={styles.buttonContainer}>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
@@ -117,7 +135,7 @@ const CuponModal = () => {
               </Pressable>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(!modalVisible)}
+                onPress={() => criarCupom()}
               >
                 <Text style={styles.textStyle}>Criar cupom</Text>
               </Pressable>
