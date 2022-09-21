@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Alert,
   Modal,
@@ -8,6 +8,7 @@ import {
   View,
   Image,
   FlatList,
+  TextInput,
 } from "react-native";
 import { FlatGrid } from "react-native-super-grid";
 import products from "../assets/data/produtos";
@@ -16,6 +17,7 @@ const CuponModal = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [secondModalVisible, setSecondModalVisible] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
+  const [number, setNumber] = useState(0);
 
   const toggleSelect = (item) => {
     if (item.selected) {
@@ -50,6 +52,10 @@ const CuponModal = () => {
   const criarCupom = () => {
     setSecondModalVisible(false);
     setSelectedItems([]);
+  };
+
+  const addQty = (item) => {
+    return { ...item, quantity: item.quantity++ };
   };
 
   return (
@@ -121,7 +127,17 @@ const CuponModal = () => {
                       source={{ uri: itemData.item.icon }}
                       style={styles.image}
                     />
+                    <Text>{itemData.item.name}</Text>
                     <Text style={styles.listText}>{itemData.item.price}</Text>
+                    <TextInput placeholder="0" value={number} />
+                    <Text style={{ fontSize: 50 }}>
+                      X {itemData.item.quantity}
+                    </Text>
+                    <Pressable onPress={() => addQty(itemData.item)}>
+                      <View>
+                        <Text style={{ fontSize: 50 }}>+</Text>
+                      </View>
+                    </Pressable>
                   </View>
                 );
               }}
