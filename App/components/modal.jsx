@@ -96,7 +96,7 @@ const CuponModal = () => {
             />
             <View style={styles.buttonContainer}>
               <Pressable
-                style={[styles.button, styles.buttonClose]}
+                style={[styles.button, styles.buttonClose, { marginRight: 20 }]}
                 onPress={() => setModalVisible(!modalVisible)}
               >
                 <Text style={styles.textStyle}>Cancelar</Text>
@@ -122,29 +122,32 @@ const CuponModal = () => {
               data={selectedItems}
               renderItem={(itemData) => {
                 return (
-                  <View style={styles.listItem}>
-                    <Image
-                      source={{ uri: itemData.item.icon }}
-                      style={styles.image}
-                    />
-                    <Text>{itemData.item.name}</Text>
-                    <Text style={styles.listText}>{itemData.item.price}</Text>
-                    <TextInput placeholder="0" value={number} />
-                    <Text style={{ fontSize: 50 }}>
-                      X {itemData.item.quantity}
-                    </Text>
-                    <Pressable onPress={() => addQty(itemData.item)}>
-                      <View>
-                        <Text style={{ fontSize: 50 }}>+</Text>
-                      </View>
-                    </Pressable>
+                  <View style={styles.secondlistItem}>
+                    <View style={styles.col1}>
+                      <Image
+                        source={{ uri: itemData.item.icon }}
+                        style={styles.image}
+                      />
+                    </View>
+                    <View style={styles.col2}>
+                      <Text>{itemData.item.name}</Text>
+                      <Text style={styles.listText}>{itemData.item.price}</Text>
+                    </View>
+                    <View style={styles.col3}>
+                      <TextInput
+                        placeholder="0"
+                        value={number}
+                        style={styles.input}
+                        keyboardType="numeric"
+                      />
+                    </View>
                   </View>
                 );
               }}
             />
             <View style={styles.buttonContainer}>
               <Pressable
-                style={[styles.button, styles.buttonClose]}
+                style={[styles.button, styles.buttonClose, { marginRight: 20 }]}
                 onPress={() => modalBack()}
               >
                 <Text style={styles.textStyle}>Voltar</Text>
@@ -175,16 +178,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#f5f5f5",
     marginTop: 20,
     marginHorizontal: 10,
+    marginBottom: 5,
     flexDirection: "row",
   },
   centeredViewInner: {
-    borderRadius: 5,
     flex: 1,
+    flexDirection: "row",
+    borderRadius: 5,
     backgroundColor: "#f5f5f5",
-    marginTop: 5,
     marginHorizontal: 10,
     marginBottom: 5,
-    flexDirection: "row",
+    marginTop: 10,
+    // padding: 10,
   },
   modalView: {
     backgroundColor: "white",
@@ -202,10 +207,9 @@ const styles = StyleSheet.create({
     borderColor: "#000000",
   },
   buttonContainer: {
-    display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
-    padding: 10,
+    justifyContent: "space-evenly",
+    padding: 20,
   },
   button: {
     borderRadius: 5,
@@ -238,14 +242,35 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 5,
   },
+  secondlistItem: {
+    display: "flex",
+    flexDirection: "row",
+    padding: 10,
+  },
+  list: {
+    padding: 5,
+  },
+  col1: {
+    flex: 1,
+  },
+  col2: {
+    flex: 2,
+  },
+  col3: {
+    flex: 1,
+    justifyContent: "center",
+    marginLeft: 10,
+  },
+  input: {
+    flex: 1,
+    padding: 0,
+    height: 50,
+    // borderWidth: 1,
+    // borderColor: "#000000",
+    // borderRadius: 5,
+    fontSize: 40,
+    justifyContent: "center",
+  },
 });
-
-const selected = {
-  borderWidth: 3,
-  borderColor: "#4CAF50",
-  height: 50,
-  width: 50,
-  borderRadius: 5,
-};
 
 export default CuponModal;
