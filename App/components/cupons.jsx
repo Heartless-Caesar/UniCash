@@ -6,7 +6,9 @@ const Cupons = ({ navigation }) => {
   return (
     <View style={styles.Container}>
       <Tabs navigation={navigation} />
-      <Text>Cupons</Text>
+      <View style={styles.innerContainer}>
+        <Text>Cupons</Text>
+      </View>
     </View>
   );
 };
@@ -14,6 +16,16 @@ const Cupons = ({ navigation }) => {
 const styles = StyleSheet.create({
   Container: {
     flex: 1,
+    backgroundColor: "#cccccc",
+  },
+  innerContainer: {
+    borderBottomEndRadius: 5,
+    borderBottomStartRadius: 5,
+    marginHorizontal: 10,
+    padding: 10,
+    backgroundColor: "#f5f5f5",
+    minHeight: 550,
+    marginBottom: 10,
   },
 });
 

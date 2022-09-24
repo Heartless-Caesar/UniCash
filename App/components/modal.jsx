@@ -54,10 +54,6 @@ const CuponModal = () => {
     setSelectedItems([]);
   };
 
-  const addQty = (item) => {
-    return { ...item, quantity: item.quantity++ };
-  };
-
   return (
     <>
       <Modal animationType="slide" transparent={true} visible={modalVisible}>
