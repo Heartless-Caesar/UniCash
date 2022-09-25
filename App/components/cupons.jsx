@@ -15,7 +15,7 @@ const Cupons = ({ navigation }) => {
             return item.id;
           }}
           renderItem={(itemData) => {
-            return <Cupom {...itemData} />;
+            return <Cupom {...itemData.item} />;
           }}
         />
       </View>
