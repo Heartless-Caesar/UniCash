@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 import React from "react";
-import Icon from "react-native-vector-icons/FontAwesome";
+import Icon from "react-native-vector-icons/FontAwesome5";
 const Cupom = (props) => {
   return (
     <View style={styles.innerContainer} key={props.id}>
@@ -13,12 +13,23 @@ const Cupom = (props) => {
         </View>
       </View>
       <View style={styles.col2}>
-        <Text>{props.shop_name}</Text>
-        <Text>{props.price}</Text>
-        <Text>{props.local}</Text>
+        <Text>Code</Text>
+        <Text style={{ color: "#616161" }}>{props.shop_name}</Text>
+        <Text style={{ color: "#9E9E9E" }}>{props.local}</Text>
       </View>
       <View style={styles.col3}>
-        <Text style={{ marginLeft: 40, marginBottom: 10 }}>{props.token}</Text>
+        <Text
+          style={{
+            marginLeft: 40,
+            marginBottom: 10,
+            color: "#000000",
+            fontWeight: "bold",
+            fontSize: 20,
+          }}
+        >
+          <Icon name="horse-head" size={15} />
+          {props.token}
+        </Text>
         <View style={styles.itemButton}>
           <Text style={{ textAlign: "center", color: "#f5f5f5" }}>
             Ver itens
