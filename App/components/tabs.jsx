@@ -17,7 +17,6 @@ const Tabs = (props) => {
     styles.buttonText1 = textFalse;
     styles.button2 = buttonTrue2;
     styles.buttonText2 = textTrue;
-    console.log(styles.button1);
   };
 
   return (

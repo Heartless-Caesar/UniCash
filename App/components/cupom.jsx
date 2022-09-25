@@ -6,6 +6,11 @@ const Cupom = (props) => {
     <View style={styles.innerContainer} key={props.id}>
       <View style={styles.col1}>
         <Image source={{ uri: props.img }} style={styles.img} />
+        <View style={{ width: 200 }}>
+          <Text style={{ marginTop: 40, color: "#BDBDBD" }}>
+            Token expires in : 10 days
+          </Text>
+        </View>
       </View>
       <View style={styles.col2}>
         <Text>{props.shop_name}</Text>
@@ -13,9 +18,11 @@ const Cupom = (props) => {
         <Text>{props.local}</Text>
       </View>
       <View style={styles.col3}>
-        <Text style={{ marginLeft: 40, marginBottom: 15 }}>{props.token}</Text>
+        <Text style={{ marginLeft: 40, marginBottom: 10 }}>{props.token}</Text>
         <View style={styles.itemButton}>
-          <Text style={{ textAlign: "center" }}>Ver itens</Text>
+          <Text style={{ textAlign: "center", color: "#f5f5f5" }}>
+            Ver itens
+          </Text>
         </View>
       </View>
       <View style={styles.col4}>
@@ -28,20 +35,25 @@ const Cupom = (props) => {
 const styles = StyleSheet.create({
   innerContainer: {
     flexDirection: "row",
-    padding: 10,
+    padding: 5,
+    marginBottom: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: "#cccccc",
   },
   itemButton: {
+    marginLeft: 5,
+    backgroundColor: "#757575",
     borderWidth: 1,
-    borderColor: "#cccccc",
+    borderColor: "#9E9E9E",
     borderRadius: 5,
     padding: 10,
   },
   img: {
     height: 50,
     width: 50,
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: "#000000",
+    // borderRadius: 5,
+    // borderWidth: 1,
+    // borderColor: "#000000",
   },
   col1: {
     flex: 1,
@@ -55,7 +67,8 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   col4: {
-    flex: 1,
+    marginTop: 45,
+    marginLeft: 10,
   },
 });
 
