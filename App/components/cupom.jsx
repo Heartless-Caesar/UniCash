@@ -23,11 +23,13 @@ const Cupom = (props) => {
           <Icon name="horse-head" size={15} />
           {props.token}
         </Text>
-        <View style={styles.itemButton}>
-          <Text style={{ textAlign: "center", color: "#f5f5f5" }}>
-            Ver itens
-          </Text>
-        </View>
+        <Pressable>
+          <View style={styles.itemButton}>
+            <Text style={{ textAlign: "center", color: "#f5f5f5" }}>
+              Ver itens
+            </Text>
+          </View>
+        </Pressable>
       </View>
       <View style={styles.col4}>
         <Icon name="trash" size={25} />
