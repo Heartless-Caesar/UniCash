@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 import React from "react";
 import Icon from "react-native-vector-icons/FontAwesome5";
+
 const Cupom = (props) => {
   return (
     <View style={styles.innerContainer} key={props.id}>
@@ -8,7 +9,7 @@ const Cupom = (props) => {
         <Image source={{ uri: props.img }} style={styles.img} />
         <View style={{ width: 200 }}>
           <Text style={{ marginTop: 40, color: "#BDBDBD" }}>
-            Token expires in : 10 days
+            Token expira em : 10 dias
           </Text>
         </View>
       </View>
@@ -18,15 +19,7 @@ const Cupom = (props) => {
         <Text style={{ color: "#9E9E9E" }}>{props.local}</Text>
       </View>
       <View style={styles.col3}>
-        <Text
-          style={{
-            marginLeft: 40,
-            marginBottom: 10,
-            color: "#000000",
-            fontWeight: "bold",
-            fontSize: 20,
-          }}
-        >
+        <Text style={styles.token}>
           <Icon name="horse-head" size={15} />
           {props.token}
         </Text>
@@ -59,12 +52,16 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
   },
+  token: {
+    marginLeft: 40,
+    marginBottom: 10,
+    color: "#000000",
+    fontWeight: "bold",
+    fontSize: 20,
+  },
   img: {
     height: 50,
     width: 50,
-    // borderRadius: 5,
-    // borderWidth: 1,
-    // borderColor: "#000000",
   },
   col1: {
     flex: 1,

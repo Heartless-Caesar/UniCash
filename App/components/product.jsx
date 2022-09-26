@@ -1,12 +1,4 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  Pressable,
-  FlatList,
-  Image,
-  SafeAreaView,
-} from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import React from "react";
 import products from "../assets/data/produtos";
 import { FlatGrid } from "react-native-super-grid";

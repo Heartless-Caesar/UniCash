@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable, FlatList } from "react-native";
+import { View, StyleSheet, FlatList } from "react-native";
 import React from "react";
 import Tabs from "./tabs";
 import cupons from "../assets/data/cupons.json";
