@@ -1,40 +1,48 @@
-import { View, Text, StyleSheet, Pressable, Image } from "react-native";
-import React from "react";
+import { View, Text, StyleSheet, Pressable, Image, Modal } from "react-native";
+import React, { useState } from "react";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
 const Cupom = (props) => {
+  const [visible, setVisible] = useState(false);
   return (
-    <View style={styles.innerContainer} key={props.id}>
-      <View style={styles.col1}>
-        <Image source={{ uri: props.img }} style={styles.img} />
-        <View style={{ width: 200 }}>
-          <Text style={{ marginTop: 40, color: "#BDBDBD" }}>
-            Token expira em : 10 dias
-          </Text>
+    <>
+      <Modal animationType="slide" transparent={true} visible={visible}>
+        <View style={styles.centeredViewInner}>
+          <Text>Cupon Modal</Text>
         </View>
-      </View>
-      <View style={styles.col2}>
-        <Text>Code</Text>
-        <Text style={{ color: "#616161" }}>{props.shop_name}</Text>
-        <Text style={{ color: "#9E9E9E" }}>{props.local}</Text>
-      </View>
-      <View style={styles.col3}>
-        <Text style={styles.token}>
-          <Icon name="horse-head" size={15} />
-          {props.token}
-        </Text>
-        <Pressable>
-          <View style={styles.itemButton}>
-            <Text style={{ textAlign: "center", color: "#f5f5f5" }}>
-              Ver itens
+      </Modal>
+      <View style={styles.innerContainer} key={props.id}>
+        <View style={styles.col1}>
+          <Image source={{ uri: props.img }} style={styles.img} />
+          <View style={{ width: 200 }}>
+            <Text style={{ marginTop: 40, color: "#BDBDBD" }}>
+              Token expira em : 10 dias
             </Text>
           </View>
-        </Pressable>
+        </View>
+        <View style={styles.col2}>
+          <Text>Code</Text>
+          <Text style={{ color: "#616161" }}>{props.shop_name}</Text>
+          <Text style={{ color: "#9E9E9E" }}>{props.local}</Text>
+        </View>
+        <View style={styles.col3}>
+          <Text style={styles.token}>
+            <Icon name="horse-head" size={15} />
+            {props.token}
+          </Text>
+          <Pressable onPress={() => setVisible(true)}>
+            <View style={styles.itemButton}>
+              <Text style={{ textAlign: "center", color: "#f5f5f5" }}>
+                Ver itens
+              </Text>
+            </View>
+          </Pressable>
+        </View>
+        <View style={styles.col4}>
+          <Icon name="trash" size={25} />
+        </View>
       </View>
-      <View style={styles.col4}>
-        <Icon name="trash" size={25} />
-      </View>
-    </View>
+    </>
   );
 };
 
@@ -45,6 +53,15 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     borderBottomWidth: 1,
     borderBottomColor: "#cccccc",
+  },
+  centeredViewInner: {
+    flex: 1,
+    flexDirection: "row",
+    borderRadius: 5,
+    backgroundColor: "#f5f5f5",
+    marginHorizontal: 10,
+    marginBottom: 5,
+    padding: 10,
   },
   itemButton: {
     marginLeft: 5,
