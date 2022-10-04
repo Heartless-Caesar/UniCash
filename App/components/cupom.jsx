@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Pressable, Image, Modal } from "react-native";
 import React, { useState } from "react";
 import Icon from "react-native-vector-icons/FontAwesome5";
+import cuponModalData from "../assets/data/cuponModal.json";
 
 const Cupom = (props) => {
   const [visible, setVisible] = useState(false);
@@ -8,7 +9,39 @@ const Cupom = (props) => {
     <>
       <Modal animationType="slide" transparent={true} visible={visible}>
         <View style={styles.centeredViewInner}>
-          <Text>Cupon Modal</Text>
+          {/* Top aouter View */}
+          <View style={styles.topOuterView}>
+            {/* Col 1 = QR Code */}
+            <View style={styles.qrCol1}>
+              <Image
+                source={{ uri: cuponModalData.image }}
+                style={{
+                  height: 50,
+                  width: 50,
+                  borderWidth: 1,
+                  borderColor: "#000000",
+                }}
+              />
+            </View>
+            {/* Col 2 = Data */}
+            <View style={styles.dataCol2}></View>
+          </View>
+          {/* Bottom button row*/}
+          <View>
+            <Pressable>
+              <View
+                style={{
+                  padding: 10,
+                  borderWidth: 1,
+                  borderColor: "#800020",
+                  borderRadius: 5,
+                  backgroundColor: "#800020",
+                }}
+              >
+                <Text style={{ color: "#f5f5f5" }}>Close</Text>
+              </View>
+            </Pressable>
+          </View>
         </View>
       </Modal>
       <View style={styles.innerContainer} key={props.id}>
@@ -96,6 +129,16 @@ const styles = StyleSheet.create({
   col4: {
     marginTop: 45,
     marginLeft: 10,
+  },
+  topOuterView: {
+    flex: 1,
+    padding: 10,
+  },
+  qrCol1: {
+    flex: 2,
+  },
+  dataCol2: {
+    flex: 2,
   },
 });
 

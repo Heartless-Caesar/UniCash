@@ -5307,7 +5307,7 @@
   dependencies:
     "asap" "~2.0.3"
 
-"promise@^8.0.3":
+"promise@^8.2.0":
   "integrity" "sha512-+CMAlLHqwRYwBMXKCP+o8ns7DN+xHDUiI+0nArsiJ9y+kJVPLFxEaSw6Ha9s9H0tftxg2Yzl25wqj9G7m5wLZg=="
   "resolved" "https://registry.npmjs.org/promise/-/promise-8.2.0.tgz"
   "version" "8.2.0"
@@ -5445,10 +5445,10 @@
     "jscodeshift" "^0.13.1"
     "nullthrows" "^1.1.1"
 
-"react-native-gesture-handler@>= 1.0.0":
-  "integrity" "sha512-IwdYdt5FKjjbRSrSqh8hoNctlYZl5DFnqSJ6buKtrl4A4gyzkrtW6WcmOFl5LnCa6Bcw+znSD77O6UiZ8qda7g=="
-  "resolved" "https://registry.npmjs.org/react-native-gesture-handler/-/react-native-gesture-handler-2.6.0.tgz"
-  "version" "2.6.0"
+"react-native-gesture-handler@^2.7.0", "react-native-gesture-handler@>= 1.0.0":
+  "integrity" "sha512-0jr3FNm2R3gv/v6XTtENgjv0fewD6LEct8EWmXw/oHw36M3YiIIpxnW57thL+0YiKwyLBXN0QHL4JZbs/heW2Q=="
+  "resolved" "https://registry.npmjs.org/react-native-gesture-handler/-/react-native-gesture-handler-2.7.0.tgz"
+  "version" "2.7.0"
   dependencies:
     "@egjs/hammerjs" "^2.0.17"
     "hoist-non-react-statics" "^3.3.0"
@@ -5502,10 +5502,10 @@
     "postcss-value-parser" "^4.2.0"
     "styleq" "^0.1.2"
 
-"react-native@*", "react-native@>=0.59.0", "react-native@0.69.5":
-  "integrity" "sha512-4Psrj1nDMLQjBXVH8n3UikzOHQc8+sa6NbxZQR0XKtpx8uC3HiJBgX+/FIum/RWxfi5J/Dt/+A2gLGmq2Hps8g=="
-  "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.69.5.tgz"
-  "version" "0.69.5"
+"react-native@*", "react-native@>=0.59.0", "react-native@0.69.6":
+  "integrity" "sha512-wwXpqM+12kdEYdBZCJUb5SBu95CzgejrwFeYJ78RzHZV/Sj6DBRekbsHGrDDsY4R25QXALQxy4DQYQCObVvWjA=="
+  "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.69.6.tgz"
+  "version" "0.69.6"
   dependencies:
     "@jest/create-cache-key-function" "^27.0.1"
     "@react-native-community/cli" "^8.0.4"
@@ -5528,7 +5528,7 @@
     "mkdirp" "^0.5.1"
     "nullthrows" "^1.1.1"
     "pretty-format" "^26.5.2"
-    "promise" "^8.0.3"
+    "promise" "^8.2.0"
     "react-devtools-core" "4.24.0"
     "react-native-codegen" "^0.69.2"
     "react-native-gradle-plugin" "^0.0.7"
@@ -6891,6 +6891,11 @@
     "string-width" "^4.2.0"
     "y18n" "^5.0.5"
     "yargs-parser" "^20.2.2"
+
+"yarn@^1.22.19":
+  "integrity" "sha512-/0V5q0WbslqnwP91tirOvldvYISzaqhClxzyUKXYxs07yUILIs5jx/k6CFe8bvKSkds5w+eiOqta39Wk3WxdcQ=="
+  "resolved" "https://registry.npmjs.org/yarn/-/yarn-1.22.19.tgz"
+  "version" "1.22.19"
 
 "yocto-queue@^0.1.0":
   "integrity" "sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q=="
