@@ -1,7 +1,6 @@
 import { View, Text, StyleSheet, Pressable, Image, Modal } from "react-native";
 import React, { useState } from "react";
 import Icon from "react-native-vector-icons/FontAwesome5";
-import cuponModalData from "../assets/data/cuponModal.json";
 
 const Cupom = (props) => {
   const [visible, setVisible] = useState(false);
@@ -14,7 +13,7 @@ const Cupom = (props) => {
             {/* Col 1 = QR Code */}
             <View style={styles.qrCol1}>
               <Image
-                source={{ uri: cuponModalData.image }}
+                source={{ uri: props.img }}
                 style={{
                   height: 50,
                   width: 50,
@@ -131,7 +130,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   topOuterView: {
-    flex: 1,
+    flex: 2,
     padding: 10,
   },
   qrCol1: {
