@@ -15,15 +15,31 @@ const Cupom = (props) => {
               <Image
                 source={{ uri: props.img }}
                 style={{
-                  height: 50,
-                  width: 50,
+                  height: 150,
+                  width: 150,
                   borderWidth: 1,
                   borderColor: "#000000",
                 }}
               />
             </View>
             {/* Col 2 = Data */}
-            <View style={styles.dataCol2}></View>
+            <View style={styles.dataCol2}>
+              <Text>X9M75ZZ80</Text>
+              <Text>{props.shop_name}</Text>
+              <Text>:Categoria:</Text>
+              <Text>{props.local}</Text>
+              <Text>{props.token}</Text>
+            </View>
+          </View>
+          {/* Items listing row */}
+          <View style={styles.listingRow}>
+            {/* TODO: Implement a Flatlist with all the items contained in a cupon */}
+            <Image source={{ uri: props.img }} style={styles.img} />
+            <Text>{props.token}</Text>
+            <Image source={{ uri: props.img }} style={styles.img} />
+            <Text>{props.token}</Text>
+            <Image source={{ uri: props.img }} style={styles.img} />
+            <Text>{props.token}</Text>
           </View>
           {/* Bottom button row*/}
           <View>
@@ -38,6 +54,12 @@ const Cupom = (props) => {
                 }}
               >
                 <Text style={{ color: "#f5f5f5" }}>Close</Text>
+              </View>
+            </Pressable>
+            {/*TODO: Implement this second button && finish the layout */}
+            <Pressable>
+              <View>
+                <Text style={{ color: "#f5f5f5" }}>Deseja excluir cupom?</Text>
               </View>
             </Pressable>
           </View>
@@ -138,6 +160,9 @@ const styles = StyleSheet.create({
   },
   dataCol2: {
     flex: 2,
+  },
+  listingRow: {
+    flex: 1,
   },
 });
 
