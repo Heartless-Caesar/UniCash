@@ -1,70 +1,18 @@
 import { View, Text, StyleSheet, Pressable, Image, Modal } from "react-native";
 import React, { useState } from "react";
 import Icon from "react-native-vector-icons/FontAwesome5";
-
+import CuponModal from "./cupon_modal";
 const Cupom = (props) => {
   const [visible, setVisible] = useState(false);
   return (
     <>
-      <Modal animationType="slide" transparent={true} visible={visible}>
-        <View style={styles.centeredViewInner}>
-          {/* Top aouter View */}
-          <View style={styles.topOuterView}>
-            {/* Col 1 = QR Code */}
-            <View style={styles.qrCol1}>
-              <Image
-                source={{ uri: props.img }}
-                style={{
-                  height: 150,
-                  width: 150,
-                  borderWidth: 1,
-                  borderColor: "#000000",
-                }}
-              />
-            </View>
-            {/* Col 2 = Data */}
-            <View style={styles.dataCol2}>
-              <Text>X9M75ZZ80</Text>
-              <Text>{props.shop_name}</Text>
-              <Text>:Categoria:</Text>
-              <Text>{props.local}</Text>
-              <Text>{props.token}</Text>
-            </View>
-          </View>
-          {/* Items listing row */}
-          <View style={styles.listingRow}>
-            {/* TODO: Implement a Flatlist with all the items contained in a cupon */}
-            <Image source={{ uri: props.img }} style={styles.img} />
-            <Text>{props.token}</Text>
-            <Image source={{ uri: props.img }} style={styles.img} />
-            <Text>{props.token}</Text>
-            <Image source={{ uri: props.img }} style={styles.img} />
-            <Text>{props.token}</Text>
-          </View>
-          {/* Bottom button row*/}
-          <View>
-            <Pressable>
-              <View
-                style={{
-                  padding: 10,
-                  borderWidth: 1,
-                  borderColor: "#800020",
-                  borderRadius: 5,
-                  backgroundColor: "#800020",
-                }}
-              >
-                <Text style={{ color: "#f5f5f5" }}>Close</Text>
-              </View>
-            </Pressable>
-            {/*TODO: Implement this second button && finish the layout */}
-            <Pressable>
-              <View>
-                <Text style={{ color: "#f5f5f5" }}>Deseja excluir cupom?</Text>
-              </View>
-            </Pressable>
-          </View>
-        </View>
-      </Modal>
+      <CuponModal
+        visible={visible}
+        img={props.img}
+        shop_name={props.shop_name}
+        local={props.local}
+        token={props.token}
+      />
       <View style={styles.innerContainer} key={props.id}>
         <View style={styles.col1}>
           <Image source={{ uri: props.img }} style={styles.img} />
@@ -108,15 +56,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#cccccc",
   },
-  centeredViewInner: {
-    flex: 1,
-    flexDirection: "row",
-    borderRadius: 5,
-    backgroundColor: "#f5f5f5",
-    marginHorizontal: 10,
-    marginBottom: 5,
-    padding: 10,
-  },
   itemButton: {
     marginLeft: 5,
     backgroundColor: "#757575",
@@ -150,19 +89,6 @@ const styles = StyleSheet.create({
   col4: {
     marginTop: 45,
     marginLeft: 10,
-  },
-  topOuterView: {
-    flex: 2,
-    padding: 10,
-  },
-  qrCol1: {
-    flex: 2,
-  },
-  dataCol2: {
-    flex: 2,
-  },
-  listingRow: {
-    flex: 1,
   },
 });
 
