@@ -8,6 +8,7 @@ const Cupom = (props) => {
     <>
       <CuponModal
         visible={visible}
+        setVisible={setVisible}
         img={props.img}
         shop_name={props.shop_name}
         local={props.local}

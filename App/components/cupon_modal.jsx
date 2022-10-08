@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet, Pressable, Image, Modal } from "react-native";
 
 const CuponModal = (props) => {
+  const [deleteButton, setDeleteButton] = useState(false);
+  const showButton = () => {
+    setDeleteButton(true);
+  };
   return (
     <>
       <Modal animationType="slide" transparent={true} visible={props.visible}>
@@ -45,27 +49,79 @@ const CuponModal = (props) => {
           </View>
           {/* Bottom button row*/}
           <View style={styles.buttonRow}>
-            <Pressable>
-              <View
-                style={{
-                  padding: 10,
-                  borderWidth: 1,
-                  borderColor: "#800020",
-                  borderRadius: 5,
-                  backgroundColor: "#800020",
+            {deleteButton == false ? (
+              <Pressable onPress={() => props.setVisible(false)}>
+                <View
+                  style={{
+                    padding: 10,
+                    width: 100,
+                    borderWidth: 1,
+                    borderColor: "#800020",
+                    borderRadius: 5,
+                    backgroundColor: "#800020",
+                  }}
+                >
+                  <Text style={{ color: "#f5f5f5", textAlign: "center" }}>
+                    Fechar
+                  </Text>
+                </View>
+              </Pressable>
+            ) : (
+              <Pressable
+                onPress={() => {
+                  setDeleteButton(false);
                 }}
               >
-                <Text style={{ color: "#f5f5f5" }}>Close</Text>
-              </View>
-            </Pressable>
-            {/*TODO: Implement this second button && finish the layout */}
-            <Pressable>
-              <View>
-                <Text style={{ textDecorationLine: "underline" }}>
-                  Deseja excluir cupom?
-                </Text>
-              </View>
-            </Pressable>
+                <View
+                  style={{
+                    padding: 10,
+                    width: 100,
+                    height: 45,
+                    backgroundColor: "#757575",
+                    borderRadius: 5,
+                  }}
+                >
+                  <Text style={{ color: "#f5f5f5", textAlign: "center" }}>
+                    Cancelar
+                  </Text>
+                </View>
+              </Pressable>
+            )}
+
+            {deleteButton == false ? (
+              <Pressable onPress={() => showButton()}>
+                <View>
+                  <Text
+                    style={{ textDecorationLine: "underline", padding: 10 }}
+                  >
+                    Deseja excluir cupom?
+                  </Text>
+                </View>
+              </Pressable>
+            ) : (
+              <Pressable>
+                <View
+                  style={{
+                    padding: 10,
+                    width: 100,
+                    borderWidth: 1,
+                    borderColor: "#800020",
+                    borderRadius: 5,
+                    backgroundColor: "#800020",
+                    color: "#f5f5f5",
+                  }}
+                >
+                  <Text
+                    style={{
+                      color: "#f5f5f5",
+                      textAlign: "center",
+                    }}
+                  >
+                    Excluir
+                  </Text>
+                </View>
+              </Pressable>
+            )}
           </View>
         </View>
       </Modal>
@@ -112,12 +168,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   buttonRow: {
+    marginTop: 250,
+    justifyContent: "space-between",
     flexDirection: "row",
-    marginRight: 150,
-    marginTop: 550,
-
-    borderWidth: 1,
-    borderColor: "#000000",
+    paddingHorizontal: 10,
   },
   data: { flexWrap: "wrap", padding: 15 },
   textData: { lineHeight: 25 },
