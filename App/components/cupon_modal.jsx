@@ -1,5 +1,7 @@
-import React, { useState } from "react";
 import { View, Text, StyleSheet, Pressable, Image, Modal } from "react-native";
+import { FlatGrid } from "react-native-super-grid";
+import modalData from "../assets/data/cupons.json";
+import React, { useState } from "react";
 
 const CuponModal = (props) => {
   const [deleteButton, setDeleteButton] = useState(false);
@@ -17,8 +19,6 @@ const CuponModal = (props) => {
               style={{
                 height: 150,
                 width: 150,
-                borderWidth: 1,
-                borderColor: "#000000",
                 borderRadius: 5,
                 marginTop: 10,
               }}
@@ -32,20 +32,33 @@ const CuponModal = (props) => {
             </View>
           </View>
           {/* Items listing row */}
-          <View style={styles.listingRow}>
+          <View>
             {/* TODO: Implement a Flatlist with all the items contained in a cupon */}
-            <View style={{ flexDirection: "column" }}>
-              <Image source={{ uri: props.img }} style={styles.img} />
-              <Text style={{ marginLeft: 10 }}>$ {props.token}</Text>
-            </View>
-            <View style={{ flexDirection: "column" }}>
-              <Image source={{ uri: props.img }} style={styles.img} />
-              <Text style={{ marginLeft: 10 }}>$ {props.token}</Text>
-            </View>
-            <View style={{ flexDirection: "column" }}>
-              <Image source={{ uri: props.img }} style={styles.img} />
-              <Text style={{ marginLeft: 10 }}>$ {props.token}</Text>
-            </View>
+            <FlatGrid
+              data={modalData}
+              itemDimension={50}
+              spacing={20}
+              style={{
+                paddingBottom: 20,
+                height: 300,
+              }}
+              keyExtractor={(item, index) => {
+                return item.id;
+              }}
+              renderItem={(itemData) => {
+                return (
+                  <View style={{ flexDirection: "column" }}>
+                    <Image
+                      source={{ uri: itemData.item.img }}
+                      style={styles.img}
+                    />
+                    <Text style={{ marginLeft: 10 }}>
+                      $ {itemData.item.token}
+                    </Text>
+                  </View>
+                );
+              }}
+            />
           </View>
           {/* Bottom button row*/}
           <View style={styles.buttonRow}>
@@ -168,7 +181,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   buttonRow: {
-    marginTop: 250,
+    marginTop: 50,
     justifyContent: "space-between",
     flexDirection: "row",
     paddingHorizontal: 10,
