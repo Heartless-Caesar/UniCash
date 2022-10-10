@@ -16,7 +16,9 @@ const Loja = (props) => {
       <View style={styles.lojaCol3}>
         <Pressable
           onPress={() => {
-            props.navigate.navigate("Details", { id: props.id });
+            props.navigate.navigate("Details", {
+              id: props.id,
+            });
           }}
         >
           <AntDesign name="right" size={24} color="black" />

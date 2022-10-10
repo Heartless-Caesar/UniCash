@@ -33,7 +33,6 @@ const CuponModal = (props) => {
           </View>
           {/* Items listing row */}
           <View>
-            {/* TODO: Implement a Flatlist with all the items contained in a cupon */}
             <FlatGrid
               data={modalData}
               itemDimension={50}

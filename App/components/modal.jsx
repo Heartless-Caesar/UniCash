@@ -10,6 +10,7 @@ import {
   FlatList,
   TextInput,
 } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome5";
 import { FlatGrid } from "react-native-super-grid";
 import products from "../assets/data/produtos";
 const CuponModal = () => {
@@ -17,7 +18,21 @@ const CuponModal = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [secondModalVisible, setSecondModalVisible] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
-  const [number, setNumber] = useState(0);
+
+  const updateQuantity = (index, operator) => {
+    const novosItens = [...selectedItems];
+
+    if (operator === "add") {
+      novosItens[index].quantity++;
+    }
+    if (operator === "subtract") {
+      if (novosItens[index].quantity == 0) return;
+
+      novosItens[index].quantity--;
+    }
+
+    setSelectedItems(novosItens);
+  };
 
   const toggleSelect = (item) => {
     if (item.selected) {
@@ -92,16 +107,27 @@ const CuponModal = () => {
             />
             <View style={styles.buttonContainer}>
               <Pressable
-                style={[styles.button, styles.buttonClose, { marginRight: 20 }]}
+                style={[
+                  styles.button,
+                  styles.buttonClose,
+                  { marginRight: 20, backgroundColor: "#757575" },
+                ]}
                 onPress={() => setModalVisible(!modalVisible)}
               >
                 <Text style={styles.textStyle}>Cancelar</Text>
               </Pressable>
               <Pressable
-                style={[styles.button, styles.buttonClose]}
+                style={{
+                  padding: 10,
+                  backgroundColor: "#43A047",
+                  borderRadius: 5,
+                  width: 150,
+                }}
                 onPress={() => modalForward()}
               >
-                <Text style={styles.textStyle}>Próximo</Text>
+                <Text style={{ color: "#f5f5f5", textAlign: "center" }}>
+                  Próximo
+                </Text>
               </Pressable>
             </View>
           </View>
@@ -113,8 +139,50 @@ const CuponModal = () => {
         visible={secondModalVisible}
       >
         <View style={styles.centeredViewInner}>
+          <View
+            style={{
+              flexDirection: "row",
+              borderWidth: 1,
+              borderColor: "#f5f5f5",
+              borderTopStartRadius: 5,
+              borderTopEndRadius: 5,
+              borderBottomColor: "#cccccc",
+            }}
+          >
+            {/* Nome da loja */}
+            <View style={{ padding: 10 }}>
+              <Text style={{ fontSize: 20, color: "#616161" }}>UniCafé</Text>
+            </View>
+            {/* Classificação & Localização */}
+            <View style={{ padding: 10, flexDirection: "column" }}>
+              <Text style={{ color: "#757575" }}>Cafeteria</Text>
+              <Text style={{ color: "#757575" }}>Bloco H - Piso 2</Text>
+            </View>
+            {/* Valor total do cupom */}
+            <View
+              style={{
+                padding: 10,
+                flexDirection: "row",
+                marginTop: 10,
+              }}
+            >
+              <Icon
+                name="horse-head"
+                size={20}
+                style={{ marginTop: 2, marginLeft: 15, marginRight: 5 }}
+              />
+              <Text style={{ fontSize: 20, fontWeight: "bold" }}>100</Text>
+            </View>
+          </View>
           <View style={styles.list}>
+            <View style={{ padding: 10 }}>
+              <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+                Selecione os itens
+              </Text>
+            </View>
+            <View style={{ padding: 10 }}></View>
             <FlatList
+              style={{ maxHeight: 375 }}
               data={selectedItems}
               renderItem={(itemData) => {
                 return (
@@ -126,30 +194,77 @@ const CuponModal = () => {
                       />
                     </View>
                     <View style={styles.col2}>
-                      <Text>{itemData.item.name}</Text>
-                      <Text style={styles.listText}>{itemData.item.price}</Text>
+                      <Text
+                        style={[
+                          styles.listText,
+                          { lineHeight: 20, fontWeight: "bold" },
+                        ]}
+                      >
+                        {itemData.item.name}
+                      </Text>
+
+                      <Text
+                        style={[
+                          styles.listText,
+                          { lineHeight: 20, fontWeight: "bold" },
+                        ]}
+                      >
+                        <Icon name="horse-head" style={{ marginRight: 10 }} />{" "}
+                        {itemData.item.price}
+                      </Text>
                     </View>
                     <View style={styles.col3}>
-                      <TextInput
-                        placeholder="0"
-                        value={number}
-                        style={styles.input}
-                        keyboardType="numeric"
-                      />
+                      <Pressable
+                        onPress={() => {
+                          updateQuantity(itemData.index, "add");
+                        }}
+                      >
+                        <Icon name="plus" style={styles.icons} />
+                      </Pressable>
+                      <View
+                        style={{
+                          backgroundColor: "#BDBDBD",
+                          width: 50,
+                          padding: 10,
+                          borderRadius: 5,
+                          marginLeft: 5,
+                          marginRight: 5,
+                        }}
+                      >
+                        <Text style={{ textAlign: "center" }}>
+                          {itemData.item.quantity}
+                        </Text>
+                      </View>
+                      <Pressable
+                        onPress={() => {
+                          updateQuantity(itemData.index, "subtract");
+                        }}
+                      >
+                        <Icon name="minus" style={styles.icons} />
+                      </Pressable>
                     </View>
                   </View>
                 );
               }}
             />
-            <View style={styles.buttonContainer}>
+            <View style={[styles.buttonContainer]}>
               <Pressable
-                style={[styles.button, styles.buttonClose, { marginRight: 20 }]}
+                style={[
+                  styles.button,
+                  { backgroundColor: "#757575", padding: 10, marginRight: 30 },
+                ]}
                 onPress={() => modalBack()}
               >
-                <Text style={styles.textStyle}>Voltar</Text>
+                <Text style={{ color: "#f5f5f5", textAlign: "center" }}>
+                  Cancelar
+                </Text>
               </Pressable>
               <Pressable
-                style={[styles.button, styles.buttonClose]}
+                style={[
+                  styles.button,
+                  styles.buttonClose,
+                  { backgroundColor: "#4CAF50" },
+                ]}
                 onPress={() => criarCupom()}
               >
                 <Text style={styles.textStyle}>Criar cupom</Text>
@@ -180,11 +295,13 @@ const styles = StyleSheet.create({
   centeredViewInner: {
     flex: 1,
     flexDirection: "row",
+    flexWrap: "wrap",
     borderRadius: 5,
     backgroundColor: "#f5f5f5",
     marginHorizontal: 10,
     marginBottom: 5,
     marginTop: 10,
+
     // padding: 10,
   },
   modalView: {
@@ -206,6 +323,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-evenly",
     padding: 20,
+    //marginTop: 200,
   },
   button: {
     borderRadius: 5,
@@ -234,10 +352,7 @@ const styles = StyleSheet.create({
     width: 50,
     borderRadius: 5,
   },
-  listItem: {
-    justifyContent: "center",
-    padding: 5,
-  },
+  listItem: { padding: 10, justifyContent: "center" },
   secondlistItem: {
     display: "flex",
     flexDirection: "row",
@@ -251,10 +366,16 @@ const styles = StyleSheet.create({
   },
   col2: {
     flex: 2,
+    marginLeft: 20,
   },
   col3: {
-    flex: 1,
-    justifyContent: "center",
+    flex: 2,
+    padding: 5,
+    justifyContent: "space-between",
+    height: 50,
+    // borderWidth: 1,
+    // borderColor: "#000000",
+    flexDirection: "row",
     marginLeft: 10,
   },
   input: {
@@ -267,6 +388,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     justifyContent: "center",
   },
+  icons: { marginTop: 15 },
 });
 
 export default CuponModal;
