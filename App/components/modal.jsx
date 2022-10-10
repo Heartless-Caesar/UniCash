@@ -172,7 +172,7 @@ const CuponModal = () => {
                 size={20}
                 style={{ marginTop: 2, marginLeft: 15, marginRight: 5 }}
               />
-              <Text style={{ fontSize: 20, fontWeight: "bold" }}>100</Text>
+              <Text style={{ fontSize: 20, fontWeight: "bold" }}>- 100</Text>
             </View>
           </View>
           <View style={styles.list}>
