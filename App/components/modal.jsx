@@ -76,7 +76,7 @@ const CuponModal = () => {
           <View style={styles.list}>
             <FlatGrid
               itemDimension={50}
-              spacing={20}
+              spacing={15}
               data={selected}
               renderItem={(itemData) => {
                 return (
@@ -89,6 +89,7 @@ const CuponModal = () => {
                             ? "#66BB6A"
                             : "#f5f5f5",
                           borderRadius: itemData.item.selected ? 5 : 0,
+                          alignContent: "center",
                         },
                       ]}
                     >
@@ -352,7 +353,10 @@ const styles = StyleSheet.create({
     width: 50,
     borderRadius: 5,
   },
-  listItem: { padding: 10, justifyContent: "center" },
+  listItem: {
+    justifyContent: "center",
+    padding: 7,
+  },
   secondlistItem: {
     display: "flex",
     flexDirection: "row",
