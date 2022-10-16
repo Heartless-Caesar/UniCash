@@ -5,7 +5,6 @@ import Home from './Paginas/Home.js'
 import Details from './Paginas/Details.js'
 import Cupons from './components/cupons.jsx'
 import Lojas from './components/lojas.jsx'
-import NavigationTab from './components/navigationTab.jsx'
 
 export default function App() {
     const Stack = createStackNavigator()
@@ -35,7 +34,7 @@ export default function App() {
                     options={{ headerTitle: '' }}
                 />
             </Stack.Navigator>
-            <NavigationTab />
+            {/* {<NavigationTab />} */}
         </NavigationContainer>
     )
 }
