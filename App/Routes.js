@@ -44,7 +44,7 @@ function Routes() {
                         >
                             <Image
                                 source={require('../App/assets/Home.png')}    
-                                style={{ width: 23, height: 26 }}
+                                style={{ width: 25, height: 27 }}
                             />
                         </View>
                     ),
@@ -68,7 +68,7 @@ function Routes() {
                         >
                             <Image
                                 source={require('../App/assets/Extrato.png')}    
-                                style={{ width: 21, height: 26 }}
+                                style={{ width: 21, height: 27 }}
                             />
                         </View>
                     ),
