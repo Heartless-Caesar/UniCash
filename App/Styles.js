@@ -1,9 +1,12 @@
 import { StyleSheet } from "react-native";
 
 export const Global = StyleSheet.create({
-    container: {
-      backgroundColor: "D9D9D9",
+    iconeAtivo: {
+      flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
+      backgroundColor: "#941213",
+      padding: 20
+      //323F6E
     },
 });
