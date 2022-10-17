@@ -20,11 +20,9 @@ function Routes() {
                 tabBarStyle: {
                     position: 'absolute',
                     height: 80,
-                    backgroundColor: '#FFFFFF',
-                    borderTopWidth: 0,
-                    borderTopLeftRadius: 20,
-                    borderTopRightRadius: 20,
-                    padding: 10,
+                    backgroundColor: '#232D52',
+                    // borderTopLeftRadius: 4,
+                    // borderTopRightRadius: 4,
                 }
             }}
         >
@@ -38,25 +36,43 @@ function Routes() {
                                 flexDirection: "column",
                                 alignItems: "center",
                                 justifyContent: "center",
-                                backgroundColor: focused ? '#941213' : '#323F6E',
-                                height: 60,
-                                width: 60,
-                                borderRadius: 10
-                                //height: focused ? 140 : 60
+                                backgroundColor: focused ? '#17A7E0' : '#232D52',
+                                height: focused? 100 : 40,
+                                width: focused? 80 : 40,
+                                borderRadius: 4,
                             }}
                         >
                             <Image
-                                source={require('../App/assets/Home.png')}
+                                source={require('../App/assets/Home.png')}    
+                                style={{ width: 23, height: 26 }}
                             />
-                            <Text>Home</Text>
                         </View>
                     ),
-
                 }}
             />
             < Tab.Screen
                 name="Extrato"
                 component={Extrato}
+                options={{
+                    tabBarIcon: ({ focused }) => (
+                        <View
+                            style={{
+                                flexDirection: "column",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                backgroundColor: focused ? '#17A7E0' : '#232D52',
+                                height: focused? 100 : 40,
+                                width: focused? 80 : 40,
+                                borderRadius: 4,
+                            }}
+                        >
+                            <Image
+                                source={require('../App/assets/Extrato.png')}    
+                                style={{ width: 21, height: 26 }}
+                            />
+                        </View>
+                    ),
+                }}
             />
         </Tab.Navigator >
     );
