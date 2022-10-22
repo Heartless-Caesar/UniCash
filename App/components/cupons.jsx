@@ -25,16 +25,17 @@ const Cupons = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     Container: {
-        flex: 1,
+        flex: 4,
         backgroundColor: '#cccccc',
     },
     innerContainer: {
+        flex: 1,
         borderBottomEndRadius: 5,
         borderBottomStartRadius: 5,
         marginHorizontal: 10,
         padding: 10,
         backgroundColor: '#f5f5f5',
-        minHeight: 550,
+        //minHeight: 550,
         marginBottom: 10,
     },
 })
