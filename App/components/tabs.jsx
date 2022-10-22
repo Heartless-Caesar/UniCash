@@ -20,15 +20,17 @@ const Tabs = (props) => {
     }
 
     return (
-        <View style={styles.listContainer}>
-            <View style={styles.pressArea}>
+        <View style={styles.pressArea}>
+            <View style={styles.button1}>
                 <Pressable onPress={() => toggleShopsButtons()}>
-                    <View style={styles.button1}>
+                    <View>
                         <Text style={styles.buttonText1}>Estabelecimentos</Text>
                     </View>
                 </Pressable>
+            </View>
+            <View style={styles.button2}>
                 <Pressable onPress={() => toggleCuponButtons()}>
-                    <View style={styles.button2}>
+                    <View>
                         <Text style={styles.buttonText2}>Cupons ativos</Text>
                     </View>
                 </Pressable>
@@ -38,46 +40,36 @@ const Tabs = (props) => {
 }
 
 const styles = StyleSheet.create({
-    buttonsContainer: {
-        borderBottomColor: '#cccccc',
-        flexDirection: 'row',
-        marginHorizontal: 10,
-        textAlign: 'center',
-    },
     pressArea: {
+        flex: 2,
         borderWidth: 1,
-        borderBottomColor: '#cccccc',
         borderColor: '#cccccc',
+        borderBottomColor: '#cccccc',
         flexDirection: 'row',
-        justifyContent: 'center',
         marginHorizontal: 10,
-        marginTop: 15,
-    },
-    buttonText1: {
-        color: '#000000',
-        textAlign: 'center',
+        marginTop: 10,
+        maxHeight: 50,
     },
     button1: {
         borderTopLeftRadius: 5,
         backgroundColor: '#f5f5f5',
         borderColor: '#cccccc',
         padding: 15,
-        width: 170,
-    },
-    buttonText2: {
-        color: '#f5f5f5',
-        textAlign: 'center',
+        flex: 1,
     },
     button2: {
         borderTopRightRadius: 5,
         backgroundColor: '#800020',
         padding: 15,
-        width: 170,
-    },
-    listContainer: {
         flex: 1,
-        maxHeight: 70,
-        marginTop: 10,
+    },
+    buttonText1: {
+        color: '#000000',
+        textAlign: 'center',
+    },
+    buttonText2: {
+        color: '#f5f5f5',
+        textAlign: 'center',
     },
 })
 
@@ -86,26 +78,26 @@ const buttonTrue = {
     backgroundColor: '#f5f5f5',
     borderColor: '#cccccc',
     padding: 15,
-    width: 170,
+    flex: 1,
 }
 const buttonFalse = {
     borderTopLeftRadius: 5,
     backgroundColor: '#800020',
     padding: 15,
-    width: 170,
+    flex: 1,
 }
 
 const buttonTrue2 = {
     borderTopRightRadius: 5,
     backgroundColor: '#f5f5f5',
     padding: 15,
-    width: 170,
+    flex: 1,
 }
 const buttonFalse2 = {
     borderTopRightRadius: 5,
     backgroundColor: '#800020',
     padding: 15,
-    width: 170,
+    flex: 1,
 }
 
 const textTrue = {

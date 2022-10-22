@@ -30,7 +30,7 @@ const Lojas = ({ navigation }) => {
             <Tabs navigation={navigation} />
             <View
                 style={{
-                    flex: 1,
+                    flex: 5,
                     paddingBottom: 10,
                     borderBottomRightRadius: 5,
                     borderBottomLeftRadius: 5,
