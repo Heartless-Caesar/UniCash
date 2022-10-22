@@ -34,7 +34,6 @@ export default function App() {
                     options={{ headerTitle: '' }}
                 />
             </Stack.Navigator>
-            {/* {<NavigationTab />} */}
         </NavigationContainer>
     )
 }
