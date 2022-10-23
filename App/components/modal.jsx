@@ -36,7 +36,9 @@ const CuponModal = () => {
 
     const toggleSelect = (item) => {
         if (item.selected) {
-            setSelectedItems((res) => res.filter((e) => e.productId !== item.productId))
+            setSelectedItems((res) =>
+                res.filter((e) => e.productId !== item.productId)
+            )
         } else {
             setSelectedItems((res) => [...res, item])
         }
@@ -71,51 +73,77 @@ const CuponModal = () => {
 
     return (
         <>
+            {/* First modal */}
             <Modal
                 animationType="slide"
                 transparent={true}
                 visible={modalVisible}
             >
-                <View style={styles.centeredViewInner}>
-                    <View style={{ flex: 3, padding: 10 }}>
-                        <View style={{ flex: 1 }}>
+                <View
+                    style={{
+                        flex: 1,
+                        backgroundColor: '#f5f5f5',
+                        flexDirection: 'column',
+                    }}
+                >
+                    <View
+                        style={{
+                            flex: 4,
+                        }}
+                    >
+                        <View
+                            style={{
+                                flex: 3,
+                                flexDirection: 'row',
+                                flexWrap: 'wrap',
+                                maxWidth: 'fit-content',
+                                width: 'fit-content',
+                            }}
+                        >
                             <FlatGrid
                                 itemDimension={50}
                                 spacing={20}
                                 data={selected}
                                 renderItem={(itemData) => {
                                     return (
-                                        <Pressable
-                                            onPress={() =>
-                                                toggleSelect(itemData.item)
-                                            }
-                                        >
-                                            <View
-                                                style={{
-                                                    justifyContent: 'center',
-                                                    padding: 10,
-                                                    backgroundColor: itemData
-                                                        .item.selected
-                                                        ? '#66BB6A'
-                                                        : '#f5f5f5',
-                                                    borderRadius: itemData.item
-                                                        .selected
-                                                        ? 5
-                                                        : 0,
-                                                    maxWidth: 500,
-                                                }}
+                                        <View>
+                                            <Pressable
+                                                onPress={() =>
+                                                    toggleSelect(itemData.item)
+                                                }
                                             >
-                                                <Image
-                                                    source={{
-                                                        uri: itemData.item.iconUrl,
+                                                <View
+                                                    style={{
+                                                        justifyContent:
+                                                            'center',
+                                                        padding: 10,
+                                                        backgroundColor:
+                                                            itemData.item
+                                                                .selected
+                                                                ? '#66BB6A'
+                                                                : '#f5f5f5',
+                                                        borderRadius: itemData
+                                                            .item.selected
+                                                            ? 5
+                                                            : 0,
+                                                        maxWidth: 500,
                                                     }}
-                                                    style={styles.image}
-                                                />
-                                                <Text style={styles.listText}>
-                                                    {itemData.item.price}
-                                                </Text>
-                                            </View>
-                                        </Pressable>
+                                                >
+                                                    <Image
+                                                        source={{
+                                                            uri: itemData.item
+                                                                .icon,
+                                                        }}
+                                                        style={styles.image}
+                                                    />
+                                                    <Text
+                                                        style={styles.listText}
+                                                    >
+                                                        {itemData.item.price}
+                                                    </Text>
+                                                </View>
+                                            </Pressable>
+                                        </View>
                                     )
                                 }}
                                 keyExtractor={(item, index) => {
@@ -123,12 +151,14 @@ const CuponModal = () => {
                                 }}
                             />
                         </View>
+
+                        {/* BUTTON CONTAINER */}
                         <View
                             style={[
                                 styles.buttonContainer,
                                 {
                                     flex: 1,
-                                    maxHeight: 'fit-content',
+                                    alignItems: 'center',
                                 },
                             ]}
                         >
@@ -139,9 +169,8 @@ const CuponModal = () => {
                                     {
                                         padding: '5%',
                                         marginRight: '10%',
-                                        paddingBottom: '5%',
+                                        paddingBottom: '10%',
                                         backgroundColor: '#757575',
-                                        maxHeight: '15%',
                                     },
                                 ]}
                                 onPress={() => setModalVisible(!modalVisible)}
@@ -151,12 +180,10 @@ const CuponModal = () => {
                             <Pressable
                                 style={[
                                     styles.button,
+
                                     {
                                         backgroundColor: '#43A047',
-                                        borderRadius: 5,
-                                        padding: '5%',
-                                        paddingBottom: '5%',
-                                        maxHeight: '15%',
+                                        paddingBottom: '10%',
                                     },
                                 ]}
                                 onPress={() => modalForward()}
@@ -174,6 +201,8 @@ const CuponModal = () => {
                     </View>
                 </View>
             </Modal>
+
+            {/* SECOND MODAL */}
             <Modal
                 animationType="slide"
                 transparent={true}
@@ -231,107 +260,116 @@ const CuponModal = () => {
                             </Text>
                         </View>
                     </View>
-                    <View style={styles.list}>
+                    <View style={[styles.list, { flex: 4 }]}>
                         <View style={{ padding: 10 }}>
                             <Text style={{ fontSize: 20, fontWeight: 'bold' }}>
                                 Selecione os itens
                             </Text>
                         </View>
-
-                        <FlatList
-                            style={{ maxHeight: 375 }}
-                            data={selectedItems}
-                            renderItem={(itemData) => {
-                                return (
-                                    <View style={styles.secondlistItem}>
-                                        <View style={styles.col1}>
-                                            <Image
-                                                source={{
-                                                    uri: itemData.item.iconUrl,
-                                                }}
-                                                style={styles.image}
-                                            />
-                                        </View>
-                                        <View style={styles.col2}>
-                                            <Text
-                                                style={[
-                                                    styles.listText,
-                                                    {
-                                                        lineHeight: 20,
-                                                        fontWeight: 'bold',
-                                                    },
-                                                ]}
-                                            >
-                                                {itemData.item.name}
-                                            </Text>
-
-                                            <Text
-                                                style={[
-                                                    styles.listText,
-                                                    {
-                                                        lineHeight: 20,
-                                                        fontWeight: 'bold',
-                                                    },
-                                                ]}
-                                            >
-                                                <Icon
-                                                    name="horse-head"
-                                                    style={{ marginRight: 10 }}
-                                                />{' '}
-                                                {itemData.item.price}
-                                            </Text>
-                                        </View>
-                                        <View style={styles.col3}>
-                                            <Pressable
-                                                onPress={() => {
-                                                    updateQuantity(
-                                                        itemData.index,
-                                                        'add'
-                                                    )
-                                                }}
-                                            >
-                                                <Icon
-                                                    name="plus"
-                                                    style={styles.icons}
-                                                />
-                                            </Pressable>
-                                            <View
-                                                style={{
-                                                    backgroundColor: '#BDBDBD',
-                                                    width: 50,
-                                                    padding: 10,
-                                                    borderRadius: 5,
-                                                    marginLeft: 5,
-                                                    marginRight: 5,
-                                                }}
-                                            >
-                                                <Text
-                                                    style={{
-                                                        textAlign: 'center',
+                        <View style={{ flex: 3 }}>
+                            <FlatList
+                                style={{ maxHeight: 375 }}
+                                data={selectedItems}
+                                renderItem={(itemData) => {
+                                    return (
+                                        <View style={styles.secondlistItem}>
+                                            <View style={styles.col1}>
+                                                <Image
+                                                    source={{
+                                                        uri: itemData.item.icon,
                                                     }}
+                                                    style={styles.image}
+                                                />
+                                            </View>
+                                            <View style={styles.col2}>
+                                                <Text
+                                                    style={[
+                                                        styles.listText,
+                                                        {
+                                                            lineHeight: 20,
+                                                            fontWeight: 'bold',
+                                                        },
+                                                    ]}
                                                 >
-                                                    {itemData.item.quantity}
+                                                    {itemData.item.name}
+                                                </Text>
+
+                                                <Text
+                                                    style={[
+                                                        styles.listText,
+                                                        {
+                                                            lineHeight: 20,
+                                                            fontWeight: 'bold',
+                                                        },
+                                                    ]}
+                                                >
+                                                    <Icon
+                                                        name="horse-head"
+                                                        style={{
+                                                            marginRight: 10,
+                                                        }}
+                                                    />{' '}
+                                                    {itemData.item.price}
                                                 </Text>
                                             </View>
-                                            <Pressable
-                                                onPress={() => {
-                                                    updateQuantity(
-                                                        itemData.index,
-                                                        'subtract'
-                                                    )
-                                                }}
-                                            >
-                                                <Icon
-                                                    name="minus"
-                                                    style={styles.icons}
-                                                />
-                                            </Pressable>
+                                            <View style={styles.col3}>
+                                                <Pressable
+                                                    onPress={() => {
+                                                        updateQuantity(
+                                                            itemData.index,
+                                                            'add'
+                                                        )
+                                                    }}
+                                                >
+                                                    <Icon
+                                                        name="plus"
+                                                        style={styles.icons}
+                                                    />
+                                                </Pressable>
+                                                <View
+                                                    style={{
+                                                        backgroundColor:
+                                                            '#BDBDBD',
+                                                        width: 50,
+                                                        padding: 10,
+                                                        borderRadius: 5,
+                                                        marginLeft: 5,
+                                                        marginRight: 5,
+                                                    }}
+                                                >
+                                                    <Text
+                                                        style={{
+                                                            textAlign: 'center',
+                                                        }}
+                                                    >
+                                                        {itemData.item.quantity}
+                                                    </Text>
+                                                </View>
+                                                <Pressable
+                                                    onPress={() => {
+                                                        updateQuantity(
+                                                            itemData.index,
+                                                            'subtract'
+                                                        )
+                                                    }}
+                                                >
+                                                    <Icon
+                                                        name="minus"
+                                                        style={styles.icons}
+                                                    />
+                                                </Pressable>
+                                            </View>
                                         </View>
-                                    </View>
-                                )
-                            }}
-                        />
-                        <View style={[styles.buttonContainer, { flex: 1 }]}>
+                                    )
+                                }}
+                            />
+                        </View>
+                        <View
+                            style={[
+                                styles.buttonContainer,
+                                { flex: 1, alignItems: 'center' },
+                            ]}
+                        >
                             <Pressable
                                 style={[
                                     styles.button,
@@ -384,12 +422,12 @@ const CuponModal = () => {
 
 const styles = StyleSheet.create({
     centeredView: {
-        flex: 1,
+        flex: 4,
         backgroundColor: '#f5f5f5',
-        marginTop: 20,
-        marginHorizontal: 10,
-        marginBottom: 5,
-        flexDirection: 'row',
+        //marginTop: 20,
+        //marginHorizontal: 10,
+        //marginBottom: 5,
+        flexDirection: 'column',
     },
     centeredViewInner: {
         flex: 1,
@@ -420,7 +458,7 @@ const styles = StyleSheet.create({
     buttonContainer: {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        height: 'fit-content',
+        //height: 'fit-content',
         marginTop: '40%',
     },
     button: {
