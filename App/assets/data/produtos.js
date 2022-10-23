@@ -1,3 +1,5 @@
+// TODO: trocar produto para ficar no modelo da api
+
 const produtos = [
   {
     createdAt: "2022-09-04T02:59:28.727Z",
@@ -270,6 +272,45 @@ const produtos = [
     selected: false,
     quantity: 0,
   },
+  {
+    createdAt: "2022-09-04T11:13:27.738Z",
+    name: "Unbranded Granite Pants",
+    icon: "http://loremflickr.com/640/480/animals",
+    price: "887.00",
+    description:
+      "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+    category: "Automotive",
+    id: "39",
+    shopId: "1",
+    selected: false,
+    quantity: 0,
+  },
+  {
+    createdAt: "2022-09-04T11:13:27.738Z",
+    name: "jonas Granite Pants",
+    icon: "http://loremflickr.com/640/480/animals",
+    price: "887.00",
+    description:
+      "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+    category: "Automotive",
+    id: "40",
+    shopId: "1",
+    selected: false,
+    quantity: 0,
+  },
+  {
+    createdAt: "2022-09-04T11:13:27.738Z",
+    name: "janeiro Granite Pants",
+    icon: "http://loremflickr.com/640/480/animals",
+    price: "887.00",
+    description:
+      "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+    category: "Automotive",
+    id: "41",
+    shopId: "1",
+    selected: false,
+    quantity: 0,
+  }
 ];
 
 export default produtos;
