@@ -1,18 +1,18 @@
 //TODO : Implement store details page with their products catalog
 import {
-  View,
-  Text,
-  StyleSheet,
-  Pressable,
-  FlatList,
-  Image,
-} from "react-native";
-import { AntDesign } from "@expo/vector-icons";
-import products from "../assets/data/produtos";
-import React, { useState } from "react";
-import Tabs from "../components/tabs";
-import Product from "../components/product";
-import CuponModal from "../components/modal/modal";
+    View,
+    Text,
+    StyleSheet,
+    Pressable,
+    FlatList,
+    Image,
+} from 'react-native'
+import { AntDesign } from '@expo/vector-icons'
+import products from '../assets/data/produtos'
+import React, { useState } from 'react'
+import Tabs from '../components/tabs'
+import Product from '../components/product'
+import CuponModal from '../components/modal/modal'
 
 const Details = ({ route, navigation }) => {
     const [shops, setShops] = useState(true)
@@ -63,13 +63,8 @@ const Details = ({ route, navigation }) => {
                     </View>
                     {/* Col 2 */}
                     <View style={styles.detailsContainerCol3}>
-                        <CuponModal id={id}/>
+                        <CuponModal id={id} />
                     </View>
-                </View>
-                <View style={styles.filters}>
-                    <Text style={styles.filtersText}>Filter 1</Text>
-                    <Text style={styles.filtersText}>Filter 2</Text>
-                    <Text style={styles.filtersText}>Filter 3</Text>
                 </View>
                 {/* Product catalog for a shop */}
                 <Product />

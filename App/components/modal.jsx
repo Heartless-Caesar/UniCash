@@ -165,9 +165,7 @@ const CuponModal = () => {
                             <Pressable
                                 style={[
                                     styles.button,
-
                                     {
-                                        padding: '5%',
                                         marginRight: '10%',
                                         paddingBottom: '10%',
                                         backgroundColor: '#757575',
@@ -180,7 +178,6 @@ const CuponModal = () => {
                             <Pressable
                                 style={[
                                     styles.button,
-
                                     {
                                         backgroundColor: '#43A047',
                                         paddingBottom: '10%',
