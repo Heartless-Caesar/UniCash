@@ -30,7 +30,7 @@ const Lojas = ({ navigation }) => {
             <Tabs navigation={navigation} />
             <View
                 style={{
-                    flex: 5,
+                    flex: 1,
                     paddingBottom: 10,
                     borderBottomRightRadius: 5,
                     borderBottomLeftRadius: 5,
@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
         flex: 5,
         borderRadius: 5,
         backgroundColor: '#cccccc',
+        // padding: 10,
         paddingBottom: 10,
         borderBottomRightRadius: 5,
         borderBottomLeftRadius: 5,

@@ -41,13 +41,13 @@ const Tabs = (props) => {
 
 const styles = StyleSheet.create({
     pressArea: {
-        flex: 2,
+        flex: 1,
         borderWidth: 1,
         borderColor: '#cccccc',
         borderBottomColor: '#cccccc',
         flexDirection: 'row',
         marginHorizontal: 10,
-        marginTop: 10,
+        marginTop: 20,
         maxHeight: 50,
     },
     button1: {
