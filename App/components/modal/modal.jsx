@@ -46,12 +46,12 @@ const CuponModal = (props) => {
 
     const toggleSelect = (item) => {
         if (item.selected) {
-            setSelectedItems((res) => res.filter((e) => e.id !== item.id))
+            setSelectedItems((res) => res.filter((e) => e.productId !== item.productId))
         } else {
             setSelectedItems((res) => [...res, item])
         }
         const newArrData = selected.map((e) => {
-            if (e.id == item.id) {
+            if (e.productId == item.productId) {
                 return {
                     ...e,
                     selected: !e.selected,
@@ -127,7 +127,7 @@ const CuponModal = (props) => {
                                         >
                                             <Image
                                                 source={{
-                                                    uri: itemData.item.icon,
+                                                    uri: itemData.item.iconUrl,
                                                 }}
                                                 style={styles.image}
                                             />
@@ -146,7 +146,7 @@ const CuponModal = (props) => {
                                 )
                             }}
                             keyExtractor={(item, index) => {
-                                return item.id
+                                return item.productId
                             }}
                         />
                         <View style={styles.buttonContainer}>
@@ -257,7 +257,7 @@ const CuponModal = (props) => {
                                         <View style={styles.col1}>
                                             <Image
                                                 source={{
-                                                    uri: itemData.item.icon,
+                                                    uri: itemData.item.iconUrl,
                                                 }}
                                                 style={styles.image}
                                             />

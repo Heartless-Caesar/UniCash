@@ -14,7 +14,7 @@ const Product = () => {
                     return (
                         <View style={styles.listItem}>
                             <Image
-                                source={{ uri: itemData.item.icon }}
+                                source={{ uri: itemData.item.iconUrl }}
                                 style={styles.image}
                             />
                             <Text style={styles.listText}>
@@ -24,7 +24,7 @@ const Product = () => {
                     )
                 }}
                 keyExtractor={(item, index) => {
-                    return item.id
+                    return item.productId
                 }}
             />
         </View>
