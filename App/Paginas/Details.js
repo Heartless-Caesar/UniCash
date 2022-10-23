@@ -1,6 +1,5 @@
 //TODO : Implement store details page with their products catalog
 import {
-<<<<<<< HEAD
   View,
   Text,
   StyleSheet,
@@ -14,21 +13,6 @@ import React, { useState } from "react";
 import Tabs from "../components/tabs";
 import Product from "../components/product";
 import CuponModal from "../components/modal/modal";
-=======
-    View,
-    Text,
-    StyleSheet,
-    Pressable,
-    FlatList,
-    Image,
-} from 'react-native'
-import { AntDesign } from '@expo/vector-icons'
-import products from '../assets/data/produtos'
-import React, { useState } from 'react'
-import Tabs from '../components/tabs'
-import Product from '../components/product'
-import CuponModal from '../components/modal'
->>>>>>> caesar-main
 
 const Details = ({ route, navigation }) => {
     const [shops, setShops] = useState(true)
@@ -79,7 +63,7 @@ const Details = ({ route, navigation }) => {
                     </View>
                     {/* Col 2 */}
                     <View style={styles.detailsContainerCol3}>
-                        <CuponModal />
+                        <CuponModal id={id}/>
                     </View>
                 </View>
                 <View style={styles.filters}>
@@ -91,36 +75,8 @@ const Details = ({ route, navigation }) => {
                 <Product />
             </View>
         </View>
-<<<<<<< HEAD
-        {/* Col 1*/}
-        <View style={styles.detailsContainer}>
-          <View style={styles.detailsContainerCol1}>
-            <Text>UniShop</Text>
-          </View>
-          <View style={styles.detailsContainerCol2}>
-            <Text>Loja</Text>
-            <Text>Bloco A</Text>
-          </View>
-          {/* Col 2 */}
-          <View style={styles.detailsContainerCol3}>
-            <CuponModal id={id}/>
-          </View>
-        </View>
-        <View style={styles.filters}>
-          <Text style={styles.filtersText}>Filter 1</Text>
-          <Text style={styles.filtersText}>Filter 2</Text>
-          <Text style={styles.filtersText}>Filter 3</Text>
-        </View>
-        {/* Product catalog for a shop */}
-        <Product />
-      </View>
-    </View>
-  );
-};
-=======
     )
 }
->>>>>>> caesar-main
 
 const styles = StyleSheet.create({
     Container: {

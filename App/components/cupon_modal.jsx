@@ -155,45 +155,10 @@ const CuponModal = (props) => {
                         )}
                     </View>
                 </View>
-<<<<<<< HEAD
-              </Pressable>
-            ) : (
-              <Pressable>
-                <View
-
-                  style={{
-                    padding: 10,
-                    width: 100,
-                    borderWidth: 1,
-                    borderColor: "#800020",
-                    borderRadius: 5,
-                    backgroundColor: "#800020",
-                    color: "#f5f5f5",
-                  }}
-                >
-                  <Text
-                    style={{
-                      color: "#f5f5f5",
-                      textAlign: "center",
-                    }}
-                  >
-                    Excluir
-                  </Text>
-                </View>
-              </Pressable>
-            )}
-          </View>
-        </View>
-      </Modal>
-    </>
-  );
-};
-=======
             </Modal>
         </>
     )
 }
->>>>>>> caesar-main
 
 const styles = StyleSheet.create({
     centeredViewInner: {
