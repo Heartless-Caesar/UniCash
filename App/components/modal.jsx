@@ -78,7 +78,7 @@ const CuponModal = () => {
             >
                 <View style={styles.centeredViewInner}>
                     <View style={{ flex: 3, padding: 10 }}>
-                        <View style={{ flex: 2 }}>
+                        <View style={{ flex: 1 }}>
                             <FlatGrid
                                 itemDimension={50}
                                 spacing={20}
@@ -139,8 +139,9 @@ const CuponModal = () => {
                                     {
                                         padding: '5%',
                                         marginRight: '10%',
-                                        paddingBottom: '10%',
+                                        paddingBottom: '5%',
                                         backgroundColor: '#757575',
+                                        maxHeight: '15%',
                                     },
                                 ]}
                                 onPress={() => setModalVisible(!modalVisible)}
@@ -154,7 +155,8 @@ const CuponModal = () => {
                                         backgroundColor: '#43A047',
                                         borderRadius: 5,
                                         padding: '5%',
-                                        paddingBottom: '10%',
+                                        paddingBottom: '5%',
+                                        maxHeight: '15%',
                                     },
                                 ]}
                                 onPress={() => modalForward()}
@@ -354,7 +356,7 @@ const CuponModal = () => {
                             <Pressable
                                 style={[
                                     styles.button,
-                                    styles.buttonClose,
+
                                     {
                                         backgroundColor: '#4CAF50',
                                         paddingBottom: '10%',
@@ -398,7 +400,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
         marginBottom: 5,
         marginTop: 10,
-
         padding: 10,
     },
     modalView: {
