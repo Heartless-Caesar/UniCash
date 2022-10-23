@@ -371,7 +371,7 @@ const CuponModal = (props) => {
                                 onPress={() => criarCupom()}
                             >
                                 <Text style={styles.textStyle}>
-                                    Criar cupom
+                                    Criar pedido
                                 </Text>
                             </Pressable>
                         </View>
