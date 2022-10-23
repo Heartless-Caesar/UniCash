@@ -113,6 +113,7 @@ const CuponModal = (props) => {
             ) : (
               <Pressable>
                 <View
+
                   style={{
                     padding: 10,
                     width: 100,
