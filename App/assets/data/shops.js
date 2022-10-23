@@ -1,0 +1,73 @@
+const shops = [
+  {
+    name: "Lebsack Inc",
+    category: "Health",
+    icon: "http://loremflickr.com/640/480/business",
+    adress: "99786 Corwin Lodge",
+    id: "1",
+  },
+  {
+    name: "McClure - Toy",
+    category: "Garden",
+    icon: "http://loremflickr.com/640/480/people",
+    adress: "832 Carter Fort",
+    id: "2",
+  },
+  {
+    name: "Gulgowski Inc",
+    category: "Movies",
+    icon: "http://loremflickr.com/640/480/people",
+    adress: "492 Donato Causeway",
+    id: "3",
+  },
+  {
+    name: "Wunsch, Rodriguez and Thiel",
+    category: "Computers",
+    icon: "http://loremflickr.com/640/480/nature",
+    adress: "04087 Bauch Manors",
+    id: "4",
+  },
+  {
+    name: "Shanahan - Murphy",
+    category: "Health",
+    icon: "http://loremflickr.com/640/480/people",
+    adress: "4533 Orn Junction",
+    id: "5",
+  },
+  {
+    name: "Kling - Wintheiser",
+    category: "Clothing",
+    icon: "http://loremflickr.com/640/480/technics",
+    adress: "073 Demetrius Port",
+    id: "6",
+  },
+  {
+    name: "Sipes - Franecki",
+    category: "Jewelery",
+    icon: "http://loremflickr.com/640/480/animals",
+    adress: "8023 Crona Mountains",
+    id: "7",
+  },
+  {
+    name: "Stoltenberg LLC",
+    category: "Shoes",
+    icon: "http://loremflickr.com/640/480/transport",
+    adress: "50364 Rath Cape",
+    id: "8",
+  },
+  {
+    name: "Nader, Wilderman and Strosin",
+    category: "Movies",
+    icon: "http://loremflickr.com/640/480/technics",
+    adress: "3877 Oberbrunner Cliff",
+    id: "9",
+  },
+  {
+    name: "Walter, Fahey and Jakubowski",
+    category: "Music",
+    icon: "http://loremflickr.com/640/480/abstract",
+    adress: "9347 Alanis Haven",
+    id: "10",
+  },
+];
+export default shops;
