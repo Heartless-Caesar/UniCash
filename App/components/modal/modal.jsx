@@ -46,7 +46,9 @@ const CuponModal = (props) => {
 
     const toggleSelect = (item) => {
         if (item.selected) {
-            setSelectedItems((res) => res.filter((e) => e.productId !== item.productId))
+            setSelectedItems((res) =>
+                res.filter((e) => e.productId !== item.productId)
+            )
         } else {
             setSelectedItems((res) => [...res, item])
         }
@@ -87,7 +89,6 @@ const CuponModal = (props) => {
 
         setSecondModalVisible(false)
         setSelectedItems([])
-
     }
 
     return (
@@ -97,23 +98,38 @@ const CuponModal = (props) => {
                 transparent={true}
                 visible={modalVisible}
             >
-                <View style={styles.centeredViewInner}>
-                    <View style={styles.list}>
-                        <FlatGrid
-                            itemDimension={70}
-                            spacing={15}
-                            data={selected}
-                            renderItem={(itemData) => {
-                                return (
-                                    <Pressable
-                                        onPress={() =>
-                                            toggleSelect(itemData.item)
-                                        }
-                                    >
-                                        <View
-                                            style={[
-                                                styles.listItem,
-                                                {
+                <View
+                    style={{
+                        flex: 1,
+                        backgroundColor: '#f5f5f5',
+                        flexDirection: 'column',
+                    }}
+                >
+                    <View
+                        style={{
+                            flex: 4,
+                        }}
+                    >
+                        <View
+                            style={{
+                                flex: 4,
+                            }}
+                        >
+                            <FlatGrid
+                                itemDimension={70}
+                                spacing={20}
+                                data={selected}
+                                renderItem={(itemData) => {
+                                    return (
+                                        <Pressable
+                                            onPress={() =>
+                                                toggleSelect(itemData.item)
+                                            }
+                                        >
+                                            <View
+                                                style={{
+                                                    justifyContent: 'center',
+                                                    padding: 10,
                                                     backgroundColor: itemData
                                                         .item.selected
                                                         ? '#66BB6A'
@@ -122,47 +138,65 @@ const CuponModal = (props) => {
                                                         .selected
                                                         ? 5
                                                         : 0,
-                                                },
-                                            ]}
-                                        >
-                                            <Image
-                                                source={{
-                                                    uri: itemData.item.iconUrl,
+                                                    maxWidth: 500,
                                                 }}
-                                                style={styles.image}
-                                            />
-                                            <Text style={styles.listText}>
-                                                {
-                                                    itemData.item.name.split(
-                                                        ' '
-                                                    )[0]
-                                                }
-                                            </Text>
-                                            <Text style={styles.listText}>
-                                                {itemData.item.price}
-                                            </Text>
-                                        </View>
-                                    </Pressable>
-                                )
-                            }}
-                            keyExtractor={(item, index) => {
-                                return item.productId
-                            }}
-                        />
-                        <View style={styles.buttonContainer}>
+                                            >
+                                                <Image
+                                                    source={{
+                                                        uri: itemData.item
+                                                            .iconUrl,
+                                                    }}
+                                                    style={styles.image}
+                                                />
+                                                <Text style={styles.listText}>
+                                                    {
+                                                        itemData.item.name.split(
+                                                            ' '
+                                                        )[0]
+                                                    }
+                                                </Text>
+                                                <Text style={styles.listText}>
+                                                    {itemData.item.price}
+                                                </Text>
+                                            </View>
+                                        </Pressable>
+                                    )
+                                }}
+                                keyExtractor={(item, index) => {
+                                    return item.productId
+                                }}
+                            />
+                        </View>
+                        <View
+                            style={[
+                                styles.buttonContainer,
+                                {
+                                    flex: 1,
+                                    alignItems: 'center',
+                                },
+                            ]}
+                        >
                             <Pressable
-                                style={[
-                                    styles.button,
-                                    styles.buttonClose,
-                                    // cor do botão - cinza
-                                    {
-                                        marginRight: 20,
-                                        backgroundColor: '#757575',
-                                    },
-                                ]}
+                                style={{
+                                    padding: 10,
+                                    backgroundColor: '#757575',
+                                    borderRadius: 5,
+                                    width: 150,
+                                }}
                                 onPress={() => setModalVisible(!modalVisible)}
                             >
-                                <Text style={styles.textStyle}>Cancelar</Text>
+                                <Text
+                                    style={[
+                                        styles.button,
+
+                                        {
+                                            color: '#f5f5f5',
+                                            textAlign: 'center',
+                                        },
+                                    ]}
+                                >
+                                    Cancelar
+                                </Text>
                             </Pressable>
                             <Pressable
                                 style={{
@@ -174,10 +208,14 @@ const CuponModal = (props) => {
                                 onPress={() => modalForward()}
                             >
                                 <Text
-                                    style={{
-                                        color: '#f5f5f5',
-                                        textAlign: 'center',
-                                    }}
+                                    style={[
+                                        styles.button,
+
+                                        {
+                                            color: '#f5f5f5',
+                                            textAlign: 'center',
+                                        },
+                                    ]}
                                 >
                                     Próximo
                                 </Text>
@@ -186,14 +224,20 @@ const CuponModal = (props) => {
                     </View>
                 </View>
             </Modal>
-
+            {/* SECOND MODAL */}
             <Modal
                 animationType="slide"
                 transparent={true}
                 visible={secondModalVisible}
                 // aqui
             >
-                <View style={styles.centeredViewInner}>
+                <View
+                    style={{
+                        flex: 1,
+                        backgroundColor: '#f5f5f5',
+                        flexDirection: 'column',
+                    }}
+                >
                     <View
                         style={{
                             flexDirection: 'row',
@@ -341,7 +385,15 @@ const CuponModal = (props) => {
                                 )
                             }}
                         />
-                        <View style={[styles.buttonContainer]}>
+                        <View
+                            style={[
+                                styles.buttonContainer,
+                                {
+                                    flex: 1,
+                                    alignItems: 'center',
+                                },
+                            ]}
+                        >
                             <Pressable
                                 style={[
                                     styles.button,
@@ -426,15 +478,13 @@ const styles = StyleSheet.create({
     buttonContainer: {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        padding: 20,
-        //marginTop: 200,
+        //height: 'fit-content',
+        marginTop: '40%',
     },
     button: {
         borderRadius: 5,
-        height: 50,
-        width: 150,
-        padding: 10,
-        elevation: 2,
+        padding: '5%',
+        height: '20%',
     },
     buttonOpen: {
         backgroundColor: '#800020',
