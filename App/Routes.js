@@ -3,6 +3,7 @@ import {
     StyleSheet,
     View,
     Image,
+    TouchableOpacity,
     Text
 } from "react-native";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -30,6 +31,7 @@ function Routes() {
                 name="Home"
                 component={Home}
                 options={{
+                    headerShown: false,
                     tabBarIcon: ({ focused }) => (
                         <View
                             style={{
@@ -37,13 +39,13 @@ function Routes() {
                                 alignItems: "center",
                                 justifyContent: "center",
                                 backgroundColor: focused ? '#17A7E0' : '#232D52',
-                                height: focused? 100 : 40,
-                                width: focused? 80 : 40,
+                                height: focused ? 100 : 40,
+                                width: focused ? 80 : 40,
                                 borderRadius: 4,
                             }}
                         >
                             <Image
-                                source={require('../App/assets/Home.png')}    
+                                source={require('../App/assets/Home.png')}
                                 style={{ width: 25, height: 27 }}
                             />
                         </View>
@@ -54,6 +56,25 @@ function Routes() {
                 name="Extrato"
                 component={Extrato}
                 options={{
+                    //headerShown: false,
+                    headerStyle: {
+                        backgroundColor: "#232D53",
+                    },
+                    headerTitleStyle: {
+                        fontWeight: "400",
+                      },
+                    headerTintColor: "#FFFFFF", //Cor do titulo do header.
+                    headerTitleAlign: "center", //alinhamento do titulo do header.
+                    headerRight: () => (
+                        <TouchableOpacity
+                            style={styles.icone}
+                        >
+                            <Image
+                                source={require('../App/assets/Export.png')}
+                                style={{ width: 20, height: 20 }}
+                            />
+                        </TouchableOpacity>
+                      ), //Botão direito do header.
                     tabBarIcon: ({ focused }) => (
                         <View
                             style={{
@@ -61,13 +82,13 @@ function Routes() {
                                 alignItems: "center",
                                 justifyContent: "center",
                                 backgroundColor: focused ? '#17A7E0' : '#232D52',
-                                height: focused? 100 : 40,
-                                width: focused? 80 : 40,
+                                height: focused ? 100 : 40,
+                                width: focused ? 80 : 40,
                                 borderRadius: 4,
                             }}
                         >
                             <Image
-                                source={require('../App/assets/Extrato.png')}    
+                                source={require('../App/assets/Extrato.png')}
                                 style={{ width: 21, height: 27 }}
                             />
                         </View>
@@ -76,4 +97,10 @@ function Routes() {
             />
         </Tab.Navigator >
     );
-} export default Routes;
+}
+const styles = StyleSheet.create({
+    icone: {
+        margin: 20
+    }
+});
+export default Routes;
