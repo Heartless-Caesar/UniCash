@@ -112,28 +112,22 @@ const CuponModal = (props) => {
     }
 
     //APRESENTAR UMA MODAL COM BASE NA RESPOSTA DO BACK END
-    // TODO: integrate with backend
     const criarCupom = () => {
         const cupom = {
             shopId: shopId,
             products: selectedItems,
         }
-        console.log(cupom)
+        // console.log(cupom)
 
-        let response = postProducts(cupom).then((res) => {
-            //RETIRA A MODAL DE CRIACAO DO PEDIDO
-            setSecondModalVisible(false)
-
-            //SE A RESPOSTA FOI POSITIVA RENDERIZA O MODAL DE SUCESSO
-            res == 200 ? (
+        postProducts(cupom).then((res) => {
+            if (res.status === 200) {
                 <ModalSuccess visible={resModal} />
-            ) : (
-                <ModalFailure visible={resModal} message={res} />
-            )
-        })
-
-        setTotal(0)
-        setSelectedItems([])
+            } else {
+                <ModalFailure visible={resModal} message={res.message} />
+            }
+            setTotal(0)
+            setSelectedItems([])
+        });
     }
 
     return (
