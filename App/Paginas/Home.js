@@ -11,7 +11,6 @@ export default function Home({ navigation }) {
             <View
                 style={{
                     marginHorizontal: '10%',
-                    /*marginLeft: 80, height: 200, width: 200 */
                 }}
             >
                 <Button

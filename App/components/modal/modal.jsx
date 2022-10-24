@@ -395,14 +395,12 @@ const CuponModal = (props) => {
                             ]}
                         >
                             <Pressable
-                                style={[
-                                    styles.button,
-                                    {
-                                        backgroundColor: '#757575',
-                                        padding: 10,
-                                        marginRight: 30,
-                                    },
-                                ]}
+                                style={{
+                                    padding: 10,
+                                    backgroundColor: '#757575',
+                                    borderRadius: 5,
+                                    width: 150,
+                                }}
                                 onPress={() => modalBack()}
                             >
                                 <Text
@@ -415,11 +413,12 @@ const CuponModal = (props) => {
                                 </Text>
                             </Pressable>
                             <Pressable
-                                style={[
-                                    styles.button,
-                                    styles.buttonClose,
-                                    { backgroundColor: '#4CAF50' },
-                                ]}
+                                style={{
+                                    padding: 10,
+                                    backgroundColor: '#43A047',
+                                    borderRadius: 5,
+                                    width: 150,
+                                }}
                                 onPress={() => criarCupom()}
                             >
                                 <Text style={styles.textStyle}>
@@ -431,7 +430,12 @@ const CuponModal = (props) => {
                 </View>
             </Modal>
             <Pressable
-                style={[styles.button, styles.buttonOpen]}
+                style={{
+                    padding: 10,
+                    backgroundColor: '#800020',
+                    borderRadius: 5,
+                    width: 150,
+                }}
                 onPress={() => setModalVisible(true)}
             >
                 <Text style={styles.textStyle}>Criar Cupom</Text>

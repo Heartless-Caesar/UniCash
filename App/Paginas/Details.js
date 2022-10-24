@@ -38,22 +38,31 @@ const Details = ({ route, navigation }) => {
                 navigation={navigation}
             />
             <View style={styles.body}>
-                <View style={styles.headerContainer}>
+                <View style={[styles.headerContainer, { flex: 1 }]}>
                     {/* Col 1 */}
                     <Pressable onPress={() => navigation.navigate('Shops')}>
                         <View style={styles.headerContainerCol1}>
                             <AntDesign name="left" size={24} color="black" />
                         </View>
                     </Pressable>
-                    {/* Col 2 */}
+                    {/* {Col 2
                     <View style={styles.headerContainerCol2}>
                         <Text>
                             Go back left arrow && Header featured rectangle
                         </Text>
-                    </View>
+                    </View>} */}
                 </View>
                 {/* Col 1*/}
-                <View style={styles.detailsContainer}>
+                <View
+                    style={[
+                        styles.detailsContainer,
+                        {
+                            flex: 1,
+                            justifyContent: 'space-evenly',
+                            width: 'auto',
+                        },
+                    ]}
+                >
                     <View style={styles.detailsContainerCol1}>
                         <Text>UniShop</Text>
                     </View>
@@ -80,7 +89,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#cccccc',
     },
     body: {
-        flex: 1,
+        flex: 2,
         marginHorizontal: 10,
         backgroundColor: '#f5f5f5',
     },
