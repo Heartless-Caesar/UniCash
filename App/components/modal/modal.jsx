@@ -12,7 +12,8 @@ import {
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import { FlatGrid } from 'react-native-super-grid'
-
+import ModalSuccess from '../modal-success/modal_success'
+import ModalFailure from '../modal-failure/modal_failure'
 // TODO - integrate with backend
 import allProducts from '../../assets/data/produtos'
 import shops from '../../assets/data/shops'
@@ -21,15 +22,17 @@ import postProducts from './modalService'
 
 const CuponModal = (props) => {
     const shopId = props.id
-    let sum = 0
     const products = allProducts.filter((product) => product.shopId === shopId)
     const shop = shops.find((shop) => shop.id === shopId)
 
-    const [selected, setSelected] = useState(products)
-    const [modalVisible, setModalVisible] = useState(false)
     const [secondModalVisible, setSecondModalVisible] = useState(false)
+    const [modalVisible, setModalVisible] = useState(false)
     const [selectedItems, setSelectedItems] = useState([])
+    const [selected, setSelected] = useState(products)
+    const [resModal, setResModal] = useState(true)
     const [total, setTotal] = useState(0)
+
+    let sum = 0
 
     const calculateTotal = () => {
         let sum = 0
@@ -39,7 +42,22 @@ const CuponModal = (props) => {
         setTotal(sum)
     }
 
-    const updateTotal = () => {}
+    const updateTotal = (index, operator) => {
+        let newValue = total
+
+        if (operator === 'add') {
+            newValue +=
+                selectedItems[index].price * selectedItems[index].quantity
+        }
+        if (operator === 'subtract') {
+            //if (selectedItems[index].quantity == 0) return
+
+            newValue -=
+                selectedItems[index].price * selectedItems[index].quantity
+        }
+        setTotal(newValue)
+    }
+
     const updateQuantity = (index, operator) => {
         const novosItens = [...selectedItems]
 
@@ -93,6 +111,7 @@ const CuponModal = (props) => {
         setSecondModalVisible(false)
     }
 
+    //APRESENTAR UMA MODAL COM BASE NA RESPOSTA DO BACK END
     // TODO: integrate with backend
     const criarCupom = () => {
         const cupom = {
@@ -100,9 +119,20 @@ const CuponModal = (props) => {
             products: selectedItems,
         }
         console.log(cupom)
-        let response = postProducts(cupom)
 
-        setSecondModalVisible(false)
+        let response = postProducts(cupom).then((res) => {
+            //RETIRA A MODAL DE CRIACAO DO PEDIDO
+            setSecondModalVisible(false)
+
+            //SE A RESPOSTA FOI POSITIVA RENDERIZA O MODAL DE SUCESSO
+            res == 200 ? (
+                <ModalSuccess visible={resModal} />
+            ) : (
+                <ModalFailure visible={resModal} message={res} />
+            )
+        })
+
+        setTotal(0)
         setSelectedItems([])
     }
 
@@ -356,7 +386,11 @@ const CuponModal = (props) => {
                                                     updateQuantity(
                                                         itemData.index,
                                                         'add'
-                                                    )
+                                                    ),
+                                                        updateTotal(
+                                                            itemData.index,
+                                                            'add'
+                                                        )
                                                 }}
                                             >
                                                 <Icon
@@ -387,7 +421,11 @@ const CuponModal = (props) => {
                                                     updateQuantity(
                                                         itemData.index,
                                                         'subtract'
-                                                    )
+                                                    ),
+                                                        updateTotal(
+                                                            itemData.index,
+                                                            'subtract'
+                                                        )
                                                 }}
                                             >
                                                 <Icon
