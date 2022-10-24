@@ -14,11 +14,11 @@ import Tabs from '../components/tabs'
 import Product from '../components/product'
 import CuponModal from '../components/modal/modal'
 
-const Details = ({ route, navigation }) => {
+const Details = ({ route, navigation }, props) => {
     const [shops, setShops] = useState(true)
     const [cupons, setCupons] = useState(false)
     //UTILIZE THE PARAM ID TO FETCH THE DESIRED SHOP AND IT'S PRODUCTS
-    const { id } = route.params
+    const { id, name, adress, category } = route.params
 
     const goToShops = (arg, arg2) => {
         setShops(arg)
@@ -45,38 +45,49 @@ const Details = ({ route, navigation }) => {
                             <AntDesign name="left" size={24} color="black" />
                         </View>
                     </Pressable>
-                    {/* {Col 2
-                    <View style={styles.headerContainerCol2}>
-                        <Text>
-                            Go back left arrow && Header featured rectangle
-                        </Text>
-                    </View>} */}
+                    {/* {Col 2} */}
+                    <View style={styles.headerContainerCol2}></View>
                 </View>
                 {/* Col 1*/}
                 <View
                     style={[
-                        styles.detailsContainer,
                         {
-                            flex: 1,
+                            flex: 3,
                             justifyContent: 'space-evenly',
                             width: 'auto',
+                            alignItems: 'center',
+                            flexDirection: 'row',
                         },
                     ]}
                 >
-                    <View style={styles.detailsContainerCol1}>
-                        <Text>UniShop</Text>
+                    <View
+                        style={[
+                            styles.detailsContainerCol1,
+                            {
+                                paddingLeft: '15%',
+                                flex: 1,
+                            },
+                        ]}
+                    >
+                        <Text>{name}</Text>
                     </View>
-                    <View style={styles.detailsContainerCol2}>
-                        <Text>Loja</Text>
-                        <Text>Bloco A</Text>
+                    <View style={[styles.detailsContainerCol2, { flex: 1 }]}>
+                        <Text>{category}</Text>
+                        <Text>{adress}</Text>
                     </View>
                     {/* Col 2 */}
-                    <View style={styles.detailsContainerCol3}>
+                    <View
+                        style={{
+                            flex: 1,
+                            paddingBottom: '15%',
+                            paddingRight: '15%',
+                        }}
+                    >
                         <CuponModal id={id} />
                     </View>
                 </View>
                 {/* Product catalog for a shop */}
-                <Product />
+                <Product id={id} />
             </View>
         </View>
     )
@@ -128,11 +139,11 @@ const styles = StyleSheet.create({
         padding: 5,
     },
     detailsContainerCol3: {
-        flex: 6,
-        height: 50,
-        // backgroundColor: "#800020",
-        borderRadius: 5,
-        padding: 10,
+        // flex: 6,
+        // height: 50,
+        // // backgroundColor: "#800020",
+        // borderRadius: 5,
+        // padding: 10,
     },
     cuponButtonText: {
         textAlign: 'center',

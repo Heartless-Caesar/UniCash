@@ -1,15 +1,26 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import products from '../assets/data/produtos'
 import { FlatGrid } from 'react-native-super-grid'
 
-const Product = () => {
+const Product = (props) => {
+    const [produtos, setProdutos] = useState([])
+
+    const getShopProducts = () => {
+        let produtos = products.filter((item) => item.shopId == props.id)
+        return produtos
+    }
+    useEffect(() => {
+        const shopProducts = getShopProducts()
+        setProdutos(shopProducts)
+    }, [])
+
     return (
         <View style={styles.list}>
             <FlatGrid
                 itemDimension={50}
-                spacing={20}
-                data={products}
+                spacing={30}
+                data={produtos}
                 renderItem={(itemData) => {
                     return (
                         <View style={styles.listItem}>

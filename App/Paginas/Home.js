@@ -5,7 +5,7 @@ export default function Home({ navigation }) {
         <View style={{ marginTop: 20, justifyContent: 'center' }}>
             <SafeAreaView style={{ marginBottom: 20 }}>
                 <Text style={{ textAlign: 'center', marginTop: 50 }}>
-                    Home funcionando!
+                    Home funcionando
                 </Text>
             </SafeAreaView>
             <View

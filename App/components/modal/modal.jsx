@@ -21,6 +21,7 @@ import postProducts from './modalService'
 
 const CuponModal = (props) => {
     const shopId = props.id
+    let sum = 0
     const products = allProducts.filter((product) => product.shopId === shopId)
     const shop = shops.find((shop) => shop.id === shopId)
 
@@ -28,12 +29,24 @@ const CuponModal = (props) => {
     const [modalVisible, setModalVisible] = useState(false)
     const [secondModalVisible, setSecondModalVisible] = useState(false)
     const [selectedItems, setSelectedItems] = useState([])
+    const [total, setTotal] = useState(0)
 
+    const calculateTotal = () => {
+        let sum = 0
+        for (let i = 0; i < selectedItems.length; i++) {
+            sum += selectedItems[i].price
+        }
+        setTotal(sum)
+    }
+
+    const updateTotal = () => {}
     const updateQuantity = (index, operator) => {
         const novosItens = [...selectedItems]
 
         if (operator === 'add') {
             novosItens[index].quantity++
+            //TODO:ATUALIZAR VALOR TOTAL COM BASE NA QUANTIDADE
+            //GERAR TELA DE SUCESSO OU NAO DA CRIAÇÃO DO PEDIDO
         }
         if (operator === 'subtract') {
             if (novosItens[index].quantity == 0) return
@@ -69,6 +82,8 @@ const CuponModal = (props) => {
     }
 
     const modalForward = () => {
+        calculateTotal()
+
         setModalVisible(false)
         setSecondModalVisible(true)
     }
@@ -281,7 +296,7 @@ const CuponModal = (props) => {
                                 }}
                             />
                             <Text style={{ fontSize: 20, fontWeight: 'bold' }}>
-                                - 100
+                                {total}
                             </Text>
                         </View>
                     </View>
@@ -429,17 +444,27 @@ const CuponModal = (props) => {
                     </View>
                 </View>
             </Modal>
-            <Pressable
-                style={{
-                    padding: 10,
-                    backgroundColor: '#800020',
-                    borderRadius: 5,
-                    width: 150,
-                }}
-                onPress={() => setModalVisible(true)}
+            <View
+                style={[
+                    styles.buttonContainer,
+                    {
+                        flex: 1,
+                        alignItems: 'center',
+                    },
+                ]}
             >
-                <Text style={styles.textStyle}>Criar Cupom</Text>
-            </Pressable>
+                <Pressable
+                    style={{
+                        padding: 10,
+                        backgroundColor: '#800020',
+                        borderRadius: 5,
+                        width: 150,
+                    }}
+                    onPress={() => setModalVisible(true)}
+                >
+                    <Text style={styles.textStyle}>Criar Cupom</Text>
+                </Pressable>
+            </View>
         </>
     )
 }
