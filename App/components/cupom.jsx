@@ -18,14 +18,13 @@ const Cupom = (props) => {
     }, [])
 
 
-    // validUntil
     function Validade() {
-      // calculate minuts to expire
       const now = new Date()
       const validadeDate = new Date(props.validUtil)
-      const diff = validadeDate.getTime() - now.getTime()
-      const minutes = Math.floor(diff / 1000 / 60)
-
+      const dif = new Date(validadeDate.getTime() - now.getTime())
+      const minutes = dif.getMinutes()
+      console.log(minutes)
+      
 
       return (
         <Text style={{ marginTop: 40, color: '#BDBDBD' }}>

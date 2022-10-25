@@ -3,7 +3,8 @@ import { FlatGrid } from 'react-native-super-grid'
 // import modalData from '../assets/data/cupons.json'
 import React, { useState } from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome5'
-import allprodutos from "../assets/data/produtos"
+import allprodutos from '../assets/data/produtos'
+import { AntDesign } from '@expo/vector-icons'
 
 const CuponModal = (props) => {
     const [deleteButton, setDeleteButton] = useState(false)
@@ -11,10 +12,10 @@ const CuponModal = (props) => {
         setDeleteButton(true)
     }
 
-    // products list from cupon 
+    // products list from cupon
     const produtos = props.produtos.map((produto) => {
         return allprodutos.find((prod) => {
-           return prod.productId == produto.productId
+            return prod.productId == produto.productId
         })
     })
 
@@ -26,7 +27,7 @@ const CuponModal = (props) => {
                 visible={props.visible}
             >
                 <View style={[styles.centeredViewInner, { marginTop: 10 }]}>
-                    {/* Top aouter View */}
+
                     <View style={styles.qrCol1}>
                         <Image
                             source={{ uri: props.img }}
@@ -42,10 +43,13 @@ const CuponModal = (props) => {
                             <Text style={styles.textData}>
                                 {props.shop_name}
                             </Text>
-                            <Text style={styles.textData}>{props.category}</Text>
+                            <Text style={styles.textData}>
+                                {props.category}
+                            </Text>
                             <Text style={styles.textData}>{props.local}</Text>
                             <Text style={styles.textData}>
-                                 <Icon name="horse-head" size={15} />{props.token}
+                                <Icon name="horse-head" size={15} />
+                                {props.token}
                             </Text>
                         </View>
                     </View>
@@ -67,18 +71,17 @@ const CuponModal = (props) => {
                                 return (
                                     <View style={{ flexDirection: 'column' }}>
                                         <Image
-                                            source={{ uri: itemData.item.iconUrl }}
+                                            source={{
+                                                uri: itemData.item.iconUrl,
+                                            }}
                                             style={styles.img}
                                         />
                                         <Text>
-                                            {
-                                                itemData.item.name.split(
-                                                    ' '
-                                                )[0]
-                                            }
+                                            {itemData.item.name.split(' ')[0]}
                                         </Text>
                                         <Text>
-                                            <Icon name="horse-head" size={15} /> {itemData.item.price}
+                                            <Icon name="horse-head" size={15} />{' '}
+                                            {itemData.item.price}
                                         </Text>
                                     </View>
                                 )
