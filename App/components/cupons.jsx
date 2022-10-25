@@ -1,4 +1,4 @@
-import { View, StyleSheet, FlatList } from 'react-native'
+import { View, StyleSheet, FlatList, Text } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import Tabs from './tabs'
 import Cupom from './cupom'
@@ -30,22 +30,60 @@ const Cupons = ({ navigation }) => {
         })
     }, [])
 
-    return (
-        <View style={styles.Container}>
-            <Tabs navigation={navigation} />
-            <View style={styles.innerContainer}>
-                <FlatList
-                    data={cupons}
-                    keyExtractor={(item, index) => {
-                        return item.orderId
-                    }}
-                    renderItem={(itemData) => {
-                        return <Cupom {...itemData.item} />
-                    }}
-                />
+    const deleteById = (orderId) => {
+        return (response = fetch(
+            'https://unicash-resgate.herokuapp.com/v2/order/' + orderId,
+            {
+                method: 'DELETE',
+                headers: {
+                    Authorization:
+                        'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE2NjMyMDIzNTYsImV4cCI6MTY5NDczODM1NiwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsIkdpdmVuTmFtZSI6IkpvaG5ueSJ9.MeFhVNQ-ENnSWeo_Aq3lMoAz2oouquYz9vtGvy1Ya4uj7210icY_haCI38ZIpAP0zb-kLgQFKjSVAKYgjXDdiA',
+                },
+            }
+        )
+            .then((response) => {
+                getCupons().then((data) => {
+                    setCupons(data)
+                })
+                return response
+            })
+            .catch((error) => {
+                throw error
+            }))
+    }
+
+    if (cupons.length > 0) {
+        return (
+            <View style={styles.Container}>
+                <Tabs navigation={navigation} />
+                <View style={styles.innerContainer}>
+                    <FlatList
+                        data={cupons}
+                        keyExtractor={(item, index) => {
+                            return item.orderId
+                        }}
+                        renderItem={(itemData) => {
+                            return (
+                                <Cupom
+                                    {...itemData.item}
+                                    deleteById={deleteById}
+                                />
+                            )
+                        }}
+                    />
+                </View>
             </View>
-        </View>
-    )
+        )
+    } else {
+        return (
+            <View style={styles.Container}>
+                <Tabs navigation={navigation} />
+                <View style={styles.innerContainer}>
+                    <Text>Você não possui pedidos ativos</Text>
+                </View>
+            </View>
+        )
+    }
 }
 
 const styles = StyleSheet.create({

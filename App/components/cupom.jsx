@@ -17,23 +17,26 @@ const Cupom = (props) => {
         setShop(getShop(props.shopId))
     }, [])
 
-
     function Validade() {
-      const now = new Date()
-      const validadeDate = new Date(props.validUtil)
-      const dif = new Date(validadeDate.getTime() - now.getTime())
-      const minutes = dif.getMinutes()
-      console.log(minutes)
-      
+        const now = new Date()
+        const validadeDate = new Date(props.validUtil)
+        const dif = new Date(validadeDate.getTime() - now.getTime())
+        const minutes = dif.getMinutes()
 
-      return (
-        <Text style={{ marginTop: 40, color: '#BDBDBD' }}>
-          Token expira em: {minutes} minutos
-        </Text>
-      )
+        return (
+            <Text style={{ marginTop: 40, color: '#BDBDBD' }}>
+                Token expira em: {minutes} minutos
+            </Text>
+        )
     }
 
-
+    function DeleteCupon() {
+        return (
+            <Pressable onPress={() => props.deleteById(props.orderId)}>
+                <Icon name="trash" size={25} />
+            </Pressable>
+        )
+    }
     return (
         <>
             <CuponModal
@@ -76,7 +79,7 @@ const Cupom = (props) => {
                     </Pressable>
                 </View>
                 <View style={styles.col4}>
-                    <Icon name="trash" size={25} />
+                    <DeleteCupon />
                 </View>
             </View>
         </>

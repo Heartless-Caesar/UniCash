@@ -27,7 +27,6 @@ const CuponModal = (props) => {
                 visible={props.visible}
             >
                 <View style={[styles.centeredViewInner, { marginTop: 10 }]}>
-
                     <View style={styles.qrCol1}>
                         <Image
                             source={{ uri: props.img }}
@@ -67,7 +66,6 @@ const CuponModal = (props) => {
                                 return item.productId
                             }}
                             renderItem={(itemData) => {
-                                console.log(itemData.item.iconUrl)
                                 return (
                                     <View style={{ flexDirection: 'column' }}>
                                         <Image
