@@ -1,4 +1,4 @@
-import { View, Text, Pressable, Modal } from 'react-native'
+import { View, Text, Pressable, Modal, Button } from 'react-native'
 import React from 'react'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
@@ -8,8 +8,14 @@ const ModalSuccess = (props) => {
             <View>
                 <MaterialCommunityIcons name="check-circle" size={70} />
                 <Pressable onPress={() => props.visible(false)}>
-                    <View>Ok</View>
+                    <View>
+                        <Text>Success</Text>
+                    </View>
                 </Pressable>
+                <Button
+                    onPress={() => props.setVisible(false)}
+                    title="Exit"
+                ></Button>
             </View>
         </Modal>
     )

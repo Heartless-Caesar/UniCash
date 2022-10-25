@@ -1,14 +1,18 @@
-import { View, Text, Pressable, Modal } from 'react-native'
+import { View, Text, Pressable, Modal, Button } from 'react-native'
 import React from 'react'
 
-const ModalFailure = () => {
+const ModalFailure = (props) => {
     return (
         <Modal visible={props.visible} animationType="slide">
             <View>
-                <Text>{props.message}</Text>
-                <Pressable onPress={() => props.visible(false)}>
-                    <View>Ok</View>
-                </Pressable>
+                <View>
+                    <Text>Failure : {props.message}</Text>
+                </View>
+
+                <Button
+                    onPress={() => props.setVisible(false)}
+                    title="Exit"
+                ></Button>
             </View>
         </Modal>
     )

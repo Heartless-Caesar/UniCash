@@ -18,9 +18,10 @@ import ModalFailure from '../modal-failure/modal_failure'
 import allProducts from '../../assets/data/produtos'
 import shops from '../../assets/data/shops'
 
-import postProducts from './modalService'
+//import postProducts from './modalService'
 
 const CuponModal = (props) => {
+    let res = 0
     const shopId = props.id
     const products = allProducts.filter((product) => product.shopId === shopId)
     const shop = shops.find((shop) => shop.id === shopId)
@@ -29,7 +30,8 @@ const CuponModal = (props) => {
     const [modalVisible, setModalVisible] = useState(false)
     const [selectedItems, setSelectedItems] = useState([])
     const [selected, setSelected] = useState(products)
-    const [resModal, setResModal] = useState(true)
+    const [resFailModal, setResFailModal] = useState(false)
+    const [resModal, setResModal] = useState(false)
     const [total, setTotal] = useState(0)
 
     let sum = 0
@@ -118,20 +120,49 @@ const CuponModal = (props) => {
             products: selectedItems,
         }
         // console.log(cupom)
+        function postProducts(cupon) {
+            return (response = fetch(
+                'https://unicash-resgate.herokuapp.com/v2/orders/',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization:
+                            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE2NjMyMDIzNTYsImV4cCI6MTY5NDczODM1NiwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsIkdpdmVuTmFtZSI6IkpvaG5ueSJ9.MeFhVNQ-ENnSWeo_Aq3lMoAz2oouquYz9vtGvy1Ya4uj7210icY_haCI38ZIpAP0zb-kLgQFKjSVAKYgjXDdiA',
+                    },
+                    body: JSON.stringify(cupon),
+                }
+            ).then((response) => {
+                res = response.status
+                console.log(res)
+                console.log('http:' + response.status)
+                return response
+            }))
+        }
 
-        postProducts(cupom).then((res) => {
-            if (res.status === 200) {
-                <ModalSuccess visible={resModal} />
-            } else {
-                <ModalFailure visible={resModal} message={res.message} />
-            }
+        postProducts(cupom)
+
+        if (res == 201) {
             setTotal(0)
             setSelectedItems([])
-        });
+            setSecondModalVisible(false)
+            setResModal(true)
+        } else {
+            setTotal(0)
+            setSelectedItems([])
+            setSecondModalVisible(false)
+            setResFailModal(true)
+        }
     }
 
     return (
         <>
+            <ModalSuccess visible={resModal} setVisible={setResModal} />
+            <ModalFailure
+                visible={resFailModal}
+                setVisible={setResFailModal}
+                message={res}
+            />
             <Modal
                 animationType="slide"
                 transparent={true}
