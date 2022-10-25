@@ -38,24 +38,22 @@ const Details = ({ route, navigation }, props) => {
                 navigation={navigation}
             />
             <View style={styles.body}>
-                <View style={[styles.headerContainer, { flex: 1 }]}>
+                <View style={[styles.headerContainer]}>
                     {/* Col 1 */}
                     <Pressable onPress={() => navigation.navigate('Shops')}>
                         <View style={styles.headerContainerCol1}>
                             <AntDesign name="left" size={24} color="black" />
                         </View>
                     </Pressable>
-                    {/* {Col 2} */}
-                    <View style={styles.headerContainerCol2}></View>
                 </View>
                 {/* Col 1*/}
                 <View
                     style={[
                         {
-                            flex: 3,
-                            justifyContent: 'space-evenly',
-                            width: 'auto',
-                            alignItems: 'center',
+                            flex: 6,
+                            // justifyContent: 'space-evenly',
+                            // width: 'auto',
+                            // alignItems: 'center',
                             flexDirection: 'row',
                         },
                     ]}
@@ -64,30 +62,33 @@ const Details = ({ route, navigation }, props) => {
                         style={[
                             styles.detailsContainerCol1,
                             {
-                                paddingLeft: '15%',
+                                paddingLeft: '10%',
                                 flex: 1,
                             },
                         ]}
                     >
                         <Text>{name}</Text>
                     </View>
-                    <View style={[styles.detailsContainerCol2, { flex: 1 }]}>
+                    <View style={[styles.detailsContainerCol2, { flex: 2 }]}>
                         <Text>{category}</Text>
                         <Text>{adress}</Text>
                     </View>
                     {/* Col 2 */}
                     <View
                         style={{
-                            flex: 1,
-                            paddingBottom: '15%',
-                            paddingRight: '15%',
+                            flex: 2,
+                            paddingBottom: '10%',
+                            paddingRight: '5%',
+                            height: 250,
                         }}
                     >
                         <CuponModal id={id} />
                     </View>
                 </View>
                 {/* Product catalog for a shop */}
-                <Product id={id} />
+                <View>
+                    <Product id={id} />
+                </View>
             </View>
         </View>
     )
@@ -100,11 +101,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#cccccc',
     },
     body: {
-        flex: 2,
+        flex: 4,
         marginHorizontal: 10,
         backgroundColor: '#f5f5f5',
     },
     headerContainer: {
+        flex: 1,
         flexDirection: 'row',
         padding: 20,
     },
@@ -114,7 +116,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     headerContainerCol2: {
-        flex: 8,
+        flex: 2,
         backgroundColor: '#cccccc',
         paddingHorizontal: 20,
         paddingVertical: 10,
@@ -123,10 +125,9 @@ const styles = StyleSheet.create({
     },
     detailsContainer: {
         flexDirection: 'row',
-
-        padding: 20,
-        height: 100,
-        width: 340,
+        // padding: 20,
+        // height: 100,
+        // width: 340,
     },
     detailsContainerCol1: {
         flex: 4,
@@ -134,9 +135,9 @@ const styles = StyleSheet.create({
         padding: 5,
     },
     detailsContainerCol2: {
-        flex: 4,
-        height: 60,
-        padding: 5,
+        // flex: 4,
+        // height: 60,
+        // padding: 5,
     },
     detailsContainerCol3: {
         // flex: 6,

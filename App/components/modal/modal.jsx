@@ -142,6 +142,10 @@ const CuponModal = (props) => {
                         flex: 1,
                         backgroundColor: '#f5f5f5',
                         flexDirection: 'column',
+                        margin: 15,
+                        marginTop: 5,
+                        marginBottom: 5,
+                        borderRadius: 5,
                     }}
                 >
                     <View
@@ -164,11 +168,15 @@ const CuponModal = (props) => {
                                             onPress={() =>
                                                 toggleSelect(itemData.item)
                                             }
+                                            style={{
+                                                justifyContent: 'center',
+                                            }}
                                         >
                                             <View
                                                 style={{
                                                     justifyContent: 'center',
-                                                    padding: 10,
+                                                    padding: '10%',
+                                                    paddingLeft: '20%',
                                                     backgroundColor: itemData
                                                         .item.selected
                                                         ? '#66BB6A'
@@ -177,7 +185,6 @@ const CuponModal = (props) => {
                                                         .selected
                                                         ? 5
                                                         : 0,
-                                                    maxWidth: 500,
                                                 }}
                                             >
                                                 <Image
@@ -231,6 +238,7 @@ const CuponModal = (props) => {
                                         {
                                             color: '#f5f5f5',
                                             textAlign: 'center',
+                                            height: 30,
                                         },
                                     ]}
                                 >
@@ -253,6 +261,7 @@ const CuponModal = (props) => {
                                         {
                                             color: '#f5f5f5',
                                             textAlign: 'center',
+                                            height: 30,
                                         },
                                     ]}
                                 >
@@ -275,26 +284,39 @@ const CuponModal = (props) => {
                         flex: 1,
                         backgroundColor: '#f5f5f5',
                         flexDirection: 'column',
+                        margin: 10,
+                        marginTop: 5,
+                        borderRadius: 5,
                     }}
                 >
                     <View
                         style={{
+                            maxWidth: 125,
                             flexDirection: 'row',
-                            borderWidth: 1,
-                            borderColor: '#f5f5f5',
+                            //borderWidth: 1,
+                            //borderColor: '#f5f5f5',
                             borderTopStartRadius: 5,
                             borderTopEndRadius: 5,
-                            borderBottomColor: '#cccccc',
+                            //borderBottomColor: '#cccccc',
                         }}
                     >
                         {/* Nome da loja */}
-                        <View style={{ padding: 10 }}>
+                        <View
+                            style={{
+                                padding: 10,
+                            }}
+                        >
                             <Text style={{ fontSize: 20, color: '#616161' }}>
                                 {shop.name}
                             </Text>
                         </View>
                         {/* Classificação & Localização */}
-                        <View style={{ padding: 10, flexDirection: 'column' }}>
+                        <View
+                            style={{
+                                padding: 10,
+                                flexDirection: 'column',
+                            }}
+                        >
                             <Text style={{ color: '#757575' }}>
                                 {shop.category}
                             </Text>
@@ -446,6 +468,7 @@ const CuponModal = (props) => {
                                     padding: 10,
                                     backgroundColor: '#757575',
                                     borderRadius: 5,
+                                    height: 50,
                                     width: 150,
                                 }}
                                 onPress={() => modalBack()}
@@ -465,6 +488,7 @@ const CuponModal = (props) => {
                                     backgroundColor: '#43A047',
                                     borderRadius: 5,
                                     width: 150,
+                                    height: 50,
                                 }}
                                 onPress={() => criarCupom()}
                             >
@@ -478,19 +502,21 @@ const CuponModal = (props) => {
             </Modal>
             <View
                 style={[
-                    styles.buttonContainer,
                     {
                         flex: 1,
+                        marginTop: '20%',
                         alignItems: 'center',
                     },
                 ]}
             >
                 <Pressable
                     style={{
-                        padding: 10,
+                        padding: '5%',
                         backgroundColor: '#800020',
                         borderRadius: 5,
-                        width: 150,
+                        width: '100%',
+                        height: '20%',
+                        // marginBottom: '100%',
                     }}
                     onPress={() => setModalVisible(true)}
                 >

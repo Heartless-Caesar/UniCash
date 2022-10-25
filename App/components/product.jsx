@@ -58,8 +58,8 @@ const styles = StyleSheet.create({
     list: {
         textAlign: 'center',
         justifyContent: 'center',
-        marginBottom: 100,
-        paddingBottom: 150,
+        // marginBottom: 100,
+        // paddingBottom: 150,
     },
 })
 
