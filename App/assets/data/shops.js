@@ -39,7 +39,7 @@ const shops = [
     category: "Clothing",
     icon: "http://loremflickr.com/640/480/technics",
     adress: "073 Demetrius Port",
-    id: "6",
+    id: "123",
   },
   {
     name: "Sipes - Franecki",

@@ -1,13 +1,23 @@
 import { View, Text, StyleSheet, Pressable, Image, Modal } from 'react-native'
 import { FlatGrid } from 'react-native-super-grid'
-import modalData from '../assets/data/cupons.json'
+// import modalData from '../assets/data/cupons.json'
 import React, { useState } from 'react'
+import Icon from 'react-native-vector-icons/FontAwesome5'
+import allprodutos from "../assets/data/produtos"
 
 const CuponModal = (props) => {
     const [deleteButton, setDeleteButton] = useState(false)
     const showButton = () => {
         setDeleteButton(true)
     }
+
+    // products list from cupon 
+    const produtos = props.produtos.map((produto) => {
+        return allprodutos.find((prod) => {
+           return prod.productId == produto.productId
+        })
+    })
+
     return (
         <>
             <Modal
@@ -28,19 +38,21 @@ const CuponModal = (props) => {
                             }}
                         />
                         <View style={styles.data}>
-                            <Text style={styles.textData}>X9M75ZZ80</Text>
+                            {/* <Text style={styles.textData}>X9M75ZZ80</Text> */}
                             <Text style={styles.textData}>
                                 {props.shop_name}
                             </Text>
-                            <Text style={styles.textData}>:Categoria:</Text>
+                            <Text style={styles.textData}>{props.category}</Text>
                             <Text style={styles.textData}>{props.local}</Text>
-                            <Text style={styles.textData}>{props.token}</Text>
+                            <Text style={styles.textData}>
+                                 <Icon name="horse-head" size={15} />{props.token}
+                            </Text>
                         </View>
                     </View>
                     {/* Items listing row */}
                     <View>
                         <FlatGrid
-                            data={modalData}
+                            data={produtos}
                             itemDimension={50}
                             spacing={20}
                             style={{
@@ -48,17 +60,25 @@ const CuponModal = (props) => {
                                 height: 300,
                             }}
                             keyExtractor={(item, index) => {
-                                return item.id
+                                return item.productId
                             }}
                             renderItem={(itemData) => {
+                                console.log(itemData.item.iconUrl)
                                 return (
                                     <View style={{ flexDirection: 'column' }}>
                                         <Image
-                                            source={{ uri: itemData.item.img }}
+                                            source={{ uri: itemData.item.iconUrl }}
                                             style={styles.img}
                                         />
-                                        <Text style={{ marginLeft: 10 }}>
-                                            $ {itemData.item.token}
+                                        <Text>
+                                            {
+                                                itemData.item.name.split(
+                                                    ' '
+                                                )[0]
+                                            }
+                                        </Text>
+                                        <Text>
+                                            <Icon name="horse-head" size={15} /> {itemData.item.price}
                                         </Text>
                                     </View>
                                 )

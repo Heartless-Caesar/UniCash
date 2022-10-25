@@ -18,7 +18,7 @@ import ModalFailure from '../modal-failure/modal_failure'
 import allProducts from '../../assets/data/produtos'
 import shops from '../../assets/data/shops'
 
-//import postProducts from './modalService'
+import postProducts from './modalService'
 
 const CuponModal = (props) => {
     let res = 0
@@ -119,26 +119,6 @@ const CuponModal = (props) => {
             shopId: shopId,
             products: selectedItems,
         }
-        // console.log(cupom)
-        function postProducts(cupon) {
-            return (response = fetch(
-                'https://unicash-resgate.herokuapp.com/v2/orders/',
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization:
-                            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE2NjMyMDIzNTYsImV4cCI6MTY5NDczODM1NiwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsIkdpdmVuTmFtZSI6IkpvaG5ueSJ9.MeFhVNQ-ENnSWeo_Aq3lMoAz2oouquYz9vtGvy1Ya4uj7210icY_haCI38ZIpAP0zb-kLgQFKjSVAKYgjXDdiA',
-                    },
-                    body: JSON.stringify(cupon),
-                }
-            ).then((response) => {
-                res = response.status
-                console.log(res)
-                console.log('http:' + response.status)
-                return response
-            }))
-        }
 
         postProducts(cupom)
 
@@ -233,7 +213,7 @@ const CuponModal = (props) => {
                                                     }
                                                 </Text>
                                                 <Text style={styles.listText}>
-                                                    {itemData.item.price}
+                                                <Icon name="horse-head" size={15} /> {itemData.item.price}
                                                 </Text>
                                             </View>
                                         </Pressable>

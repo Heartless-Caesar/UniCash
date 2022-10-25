@@ -15,20 +15,19 @@ const getCupons = () => {
             },
         }
     ).then((response) => {
-        console.log('http:' + response.status)
-        return response
-    }))
-    // console.log('http:' + response.status)
-    // return response.status
+        return response.json()
+    })).then((data) => {
+        return data
+    })
 }
 
 const Cupons = ({ navigation }) => {
     const [cupons, setCupons] = useState([])
 
     useEffect(() => {
-        const userCupons = getCupons()
-
-        setCupons(userCupons)
+        getCupons().then((data) => {
+            setCupons(data)
+        })
     }, [])
 
     return (
@@ -38,7 +37,7 @@ const Cupons = ({ navigation }) => {
                 <FlatList
                     data={cupons}
                     keyExtractor={(item, index) => {
-                        return item.id
+                        return item.orderId
                     }}
                     renderItem={(itemData) => {
                         return <Cupom {...itemData.item} />

@@ -19,7 +19,6 @@ function postProducts(cupon) {
         },
         body: JSON.stringify(cupon),
     }).then((response) => {
-        console.log("http:"+response.status);
         return response;
     })
 }
