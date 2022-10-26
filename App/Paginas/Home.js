@@ -85,35 +85,39 @@ export default function Home({ navigation }) {
                   {
                     (item.id === usuario.id) ? (
                       < LinearGradient
-                        style={styles.ListaRanking}
+                        style={{ padding: 4 }}
                         colors={['#17A7E0', '#5E82AA', '#AF596D', '#FE3032']}
                         start={{ x: 0.0, y: 1.0 }} end={{ x: 1.0, y: 1.0 }}
                       >
-                        <Image
-                          style={styles.FotoPerfil}
-                          source={{ uri: item.img }}
-                        />
-                        <View style={styles.View}>
+                        <View
+                          style={styles.ListaRankingID}
+                        >
+                          <Image
+                            style={styles.FotoPerfil}
+                            source={{ uri: item.img }}
+                          />
+                          <View style={styles.View}>
+                            <Text
+                              style={styles.Nome}
+                            >
+                              {item.nome}
+                            </Text>
+                            <Text
+                              style={styles.Curso}
+                            >
+                              {item.curso}
+                            </Text>
+                          </View>
+                          <Image
+                            source={require('../assets/UniCoin.png')}
+                            style={styles.Logo}
+                          />
                           <Text
-                            style={styles.NomeUsuario}
+                            style={styles.Saldo}
                           >
-                            {item.nome}
-                          </Text>
-                          <Text
-                            style={styles.CursoUsuario}
-                          >
-                            {item.curso}
+                            {item.saldo}
                           </Text>
                         </View>
-                        <Image
-                          source={require('../assets/UniCoin.png')}
-                          style={styles.Logo}
-                        />
-                        <Text
-                          style={styles.SaldoUsuario}
-                        >
-                          {item.saldo}
-                        </Text>
                       </LinearGradient>
                     ) : (
                       <View style={styles.ListaRanking}>
@@ -163,35 +167,39 @@ export default function Home({ navigation }) {
                         {
                           (item.id === usuario.id) ? (
                             < LinearGradient
-                              style={styles.ListaRanking}
+                              style={{ padding: 4 }}
                               colors={['#17A7E0', '#5E82AA', '#AF596D', '#FE3032']}
                               start={{ x: 0.0, y: 1.0 }} end={{ x: 1.0, y: 1.0 }}
                             >
-                              <Image
-                                style={styles.FotoPerfil}
-                                source={{ uri: item.img }}
-                              />
-                              <View style={styles.View}>
+                              <View
+                                style={styles.ListaRankingID}
+                              >
+                                <Image
+                                  style={styles.FotoPerfil}
+                                  source={{ uri: item.img }}
+                                />
+                                <View style={styles.View}>
+                                  <Text
+                                    style={styles.Nome}
+                                  >
+                                    {item.nome}
+                                  </Text>
+                                  <Text
+                                    style={styles.Curso}
+                                  >
+                                    {item.curso}
+                                  </Text>
+                                </View>
+                                <Image
+                                  source={require('../assets/UniCoin.png')}
+                                  style={styles.Logo}
+                                />
                                 <Text
-                                  style={styles.NomeUsuario}
+                                  style={styles.Saldo}
                                 >
-                                  {item.nome}
-                                </Text>
-                                <Text
-                                  style={styles.CursoUsuario}
-                                >
-                                  {item.curso}
+                                  {item.saldo}
                                 </Text>
                               </View>
-                              <Image
-                                source={require('../assets/UniCoin.png')}
-                                style={styles.Logo}
-                              />
-                              <Text
-                                style={styles.SaldoUsuario}
-                              >
-                                {item.saldo}
-                              </Text>
                             </LinearGradient>
                           ) : (
                             <View style={styles.ListaRanking}>
@@ -298,6 +306,13 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     borderBottomWidth: 1,
     borderBottomColor: "#ECECEC",
+  },
+  ListaRankingID: {
+    padding: 10,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    backgroundColor: "#FFFFFF"
   },
   FotoPerfil: {
     height: 60,

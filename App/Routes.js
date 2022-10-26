@@ -10,6 +10,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from "./Paginas/Home.js";
 import Extrato from "./Paginas/Extrato.js";
 import { Global } from "./Styles.js";
+import * as Svg from 'react-native-svg';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,7 +21,7 @@ function Routes() {
                 tabBarShowLabel: false,
                 tabBarStyle: {
                     position: 'absolute',
-                    height: 80,
+                    height: 66,
                     backgroundColor: '#232D52',
                     // borderTopLeftRadius: 4,
                     // borderTopRightRadius: 4,
@@ -39,15 +40,16 @@ function Routes() {
                                 alignItems: "center",
                                 justifyContent: "center",
                                 backgroundColor: focused ? '#17A7E0' : '#232D52',
-                                height: focused ? 100 : 40,
-                                width: focused ? 80 : 40,
+                                height: focused ? 76 : 40,
+                                width: focused ? 56 : 40,
                                 borderRadius: 4,
                             }}
                         >
                             <Image
                                 source={require('../App/assets/Home.png')}
-                                style={{ width: 25, height: 27 }}
+                                style={{ width: 30, height: 30 }}
                             />
+
                         </View>
                     ),
                 }}
@@ -62,7 +64,7 @@ function Routes() {
                     },
                     headerTitleStyle: {
                         fontWeight: "400",
-                      },
+                    },
                     headerTintColor: "#FFFFFF", //Cor do titulo do header.
                     headerTitleAlign: "center", //alinhamento do titulo do header.
                     headerRight: () => (
@@ -71,10 +73,10 @@ function Routes() {
                         >
                             <Image
                                 source={require('../App/assets/Export.png')}
-                                style={{ width: 20, height: 20 }}
+                            style={{ width: 24, height: 24 }}
                             />
                         </TouchableOpacity>
-                      ), //Botão direito do header.
+                    ), //Botão direito do header.
                     tabBarIcon: ({ focused }) => (
                         <View
                             style={{
@@ -82,8 +84,8 @@ function Routes() {
                                 alignItems: "center",
                                 justifyContent: "center",
                                 backgroundColor: focused ? '#17A7E0' : '#232D52',
-                                height: focused ? 100 : 40,
-                                width: focused ? 80 : 40,
+                                height: focused ? 76 : 40,
+                                width: focused ? 56 : 40,
                                 borderRadius: 4,
                             }}
                         >
