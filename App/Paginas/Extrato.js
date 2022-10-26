@@ -195,12 +195,12 @@ export default function Extrato({ navigation }) {
                                                         style={styles.info}
                                                     >
                                                         <Text
-                                                            style={styles.valorEntrada}
+                                                            style={styles.valor}
                                                         >
                                                             {item.valor} UC
                                                         </Text>
                                                         <Text
-                                                            style={styles.tipoEntrada}
+                                                            style={styles.tipo}
                                                         >
                                                             Resgate realizado
                                                         </Text>
@@ -235,12 +235,12 @@ export default function Extrato({ navigation }) {
                                                         style={styles.info}
                                                     >
                                                         <Text
-                                                            style={styles.valorSaida}
+                                                            style={styles.valor}
                                                         >
                                                             {item.valor} UC
                                                         </Text>
                                                         <Text
-                                                            style={styles.tipoSaida}
+                                                            style={styles.tipo}
                                                         >
                                                             Pagamaneto realizado
                                                         </Text>
@@ -275,12 +275,12 @@ export default function Extrato({ navigation }) {
                                                         style={styles.info}
                                                     >
                                                         <Text
-                                                            style={styles.valorEntrada}
+                                                            style={styles.valor}
                                                         >
                                                             {item.valor} UC
                                                         </Text>
                                                         <Text
-                                                            style={styles.tipoEntrada}
+                                                            style={styles.tipo}
                                                         >
                                                             Transferência recebida
                                                         </Text>
@@ -315,12 +315,12 @@ export default function Extrato({ navigation }) {
                                                         style={styles.info}
                                                     >
                                                         <Text
-                                                            style={styles.valorSaida}
+                                                            style={styles.valor}
                                                         >
                                                             {item.valor} UC
                                                         </Text>
                                                         <Text
-                                                            style={styles.tipoSaida}
+                                                            style={styles.tipo}
                                                         >
                                                             Transferência realizada
                                                         </Text>
@@ -371,12 +371,12 @@ export default function Extrato({ navigation }) {
                                                         style={styles.info}
                                                     >
                                                         <Text
-                                                            style={styles.valorEntrada}
+                                                            style={styles.valor}
                                                         >
                                                             {item.valor} UC
                                                         </Text>
                                                         <Text
-                                                            style={styles.tipoEntrada}
+                                                            style={styles.tipo}
                                                         >
                                                             Resgate realizado
                                                         </Text>
@@ -411,12 +411,12 @@ export default function Extrato({ navigation }) {
                                                         style={styles.info}
                                                     >
                                                         <Text
-                                                            style={styles.valorEntrada}
+                                                            style={styles.valor}
                                                         >
                                                             {item.valor} UC
                                                         </Text>
                                                         <Text
-                                                            style={styles.tipoEntrada}
+                                                            style={styles.tipo}
                                                         >
                                                             Transferência recebida
                                                         </Text>
@@ -467,12 +467,12 @@ export default function Extrato({ navigation }) {
                                                         style={styles.info}
                                                     >
                                                         <Text
-                                                            style={styles.valorSaida}
+                                                            style={styles.valor}
                                                         >
                                                             {item.valor} UC
                                                         </Text>
                                                         <Text
-                                                            style={styles.tipoSaida}
+                                                            style={styles.tipo}
                                                         >
                                                             Pagamaneto realizado
                                                         </Text>
@@ -507,12 +507,12 @@ export default function Extrato({ navigation }) {
                                                         style={styles.info}
                                                     >
                                                         <Text
-                                                            style={styles.valorSaida}
+                                                            style={styles.valor}
                                                         >
                                                             {item.valor} UC
                                                         </Text>
                                                         <Text
-                                                            style={styles.tipoSaida}
+                                                            style={styles.tipo}
                                                         >
                                                             Transferência realizada
                                                         </Text>
@@ -582,22 +582,22 @@ const styles = StyleSheet.create({
         margin: 10,
         width: 180
     },
-    valorEntrada: {
-        fontSize: 18,
-        color: "#17A7E0",
-        fontWeight: "500",
-    },
-    tipoEntrada: {
-        fontSize: 14,
-        color: "#17A7E0",
-        fontWeight: "500",
-    },
-    valorSaida: {
+    // valorEntrada: {
+    //     fontSize: 18,
+    //     color: "#17A7E0",
+    //     fontWeight: "500",
+    // },
+    // tipoEntrada: {
+    //     fontSize: 14,
+    //     color: "#17A7E0",
+    //     fontWeight: "500",
+    // },
+    valor: {
         fontSize: 18,
         color: "#484848",
         fontWeight: "500",
     },
-    tipoSaida: {
+    tipo: {
         fontSize: 14,
         color: "#484848",
         fontWeight: "500",
