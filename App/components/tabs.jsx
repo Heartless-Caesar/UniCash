@@ -54,13 +54,13 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 5,
         backgroundColor: '#f5f5f5',
         borderBottomColor: '#cccccc',
-        padding: 15,
+        padding: 10,
         flex: 1,
     },
     button2: {
         borderTopRightRadius: 5,
         backgroundColor: '#800020',
-        padding: 15,
+        padding: 10,
         flex: 1,
     },
     buttonText1: {
