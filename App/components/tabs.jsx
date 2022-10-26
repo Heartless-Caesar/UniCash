@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         borderBottomColor: '#cccccc',
         flexDirection: 'row',
         marginHorizontal: 10,
-        marginTop: 20,
+        marginTop: '7%',
         maxHeight: 50,
     },
     button1: {

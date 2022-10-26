@@ -1,14 +1,6 @@
 //TODO : Implement store details page with their products catalog
-import {
-    View,
-    Text,
-    StyleSheet,
-    Pressable,
-    FlatList,
-    Image,
-} from 'react-native'
+import { View, Text, StyleSheet, Pressable } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
-import products from '../assets/data/produtos'
 import React, { useState } from 'react'
 import Tabs from '../components/tabs'
 import Product from '../components/product'
@@ -38,10 +30,10 @@ const Details = ({ route, navigation }, props) => {
                 navigation={navigation}
             />
             <View style={styles.body}>
-                <View style={[styles.headerContainer]}>
+                <View style={styles.headerContainer}>
                     {/* Col 1 */}
                     <Pressable onPress={() => navigation.navigate('Shops')}>
-                        <View style={styles.headerContainerCol1}>
+                        <View>
                             <AntDesign name="left" size={24} color="black" />
                         </View>
                     </Pressable>
@@ -50,43 +42,24 @@ const Details = ({ route, navigation }, props) => {
                 <View
                     style={[
                         {
-                            flex: 6,
-                            // justifyContent: 'space-evenly',
-                            // width: 'auto',
-                            // alignItems: 'center',
+                            flex: 3,
                             flexDirection: 'row',
+                            paddingLeft: '5%',
                         },
                     ]}
                 >
-                    <View
-                        style={[
-                            styles.detailsContainerCol1,
-                            {
-                                paddingLeft: '10%',
-                                flex: 1,
-                            },
-                        ]}
-                    >
-                        <Text>{name}</Text>
-                    </View>
                     <View style={[styles.detailsContainerCol2, { flex: 2 }]}>
+                        <Text>{name}</Text>
                         <Text>{category}</Text>
                         <Text>{adress}</Text>
                     </View>
                     {/* Col 2 */}
-                    <View
-                        style={{
-                            flex: 2,
-                            paddingBottom: '10%',
-                            paddingRight: '5%',
-                            height: 250,
-                        }}
-                    >
+                    <View style={{ flex: 2, marginRight: '5%' }}>
                         <CuponModal id={id} />
                     </View>
                 </View>
                 {/* Product catalog for a shop */}
-                <View>
+                <View style={{ flex: 6 }}>
                     <Product id={id} />
                 </View>
             </View>
@@ -101,14 +74,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#cccccc',
     },
     body: {
-        flex: 4,
+        flex: 7,
         marginHorizontal: 10,
         backgroundColor: '#f5f5f5',
     },
     headerContainer: {
-        flex: 1,
+        //flex: 1,
         flexDirection: 'row',
-        padding: 20,
+        padding: '10%',
+        //maxHeight: '25%',
     },
     headerContainerCol1: {
         flex: 1,

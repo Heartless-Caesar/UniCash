@@ -213,7 +213,11 @@ const CuponModal = (props) => {
                                                     }
                                                 </Text>
                                                 <Text style={styles.listText}>
-                                                <Icon name="horse-head" size={15} /> {itemData.item.price}
+                                                    <Icon
+                                                        name="horse-head"
+                                                        size={15}
+                                                    />{' '}
+                                                    {itemData.item.price}
                                                 </Text>
                                             </View>
                                         </Pressable>
@@ -515,19 +519,18 @@ const CuponModal = (props) => {
                 style={[
                     {
                         flex: 1,
-                        marginTop: '20%',
+                        marginTop: '5%',
                         alignItems: 'center',
                     },
                 ]}
             >
                 <Pressable
                     style={{
-                        padding: '5%',
+                        padding: '10%',
                         backgroundColor: '#800020',
                         borderRadius: 5,
                         width: '100%',
-                        height: '20%',
-                        // marginBottom: '100%',
+                        height: 50,
                     }}
                     onPress={() => setModalVisible(true)}
                 >
