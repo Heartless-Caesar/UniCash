@@ -5,12 +5,16 @@ import Home from './Paginas/Home.js'
 import Details from './Paginas/Details.js'
 import Cupons from './components/cupons.jsx'
 import Lojas from './components/lojas.jsx'
+import Header from './components/header/header.jsx'
+import { StatusBar } from 'expo-status-bar'
 
 export default function App() {
     const Stack = createStackNavigator()
 
     return (
         <NavigationContainer>
+            <StatusBar style="light" />
+            <Header />
             <Stack.Navigator
                 initialRouteName="Home"
                 screenOptions={{
