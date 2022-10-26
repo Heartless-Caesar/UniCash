@@ -5,6 +5,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 const ModalSuccess = (props) => {
     const handleExit = () => {
         props.setVisible(false)
+        props.navigation.navigate('Shops')
     }
 
     return (

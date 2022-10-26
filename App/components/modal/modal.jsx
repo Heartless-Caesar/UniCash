@@ -136,11 +136,16 @@ const CuponModal = (props) => {
 
     return (
         <View>
-            <ModalSuccess visible={resModal} setVisible={setResModal} />
+            <ModalSuccess
+                visible={resModal}
+                setVisible={setResModal}
+                navigation={props.navigation}
+            />
             <ModalFailure
                 visible={resFailModal}
                 setVisible={setResFailModal}
                 message={res}
+                navigation={props.navigation}
             />
             <Modal
                 animationType="slide"

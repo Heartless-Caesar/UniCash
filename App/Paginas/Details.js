@@ -55,7 +55,7 @@ const Details = ({ route, navigation }, props) => {
                     </View>
                     {/* Col 2 */}
                     <View style={{ flex: 2, marginRight: '5%' }}>
-                        <CuponModal id={id} />
+                        <CuponModal id={id} navigation={navigation} />
                     </View>
                 </View>
                 {/* Product catalog for a shop */}
