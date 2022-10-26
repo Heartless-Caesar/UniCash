@@ -34,8 +34,6 @@ const CuponModal = (props) => {
     const [resModal, setResModal] = useState(false)
     const [total, setTotal] = useState(0)
 
-    let sum = 0
-
     const calculateTotal = () => {
         let sum = 0
         for (let i = 0; i < selectedItems.length; i++) {
@@ -120,14 +118,15 @@ const CuponModal = (props) => {
             products: selectedItems,
         }
 
-        postProducts(cupom)
-
-        if (res == 201) {
+        //SE O POST EXECUTAR CORRETAMENTE VAI PARA TELA DE SUCESSO
+        if (postProducts(cupom)) {
             setTotal(0)
             setSelectedItems([])
             setSecondModalVisible(false)
             setResModal(true)
-        } else {
+        }
+        //SENAO VAI PARA TELA DE FALHA
+        else {
             setTotal(0)
             setSelectedItems([])
             setSecondModalVisible(false)
@@ -136,7 +135,7 @@ const CuponModal = (props) => {
     }
 
     return (
-        <>
+        <View>
             <ModalSuccess visible={resModal} setVisible={setResModal} />
             <ModalFailure
                 visible={resFailModal}
@@ -537,7 +536,7 @@ const CuponModal = (props) => {
                     <Text style={styles.textStyle}>Criar Cupom</Text>
                 </Pressable>
             </View>
-        </>
+        </View>
     )
 }
 
