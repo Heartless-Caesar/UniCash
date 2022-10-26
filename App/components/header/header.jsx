@@ -23,9 +23,12 @@ const Header = () => {
                 <MaterialCommunityIcons
                     name="circle"
                     color="#f5f5f5"
-                    size={30}
+                    size={40}
                 />
-                <Text style={{ color: '#f5f5f5' }}>Olá usuário</Text>
+                <View style={{ flexDirection: 'column' }}>
+                    <Text style={{ color: '#f5f5f5' }}>Olá usuário</Text>
+                    <Text style={{ color: '#f5f5f5' }}>Eng. de Soft.</Text>
+                </View>
             </View>
             <View style={{ marginTop: '5%', paddingLeft: '40%' }}>
                 <MaterialCommunityIcons name="bell" color="#f5f5f5" size={30} />
