@@ -413,7 +413,7 @@ const CuponModal = (props) => {
                                                         'add'
                                                     ),
                                                         calculateTotal(
-                                                            itemData.index,
+                                                            itemData.item.productId,
                                                             'add'
                                                         )
                                                 }}
@@ -448,7 +448,7 @@ const CuponModal = (props) => {
                                                         'subtract'
                                                     ),
                                                         calculateTotal(
-                                                            itemData.index,
+                                                            itemData.item.productId,
                                                             'subtract'
                                                         )
                                                 }}
