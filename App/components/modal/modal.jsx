@@ -21,7 +21,6 @@ import shops from '../../assets/data/shops'
 import postProducts from './modalService'
 
 const CuponModal = (props) => {
-    let res = 0
     const shopId = props.id
     const products = allProducts.filter((product) => product.shopId === shopId)
     const shop = shops.find((shop) => shop.id === shopId)
@@ -34,28 +33,20 @@ const CuponModal = (props) => {
     const [resModal, setResModal] = useState(false)
     const [total, setTotal] = useState(0)
 
-    const calculateTotal = () => {
-        let sum = 0
-        for (let i = 0; i < selectedItems.length; i++) {
-            sum += selectedItems[i].price
+    const calculateTotal = (id, value) => {
+        if (value == 'add') {
+            const foundItem = selectedItems.find(
+                (item) => item.productId === id
+            )
+            setTotal((prevTotalPrice) => prevTotalPrice + foundItem.price)
         }
-        setTotal(sum)
-    }
 
-    const updateTotal = (index, operator) => {
-        let newValue = total
-
-        if (operator === 'add') {
-            newValue +=
-                selectedItems[index].price * selectedItems[index].quantity
+        if (value == 'subtract') {
+            const foundItem = selectedItems.find(
+                (item) => item.productId === id
+            )
+            setTotal((prevTotalPrice) => prevTotalPrice - foundItem.price)
         }
-        if (operator === 'subtract') {
-            //if (selectedItems[index].quantity == 0) return
-
-            newValue -=
-                selectedItems[index].price * selectedItems[index].quantity
-        }
-        setTotal(newValue)
     }
 
     const updateQuantity = (index, operator) => {
@@ -144,7 +135,6 @@ const CuponModal = (props) => {
             <ModalFailure
                 visible={resFailModal}
                 setVisible={setResFailModal}
-                message={res}
                 navigation={props.navigation}
             />
             <Modal
@@ -422,7 +412,7 @@ const CuponModal = (props) => {
                                                         itemData.index,
                                                         'add'
                                                     ),
-                                                        updateTotal(
+                                                        calculateTotal(
                                                             itemData.index,
                                                             'add'
                                                         )
@@ -457,7 +447,7 @@ const CuponModal = (props) => {
                                                         itemData.index,
                                                         'subtract'
                                                     ),
-                                                        updateTotal(
+                                                        calculateTotal(
                                                             itemData.index,
                                                             'subtract'
                                                         )
