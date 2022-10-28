@@ -156,7 +156,7 @@ const CuponModal = (props) => {
                         backgroundColor: '#f5f5f5',
                         flexDirection: 'column',
                         margin: 15,
-                        marginTop: 80,
+                        marginTop: '25%',
                         marginBottom: 5,
                         borderRadius: 5,
                     }}
@@ -302,7 +302,7 @@ const CuponModal = (props) => {
                         backgroundColor: '#f5f5f5',
                         flexDirection: 'column',
                         margin: 10,
-                        marginTop: 80,
+                        marginTop: '25%',
                         borderRadius: 5,
                     }}
                 >

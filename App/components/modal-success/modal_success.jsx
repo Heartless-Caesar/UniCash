@@ -18,7 +18,7 @@ const ModalSuccess = (props) => {
                 />
                 <Pressable
                     onPress={() => props.visible(false)}
-                    style={{ paddingLeft: '15%' }}
+                    style={{ paddingLeft: '17%' }}
                 >
                     <View>
                         <Text style={{ fontSize: 30 }}>Pedido criado</Text>
