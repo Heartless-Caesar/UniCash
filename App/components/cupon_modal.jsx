@@ -44,14 +44,20 @@ const CuponModal = (props) => {
                     </View>
                 </View>
                 {/* Items listing row */}
-                <View>
+                <View
+                    style={{
+                        marginTop: '15%',
+                        // borderWidth: 1,
+                        // borderColor: '#800020',
+                    }}
+                >
                     <FlatGrid
                         data={produtos}
                         itemDimension={50}
-                        spacing={20}
+                        spacing={30}
                         style={{
                             paddingBottom: 20,
-                            height: 300,
+                            height: '50%',
                         }}
                         keyExtractor={(item, index) => {
                             return item.productId
@@ -78,12 +84,21 @@ const CuponModal = (props) => {
                     />
                 </View>
                 {/* Bottom button row*/}
-                <View style={[styles.buttonRow, { marginTop: '10%' }]}>
+                <View
+                    style={[
+                        styles.buttonRow,
+                        {
+                            marginTop: '10%',
+                            // borderWidth: 1,
+                            // borderColor: '#800020',
+                        },
+                    ]}
+                >
                     <Pressable onPress={() => props.setVisible(false)}>
                         <View
                             style={{
-                                padding: 10,
-                                width: 100,
+                                padding: '10%',
+                                width: '100%',
                                 borderWidth: 1,
                                 borderColor: '#800020',
                                 borderRadius: 5,
@@ -145,7 +160,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
     },
     buttonRow: {
-        marginTop: 50,
+        marginTop: '25%',
         justifyContent: 'space-between',
         flexDirection: 'row',
         paddingHorizontal: 10,

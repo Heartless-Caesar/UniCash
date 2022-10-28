@@ -16,14 +16,15 @@ const ModalSuccess = (props) => {
                     size={150}
                     style={{ padding: '25%' }}
                 />
-                <Pressable
-                    onPress={() => props.visible(false)}
-                    style={{ paddingLeft: '17%' }}
-                >
-                    <View>
-                        <Text style={{ fontSize: 30 }}>Pedido criado</Text>
-                    </View>
-                </Pressable>
+                <View>
+                    <Pressable onPress={() => props.visible(false)}>
+                        <View>
+                            <Text style={{ fontSize: 30, alignSelf: 'center' }}>
+                                Pedido criado
+                            </Text>
+                        </View>
+                    </Pressable>
+                </View>
                 <View
                     style={{
                         justifyContent: 'center',
