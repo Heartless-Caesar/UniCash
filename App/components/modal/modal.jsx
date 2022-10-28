@@ -302,7 +302,7 @@ const CuponModal = (props) => {
                         backgroundColor: '#f5f5f5',
                         flexDirection: 'column',
                         margin: 10,
-                        marginTop: '25%',
+                        marginTop: 80,
                         borderRadius: 5,
                     }}
                 >
@@ -369,119 +369,117 @@ const CuponModal = (props) => {
                                 Selecione os itens
                             </Text>
                         </View>
-                        <View style={{ padding: 10 }}></View>
-                        <FlatList
-                            style={{ maxHeight: 375 }}
-                            data={selectedItems}
-                            renderItem={(itemData) => {
-                                return (
-                                    <View style={styles.secondlistItem}>
-                                        <View style={styles.col1}>
-                                            <Image
-                                                source={{
-                                                    uri: itemData.item.iconUrl,
-                                                }}
-                                                style={styles.image}
-                                            />
-                                        </View>
-                                        <View style={styles.col2}>
-                                            <Text
-                                                style={[
-                                                    styles.listText,
-                                                    {
-                                                        lineHeight: 20,
-                                                        fontWeight: 'bold',
-                                                    },
-                                                ]}
-                                            >
-                                                {itemData.item.name}
-                                            </Text>
-
-                                            <Text
-                                                style={[
-                                                    styles.listText,
-                                                    {
-                                                        lineHeight: 20,
-                                                        fontWeight: 'bold',
-                                                    },
-                                                ]}
-                                            >
-                                                <Icon
-                                                    name="horse-head"
-                                                    style={{ marginRight: 10 }}
-                                                />{' '}
-                                                {itemData.item.price}
-                                            </Text>
-                                        </View>
-                                        <View style={styles.col3}>
-                                            <Pressable
-                                                onPress={() => {
-                                                    updateQuantity(
-                                                        itemData.index,
-                                                        'add'
-                                                    ),
-                                                        calculateTotal(
-                                                            itemData.item
-                                                                .productId,
-                                                            'add'
-                                                        )
-                                                }}
-                                            >
-                                                <Icon
-                                                    name="plus"
-                                                    style={styles.icons}
-                                                />
-                                            </Pressable>
-                                            <View
-                                                style={{
-                                                    backgroundColor: '#BDBDBD',
-                                                    width: 50,
-                                                    padding: 10,
-                                                    borderRadius: 5,
-                                                    marginLeft: 5,
-                                                    marginRight: 5,
-                                                }}
-                                            >
-                                                <Text
-                                                    style={{
-                                                        textAlign: 'center',
+                        <View style={{ maxHeight: 320 }}>
+                            <FlatList
+                                style={{ maxHeight: 300 }}
+                                data={selectedItems}
+                                renderItem={(itemData) => {
+                                    return (
+                                        <View style={styles.secondlistItem}>
+                                            <View style={styles.col1}>
+                                                <Image
+                                                    source={{
+                                                        uri: itemData.item
+                                                            .iconUrl,
                                                     }}
+                                                    style={styles.image}
+                                                />
+                                            </View>
+                                            <View style={styles.col2}>
+                                                <Text
+                                                    style={[
+                                                        styles.listText,
+                                                        {
+                                                            lineHeight: 20,
+                                                            fontWeight: 'bold',
+                                                        },
+                                                    ]}
                                                 >
-                                                    {itemData.item.quantity}
+                                                    {itemData.item.name}
+                                                </Text>
+
+                                                <Text
+                                                    style={[
+                                                        styles.listText,
+                                                        {
+                                                            lineHeight: 20,
+                                                            fontWeight: 'bold',
+                                                        },
+                                                    ]}
+                                                >
+                                                    <Icon
+                                                        name="horse-head"
+                                                        style={{
+                                                            marginRight: 10,
+                                                        }}
+                                                    />
+                                                    {itemData.item.price}
                                                 </Text>
                                             </View>
-                                            <Pressable
-                                                onPress={() => {
-                                                    updateQuantity(
-                                                        itemData.index,
-                                                        'subtract'
-                                                    ),
-                                                        calculateTotal(
-                                                            itemData.item
-                                                                .productId,
+                                            <View style={styles.col3}>
+                                                <Pressable
+                                                    onPress={() => {
+                                                        updateQuantity(
+                                                            itemData.index,
+                                                            'add'
+                                                        ),
+                                                            calculateTotal(
+                                                                itemData.item
+                                                                    .productId,
+                                                                'add'
+                                                            )
+                                                    }}
+                                                >
+                                                    <Icon
+                                                        name="plus"
+                                                        style={styles.icons}
+                                                    />
+                                                </Pressable>
+                                                <View
+                                                    style={{
+                                                        backgroundColor:
+                                                            '#BDBDBD',
+                                                        width: 50,
+                                                        padding: 10,
+                                                        borderRadius: 5,
+                                                        marginLeft: 5,
+                                                        marginRight: 5,
+                                                    }}
+                                                >
+                                                    <Text
+                                                        style={{
+                                                            textAlign: 'center',
+                                                        }}
+                                                    >
+                                                        {itemData.item.quantity}
+                                                    </Text>
+                                                </View>
+                                                <Pressable
+                                                    onPress={() => {
+                                                        updateQuantity(
+                                                            itemData.index,
                                                             'subtract'
-                                                        )
-                                                }}
-                                            >
-                                                <Icon
-                                                    name="minus"
-                                                    style={styles.icons}
-                                                />
-                                            </Pressable>
+                                                        ),
+                                                            calculateTotal(
+                                                                itemData.item
+                                                                    .productId,
+                                                                'subtract'
+                                                            )
+                                                    }}
+                                                >
+                                                    <Icon
+                                                        name="minus"
+                                                        style={styles.icons}
+                                                    />
+                                                </Pressable>
+                                            </View>
                                         </View>
-                                    </View>
-                                )
-                            }}
-                        />
-                        <View
-                            style={[
-                                styles.buttonContainer,
-                                {
-                                    flex: 1,
-                                    alignItems: 'center',
-                                },
-                            ]}
-                        >
+                                    )
+                                }}
+                            />
+                        </View>
+
+                        <View style={[styles.buttonContainer]}>
                             <Pressable
                                 style={{
                                     padding: 10,
@@ -583,8 +581,7 @@ const styles = StyleSheet.create({
     buttonContainer: {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        //height: 'fit-content',
-        marginTop: '40%',
+        marginTop: '5%',
     },
     button: {
         borderRadius: 5,
