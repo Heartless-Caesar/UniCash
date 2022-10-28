@@ -21,7 +21,7 @@ const CuponModal = (props) => {
 
     return (
         <Modal animationType="slide" transparent={true} visible={props.visible}>
-            <View style={[styles.centeredViewInner]}>
+            <View style={[styles.centeredViewInner, { marginTop: '22%' }]}>
                 <View style={styles.qrCol1}>
                     <Image
                         source={{ uri: props.img }}
@@ -88,7 +88,7 @@ const CuponModal = (props) => {
                     style={[
                         styles.buttonRow,
                         {
-                            marginTop: '10%',
+                            marginTop: '1%',
                             // borderWidth: 1,
                             // borderColor: '#800020',
                         },
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
     },
     buttonRow: {
         marginTop: '25%',
-        justifyContent: 'space-between',
+        // justifyContent: 'space-between',
         flexDirection: 'row',
         paddingHorizontal: 10,
     },
