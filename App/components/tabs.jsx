@@ -31,7 +31,7 @@ const Tabs = (props) => {
             <View style={styles.button2}>
                 <Pressable onPress={() => toggleCuponButtons()}>
                     <View>
-                        <Text style={styles.buttonText2}>Cupons ativos</Text>
+                        <Text style={styles.buttonText2}>Pedidos ativos</Text>
                     </View>
                 </Pressable>
             </View>

@@ -79,92 +79,27 @@ const CuponModal = (props) => {
                 </View>
                 {/* Bottom button row*/}
                 <View style={[styles.buttonRow, { marginTop: '10%' }]}>
-                    {deleteButton == false ? (
-                        <Pressable onPress={() => props.setVisible(false)}>
-                            <View
-                                style={{
-                                    padding: 10,
-                                    width: 100,
-                                    borderWidth: 1,
-                                    borderColor: '#800020',
-                                    borderRadius: 5,
-                                    backgroundColor: '#800020',
-                                }}
-                            >
-                                <Text
-                                    style={{
-                                        color: '#f5f5f5',
-                                        textAlign: 'center',
-                                    }}
-                                >
-                                    Fechar
-                                </Text>
-                            </View>
-                        </Pressable>
-                    ) : (
-                        <Pressable
-                            onPress={() => {
-                                setDeleteButton(false)
+                    <Pressable onPress={() => props.setVisible(false)}>
+                        <View
+                            style={{
+                                padding: 10,
+                                width: 100,
+                                borderWidth: 1,
+                                borderColor: '#800020',
+                                borderRadius: 5,
+                                backgroundColor: '#800020',
                             }}
                         >
-                            <View
+                            <Text
                                 style={{
-                                    padding: 10,
-                                    width: 100,
-
-                                    backgroundColor: '#757575',
-                                    borderRadius: 5,
-                                }}
-                            >
-                                <Text
-                                    style={{
-                                        color: '#f5f5f5',
-                                        textAlign: 'center',
-                                    }}
-                                >
-                                    Cancelar
-                                </Text>
-                            </View>
-                        </Pressable>
-                    )}
-
-                    {deleteButton == false ? (
-                        <Pressable onPress={() => showButton()}>
-                            <View>
-                                <Text
-                                    style={{
-                                        textDecorationLine: 'underline',
-                                        padding: 10,
-                                    }}
-                                >
-                                    Deseja excluir cupom?
-                                </Text>
-                            </View>
-                        </Pressable>
-                    ) : (
-                        <Pressable>
-                            <View
-                                style={{
-                                    padding: 10,
-                                    width: 100,
-                                    borderWidth: 1,
-                                    borderColor: '#800020',
-                                    borderRadius: 5,
-                                    backgroundColor: '#800020',
                                     color: '#f5f5f5',
+                                    textAlign: 'center',
                                 }}
                             >
-                                <Text
-                                    style={{
-                                        color: '#f5f5f5',
-                                        textAlign: 'center',
-                                    }}
-                                >
-                                    Excluir
-                                </Text>
-                            </View>
-                        </Pressable>
-                    )}
+                                Fechar
+                            </Text>
+                        </View>
+                    </Pressable>
                 </View>
             </View>
         </Modal>

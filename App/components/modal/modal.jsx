@@ -42,6 +42,8 @@ const CuponModal = (props) => {
         }
 
         if (value == 'subtract') {
+            if (total == 0) return
+
             const foundItem = selectedItems.find(
                 (item) => item.productId === id
             )
@@ -91,7 +93,13 @@ const CuponModal = (props) => {
     }
 
     const modalForward = () => {
-        calculateTotal()
+        let totalInit = 0
+
+        for (let i = 0; i < selectedItems.length; i++) {
+            totalInit += selectedItems[i].price
+        }
+
+        setTotal(totalInit)
 
         setModalVisible(false)
         setSecondModalVisible(true)
@@ -148,7 +156,7 @@ const CuponModal = (props) => {
                         backgroundColor: '#f5f5f5',
                         flexDirection: 'column',
                         margin: 15,
-                        marginTop: 5,
+                        marginTop: 80,
                         marginBottom: 5,
                         borderRadius: 5,
                     }}
@@ -294,7 +302,7 @@ const CuponModal = (props) => {
                         backgroundColor: '#f5f5f5',
                         flexDirection: 'column',
                         margin: 10,
-                        marginTop: 5,
+                        marginTop: 80,
                         borderRadius: 5,
                     }}
                 >
@@ -413,7 +421,8 @@ const CuponModal = (props) => {
                                                         'add'
                                                     ),
                                                         calculateTotal(
-                                                            itemData.item.productId,
+                                                            itemData.item
+                                                                .productId,
                                                             'add'
                                                         )
                                                 }}
@@ -448,7 +457,8 @@ const CuponModal = (props) => {
                                                         'subtract'
                                                     ),
                                                         calculateTotal(
-                                                            itemData.item.productId,
+                                                            itemData.item
+                                                                .productId,
                                                             'subtract'
                                                         )
                                                 }}
@@ -528,7 +538,7 @@ const CuponModal = (props) => {
                     }}
                     onPress={() => setModalVisible(true)}
                 >
-                    <Text style={styles.textStyle}>Criar Cupom</Text>
+                    <Text style={styles.textStyle}>Criar pedido</Text>
                 </Pressable>
             </View>
         </View>

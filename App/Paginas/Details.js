@@ -31,7 +31,6 @@ const Details = ({ route, navigation }, props) => {
             />
             <View style={styles.body}>
                 <View style={styles.headerContainer}>
-                    {/* Col 1 */}
                     <Pressable onPress={() => navigation.navigate('Shops')}>
                         <View>
                             <AntDesign name="left" size={24} color="black" />
@@ -53,12 +52,11 @@ const Details = ({ route, navigation }, props) => {
                         <Text>{category}</Text>
                         <Text>{adress}</Text>
                     </View>
-                    {/* Col 2 */}
+
                     <View style={{ flex: 2, marginRight: '5%' }}>
                         <CuponModal id={id} navigation={navigation} />
                     </View>
                 </View>
-                {/* Product catalog for a shop */}
                 <View style={{ flex: 6 }}>
                     <Product id={id} />
                 </View>
@@ -89,14 +87,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    headerContainerCol2: {
-        flex: 2,
-        backgroundColor: '#cccccc',
-        paddingHorizontal: 20,
-        paddingVertical: 10,
-        borderRadius: 5,
-        marginLeft: 15,
-    },
+    // headerContainerCol2: {
+    //     flex: 2,
+    //     backgroundColor: '#cccccc',
+    //     paddingHorizontal: 20,
+    //     paddingVertical: 10,
+    //     borderRadius: 5,
+    //     marginLeft: 15,
+    // },
     detailsContainer: {
         flexDirection: 'row',
         // padding: 20,
