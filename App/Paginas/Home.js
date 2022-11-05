@@ -5,23 +5,22 @@ import {
   View,
   FlatList,
   Text,
-  Image
+  Image,
 } from "react-native";
 import { Global } from "../Styles";
-import { LinearGradient } from 'expo-linear-gradient';
+import { LinearGradient } from "expo-linear-gradient";
 import SwitchSelector from "react-native-switch-selector";
 import Header from "../Componentes/Header";
 export default function Home({ navigation }) {
-
   const [DATA, setData] = useState(null);
   //Dados da requisição.
   useEffect(() => {
-    fetch('https://fake-api-unicash.herokuapp.com/user')
-      .then(response => response.json())
+    fetch("https://fake-api-unicash.herokuapp.com/user")
+      .then((response) => response.json())
       .then((response) => {
         setData(response);
         console.log(response);
-      })
+      });
   }, []);
 
   //Constantes relacionadas aos componentes.
@@ -32,31 +31,21 @@ export default function Home({ navigation }) {
   const [seletor, setSeletor] = useState(0);
 
   //dados do usuario necessarios na tela inicial.
-  const usuario =
-  {
+  const usuario = {
     id: 6,
     nome: "Donnie",
     curso: "Eng. de Software",
-    saldo: 4560
+    saldo: 4560,
   };
 
   return (
     <SafeAreaView>
       <View style={styles.container}>
-
         <Header />
 
-        <View
-          style={styles.ViewPai}
-        >
-          <View
-            style={styles.ViewFilha}
-          >
-            <Text
-              style={styles.Titulo}
-            >
-              Ranking de UniCoins
-            </Text>
+        <View style={styles.ViewPai}>
+          <View style={styles.ViewFilha}>
+            <Text style={styles.Titulo}>Ranking de UniCoins</Text>
           </View>
         </View>
 
@@ -74,201 +63,144 @@ export default function Home({ navigation }) {
           onPress={(seletor) => setSeletor(seletor)}
         />
 
-        {
-          (seletor == 0) ? (
-            <FlatList
-              style={styles.FlatList}
-              data={DATA}
-              keyExtractor={(item) => { return item.id.toFixed() }}
-              renderItem={({ item }) => (
-                <>
-                  {
-                    (item.id === usuario.id) ? (
-                      < LinearGradient
+        {seletor == 0 ? (
+          <FlatList
+            style={styles.FlatList}
+            data={DATA}
+            keyExtractor={(item) => {
+              return item.id.toFixed();
+            }}
+            renderItem={({ item }) => (
+              <>
+                {item.id === usuario.id ? (
+                  <LinearGradient
+                    style={{ padding: 4 }}
+                    colors={["#17A7E0", "#5E82AA", "#AF596D", "#FE3032"]}
+                    start={{ x: 0.0, y: 1.0 }}
+                    end={{ x: 1.0, y: 1.0 }}
+                  >
+                    <View style={styles.ListaRankingID}>
+                      <Image
+                        style={styles.FotoPerfil}
+                        source={{ uri: item.img }}
+                      />
+                      <View style={styles.View}>
+                        <Text style={styles.Nome}>{item.nome}</Text>
+                        <Text style={styles.Curso}>{item.curso}</Text>
+                      </View>
+                      <Image
+                        source={require("../assets/UniCoin.png")}
+                        style={styles.Logo}
+                      />
+                      <Text style={styles.Saldo}>{item.saldo}</Text>
+                    </View>
+                  </LinearGradient>
+                ) : (
+                  <View style={styles.ListaRanking}>
+                    <Image
+                      style={styles.FotoPerfil}
+                      source={{ uri: item.img }}
+                      //source={require('../assets/Perfil.png')}
+                    />
+                    <View style={styles.View}>
+                      <Text style={styles.Nome}>{item.nome}</Text>
+                      <Text style={styles.Curso}>{item.curso}</Text>
+                    </View>
+                    <Image
+                      source={require("../assets/UniCoin.png")}
+                      style={styles.Logo}
+                    />
+                    <Text style={styles.Saldo}>{item.saldo}</Text>
+                  </View>
+                )}
+              </>
+            )}
+          />
+        ) : (
+          <FlatList
+            style={styles.FlatList}
+            data={DATA}
+            keyExtractor={(item) => {
+              return item.id.toFixed();
+            }}
+            renderItem={({ item }) => (
+              <>
+                {item.curso == usuario.curso ? (
+                  <>
+                    {item.id === usuario.id ? (
+                      <LinearGradient
                         style={{ padding: 4 }}
-                        colors={['#17A7E0', '#5E82AA', '#AF596D', '#FE3032']}
-                        start={{ x: 0.0, y: 1.0 }} end={{ x: 1.0, y: 1.0 }}
+                        colors={["#17A7E0", "#5E82AA", "#AF596D", "#FE3032"]}
+                        start={{ x: 0.0, y: 1.0 }}
+                        end={{ x: 1.0, y: 1.0 }}
                       >
-                        <View
-                          style={styles.ListaRankingID}
-                        >
+                        <View style={styles.ListaRankingID}>
                           <Image
                             style={styles.FotoPerfil}
                             source={{ uri: item.img }}
                           />
                           <View style={styles.View}>
-                            <Text
-                              style={styles.Nome}
-                            >
-                              {item.nome}
-                            </Text>
-                            <Text
-                              style={styles.Curso}
-                            >
-                              {item.curso}
-                            </Text>
+                            <Text style={styles.Nome}>{item.nome}</Text>
+                            <Text style={styles.Curso}>{item.curso}</Text>
                           </View>
                           <Image
-                            source={require('../assets/UniCoin.png')}
+                            source={require("../assets/UniCoin.png")}
                             style={styles.Logo}
                           />
-                          <Text
-                            style={styles.Saldo}
-                          >
-                            {item.saldo}
-                          </Text>
+                          <Text style={styles.Saldo}>{item.saldo}</Text>
                         </View>
                       </LinearGradient>
                     ) : (
                       <View style={styles.ListaRanking}>
-
                         <Image
                           style={styles.FotoPerfil}
                           source={{ uri: item.img }}
-                        //source={require('../assets/Perfil.png')}
                         />
                         <View style={styles.View}>
-                          <Text
-                            style={styles.Nome}
-                          >
-                            {item.nome}
-                          </Text>
-                          <Text
-                            style={styles.Curso}
-                          >
-                            {item.curso}
-                          </Text>
+                          <Text style={styles.Nome}>{item.nome}</Text>
+                          <Text style={styles.Curso}>{item.curso}</Text>
                         </View>
                         <Image
-                          source={require('../assets/UniCoin.png')}
+                          source={require("../assets/UniCoin.png")}
                           style={styles.Logo}
                         />
-                        <Text
-                          style={styles.Saldo}
-                        >
-                          {item.saldo}
-                        </Text>
+                        <Text style={styles.Saldo}>{item.saldo}</Text>
                       </View>
-                    )
-                  }
-                </>
-              )}
-            />
-          ) : (
-            <FlatList
-              style={styles.FlatList}
-              data={DATA}
-              keyExtractor={(item) => { return item.id.toFixed() }}
-              renderItem={({ item }) => (
-                <>
-                  {
-                    (item.curso == usuario.curso) ? (
-                      <>
-                        {
-                          (item.id === usuario.id) ? (
-                            < LinearGradient
-                              style={{ padding: 4 }}
-                              colors={['#17A7E0', '#5E82AA', '#AF596D', '#FE3032']}
-                              start={{ x: 0.0, y: 1.0 }} end={{ x: 1.0, y: 1.0 }}
-                            >
-                              <View
-                                style={styles.ListaRankingID}
-                              >
-                                <Image
-                                  style={styles.FotoPerfil}
-                                  source={{ uri: item.img }}
-                                />
-                                <View style={styles.View}>
-                                  <Text
-                                    style={styles.Nome}
-                                  >
-                                    {item.nome}
-                                  </Text>
-                                  <Text
-                                    style={styles.Curso}
-                                  >
-                                    {item.curso}
-                                  </Text>
-                                </View>
-                                <Image
-                                  source={require('../assets/UniCoin.png')}
-                                  style={styles.Logo}
-                                />
-                                <Text
-                                  style={styles.Saldo}
-                                >
-                                  {item.saldo}
-                                </Text>
-                              </View>
-                            </LinearGradient>
-                          ) : (
-                            <View style={styles.ListaRanking}>
-
-                              <Image
-                                style={styles.FotoPerfil}
-                                source={{ uri: item.img }}
-                              />
-                              <View style={styles.View}>
-                                <Text
-                                  style={styles.Nome}
-                                >
-                                  {item.nome}
-                                </Text>
-                                <Text
-                                  style={styles.Curso}
-                                >
-                                  {item.curso}
-                                </Text>
-                              </View>
-                              <Image
-                                source={require('../assets/UniCoin.png')}
-                                style={styles.Logo}
-                              />
-                              <Text
-                                style={styles.Saldo}
-                              >
-                                {item.saldo}
-                              </Text>
-                            </View>
-                          )
-                        }
-                      </>
-                    ) : (
-                      <>
-                      </>
-                    )
-                  }
-                </>
-              )}
-            />
-          )
-        }
-      </View >
-    </SafeAreaView >
+                    )}
+                  </>
+                ) : (
+                  <></>
+                )}
+              </>
+            )}
+          />
+        )}
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "D9D9D9"
+    backgroundColor: "D9D9D9",
   },
   Card: {
     margin: 20,
     padding: 10,
     backgroundColor: "#FFFFFF",
-    borderRadius: 8
+    borderRadius: 8,
   },
   End: {
     flexDirection: "column",
     alignItems: "flex-end",
-    justifyContent: "flex-end"
+    justifyContent: "flex-end",
   },
   ViewTextosBarra: {
     margin: 10,
     marginTop: 0,
     flexDirection: "row",
     alignItems: "flex-start",
-    justifyContent: "space-evenly"
+    justifyContent: "space-evenly",
   },
   ViewPai: {
     height: 80,
@@ -282,22 +214,22 @@ const styles = StyleSheet.create({
   ViewFilha: {
     padding: 10,
     borderBottomWidth: 2,
-    borderBottomColor: "#ECECEC"
+    borderBottomColor: "#ECECEC",
   },
   Titulo: {
     fontSize: 16,
     fontWeight: "600",
-    color: "#828282"
+    color: "#828282",
   },
   Select: {
     marginHorizontal: 20,
-    backgroundColor: "#FFFFFF"
+    backgroundColor: "#FFFFFF",
   },
   FlatList: {
     marginHorizontal: 20,
     marginBottom: 80,
     //borderRadius: 10,
-    backgroundColor: "#FFFFFF"
+    backgroundColor: "#FFFFFF",
   },
   ListaRanking: {
     padding: 10,
@@ -312,12 +244,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-evenly",
-    backgroundColor: "#FFFFFF"
+    backgroundColor: "#FFFFFF",
   },
   FotoPerfil: {
     height: 60,
     width: 60,
-    borderRadius: 30
+    borderRadius: 30,
   },
   View: {
     flexDirection: "column",
@@ -327,22 +259,22 @@ const styles = StyleSheet.create({
   Curso: {
     fontSize: 14,
     color: "#484848",
-    fontWeight: "500"
+    fontWeight: "500",
   },
   CursoUsuario: {
     fontSize: 14,
     color: "#FFFFFF",
-    fontWeight: "500"
+    fontWeight: "500",
   },
   Nome: {
     fontSize: 18,
     color: "#484848",
-    fontWeight: "500"
+    fontWeight: "500",
   },
   NomeUsuario: {
     fontSize: 18,
     color: "#FFFFFF",
-    fontWeight: "500"
+    fontWeight: "500",
   },
   Saldo: {
     fontSize: 20,
@@ -359,6 +291,6 @@ const styles = StyleSheet.create({
   },
   Runner: {
     marginTop: 10,
-    width: 30
+    width: 30,
   },
 });
