@@ -4,10 +4,9 @@ import React, { useEffect, useState } from "react";
 import Produto from "../Componentes/Loja/Produto";
 
 const Details = ({ route, navigation }, props) => {
-  const shopId = props.id;
-  const products = productData.filter((e) => e.shopId == shopId);
-
   const [produtos, setProdutos] = useState([]);
+  const { id, name, adresss, category } = route.params;
+  const products = produtos.filter((e) => e.shopId == id);
 
   useEffect(() => {
     // try {
@@ -21,15 +20,14 @@ const Details = ({ route, navigation }, props) => {
     // } catch (error) {
     //   console.log(error);
     // }
-    setProdutos(products);
+    setProdutos(productData);
   }, []);
 
   return (
     <View>
+      <Text>Test</Text>
       <FlatList
-        data={produtos}
-        automaticallyAdjustContentInsets={false}
-        contentContainerStyle={{ borderRadius: 5 }}
+        data={products}
         renderItem={(itemData) => {
           return (
             <Produto

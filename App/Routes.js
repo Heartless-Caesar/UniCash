@@ -7,7 +7,7 @@ import { Global } from "./Styles.js";
 import * as Svg from "react-native-svg";
 import Lojas from "./Paginas/Lojas.js";
 import Details from "./Paginas/Details.js";
-
+import { MaterialIcons } from "@expo/vector-icons";
 const Tab = createBottomTabNavigator();
 
 function Routes() {
@@ -41,9 +41,10 @@ function Routes() {
                 borderRadius: 4,
               }}
             >
-              <Image
-                source={require("../App/assets/Resgate.png")}
-                style={{ width: 30, height: 30 }}
+              <MaterialIcons
+                name="add-shopping-cart"
+                size={30}
+                color="#f5f5f5"
               />
             </View>
           ),
@@ -54,24 +55,6 @@ function Routes() {
         component={Details}
         options={{
           headerShown: false,
-          tabBarIcon: ({ focused }) => (
-            <View
-              style={{
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: focused ? "#17A7E0" : "#232D52",
-                height: focused ? 76 : 40,
-                width: focused ? 56 : 40,
-                borderRadius: 4,
-              }}
-            >
-              <Image
-                source={require("../App/assets/Resgate.png")}
-                style={{ width: 30, height: 30 }}
-              />
-            </View>
-          ),
         }}
       />
       {/*  <Tab.Screen

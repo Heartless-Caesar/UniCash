@@ -15,7 +15,10 @@ const Produto = (props) => {
         description={props.description}
       />
       <View>
-        <Image source={{ uri: props.iconUrl }} />
+        <Image
+          source={{ uri: props.iconUrl }}
+          style={{ height: 50, width: 50 }}
+        />
       </View>
       <View>
         <Text>{props.name}</Text>
