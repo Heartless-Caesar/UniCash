@@ -8,7 +8,7 @@ function App() {
   return (
     <NavigationContainer>
       <StatusBar style="light" />
-      <Header />
+
       <Routes />
     </NavigationContainer>
   );
