@@ -24,8 +24,7 @@ const Details = ({ route, navigation }, props) => {
   }, []);
 
   return (
-    <View>
-      <Text>Test</Text>
+    <View style={{ padding: 10, paddingBottom: "20%" }}>
       <FlatList
         data={products}
         renderItem={(itemData) => {

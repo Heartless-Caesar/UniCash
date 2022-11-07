@@ -1,7 +1,7 @@
 [
   {
-    " createdAt": "2022-09-04T02:59:28.727Z",
-    " name": "Sleek Fresh Computer",
+    "createdAt": "2022-09-04T02:59:28.727Z",
+    "name": "Sleek Fresh Computer",
     "iconUrl": "http://loremflickr.com/640/480/people",
     "price": 752,
     "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
@@ -12,8 +12,8 @@
     "quantity": 1
   },
   {
-    " createdAt": "2022-09-03T23:09:46.942Z",
-    " name": "Elegant Metal Towels",
+    "createdAt": "2022-09-03T23:09:46.942Z",
+    "name": "Elegant Metal Towels",
     "iconUrl": "http://loremflickr.com/640/480/technic",
     "price": 428,
     "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
@@ -24,8 +24,8 @@
     "quantity": 1
   },
   {
-    " createdAt": "2022-09-03T21:55:11.305Z",
-    " name": "Luxurious Soft Shoes",
+    "createdAt": "2022-09-03T21:55:11.305Z",
+    "name": "Luxurious Soft Shoes",
     "iconUrl": "http://loremflickr.com/640/480/fashion",
     "price": 624,
     "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
@@ -36,8 +36,8 @@
     "quantity": 1
   },
   {
-    "   createdAt": "2022-09-04T06:34:15.601Z",
-    "   name": "Elegant Cotton Hat",
+    "createdAt": "2022-09-04T06:34:15.601Z",
+    "name": "Elegant Cotton Hat",
     "iconUrl": "http://loremflickr.com/640/480/fashion",
     "price": 951,
     "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
@@ -60,8 +60,8 @@
     "quantity": 1
   },
   {
-    "  createdAt": "2022-09-04T00:15:27.695Z",
-    "  name": "Small Granite Bacon",
+    "createdAt": "2022-09-04T00:15:27.695Z",
+    "name": "Small Granite Bacon",
     "iconUrl": "http://loremflickr.com/640/480/fashion",
     "price": 367,
     "description": "The Football Is Good For Training And Recreational Purposes",
