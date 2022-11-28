@@ -8,6 +8,7 @@ import * as Svg from "react-native-svg";
 import Lojas from "./Paginas/Lojas.js";
 import Details from "./Paginas/Details.js";
 import { MaterialIcons } from "@expo/vector-icons";
+import Carrinho from "./Paginas/Carrinho.js";
 const Tab = createBottomTabNavigator();
 
 function Routes() {
@@ -53,6 +54,13 @@ function Routes() {
       <Tab.Screen
         name="Details"
         component={Details}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Tab.Screen
+        name="Cart"
+        component={Carrinho}
         options={{
           headerShown: false,
         }}

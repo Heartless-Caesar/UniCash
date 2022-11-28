@@ -22,12 +22,14 @@ const DetailsHeader = (props) => {
           />
         </Pressable>
         <Text style={{ color: "#f5f5f5" }}>{props.shopName}</Text>
-        <SimpleLineIcons
-          name="bag"
-          color="#f5f5f5"
-          size={30}
-          style={{ marginRight: "3%" }}
-        />
+        <Pressable onPress={() => props.navigation.navigate("Cart")}>
+          <SimpleLineIcons
+            name="bag"
+            color="#f5f5f5"
+            size={30}
+            style={{ marginRight: "3%" }}
+          />
+        </Pressable>
       </View>
       <View>
         <TextInput
