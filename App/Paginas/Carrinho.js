@@ -10,8 +10,10 @@ import produtos from "../assets/data/produtos.json";
 
 const Carrinho = ({ navigation }) => {
   return (
-    <View style={{ marginBottom: "10%" }}>
-      <View style={{ flexDirection: "row", marginTop: "10%" }}>
+    <View style={{ marginBottom: "50%", paddingBottom: "50%" }}>
+      <View
+        style={{ flexDirection: "row", marginTop: "10%", marginBottom: "5%" }}
+      >
         <View>
           <Pressable onPress={() => navigation.goBack()}>
             <MaterialCommunityIcons name="chevron-left" size={30} />
@@ -26,25 +28,53 @@ const Carrinho = ({ navigation }) => {
           data={produtos}
           renderItem={(itemData) => {
             return (
-              <View>
-                <View>
+              <View
+                style={{
+                  flex: 7,
+                  flexDirection: "row",
+                  marginBottom: "5%",
+                }}
+              >
+                <View
+                  style={{
+                    marginLeft: "5%",
+                    flex: 1,
+                  }}
+                >
                   <Image
                     source={{ uri: itemData.item.iconUrl }}
                     style={{ height: 50, width: 50 }}
                   />
                 </View>
-                <View>
+                <View style={{ flexDirection: "column", flex: 3 }}>
                   <Text>{itemData.item.name}</Text>
-                  <View style={{ flexDirection: "row" }}>
-                    <FontAwesome5 name="horse-head" size={20} />
-                    <Text>{itemData.item.price}</Text>
-                  </View>
+                  <FontAwesome5 name="horse-head" size={20} />
+                  <Text>{itemData.item.price}</Text>
+                  {/* <View
+                    style={{
+                      flexDirection: "row",
+                      flex: 1,
+                      justifyContent: "flex-end",
+                      // borderColor: "#000000",
+                      // borderWidth: 1,
+                    }}
+                  >
+                    
+                  </View> */}
                 </View>
-                <View style={{ flexDirection: "row" }}>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    flex: 1,
+                    justifyContent: "space-evenly",
+                  }}
+                >
                   <View>
                     <AntDesign name="pluscircle" size={20} color="#17A7E0" />
                   </View>
-                  <View>{itemData.item.quantity}</View>
+                  <View>
+                    <Text>{itemData.item.quantity}</Text>
+                  </View>
                   <View>
                     <AntDesign name="minuscircleo" size={20} />
                   </View>
@@ -53,6 +83,16 @@ const Carrinho = ({ navigation }) => {
             );
           }}
         />
+      </View>
+      <View>
+        <View>
+          <AntDesign name="infocircleo" size={20} color="#FF8718CC" />
+        </View>
+        <Text>
+          Após finalizar um pedido, você terá um tempo limite de 20min para
+          retirar seu pedido, caso contrário o pedido será cancelado
+          automaticamente.
+        </Text>
       </View>
     </View>
   );
